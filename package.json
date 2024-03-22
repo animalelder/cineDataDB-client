@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/animalelder/cineDataDB-client/issues"
   },
-  "homepage": "https://github.com/animalelder/cineDataDB-client#readme"
+  "homepage": "https://github.com/animalelder/cineDataDB-client#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
+    "process": "^0.11.10"
+  }
 }
