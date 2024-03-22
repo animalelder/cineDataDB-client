@@ -1,0 +1,19 @@
+{
+  "name": "cinedatadb-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animalelder/cineDataDB-client.git"
+  },
+  "author": "William Learned",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/animalelder/cineDataDB-client/issues"
+  },
+  "homepage": "https://github.com/animalelder/cineDataDB-client#readme"
+}
