@@ -22,6 +22,7 @@ export const MainView = () => {
             featured: movie.featured,
           };
         });
+        setMovies(moviesFromApi);
       });
   }, []);
 
