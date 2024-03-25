@@ -1,11 +1,17 @@
 import { createRoot } from 'react-dom/client';
 import { MainView } from './components/main-view/main-view';
-// Import statement to indicate that you need to bundle `./index.scss`
+import Container from 'react-bootstrap/Container';
+
+// Import statement to indicate that you need to bundle `./index.scss` which imports bootstrap inside it
 import './index.scss';
 
 // Main component (will eventually use all the others)
 const CineDataApp = () => {
-  return <MainView />;
+  return (
+    <Container style={{ border: '1px solid red' }}>
+      <MainView />
+    </Container>
+  );
 };
 
 // Finds the root of your app

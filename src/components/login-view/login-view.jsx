@@ -1,5 +1,11 @@
-import React from 'react';
 import { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -35,26 +41,64 @@ export const LoginView = ({ onLoggedIn }) => {
       });
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <Container>
+      <Row className="justify-content-center">
+        <Col md={6} xl={4}>
+          <Card className="mb-5">
+            <Card.Body className="d-flex flex-column align-items-center">
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="formUsername">
+                  <Form.Label>Username:</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    minLength="3"
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="formPassword">
+                  <Form.Label>Password:</Form.Label>
+                  <Form.Control
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
+
+// return (
+//   <form onSubmit={handleSubmit}>
+//     <label>
+//       Username:
+//       <input
+//         type="text"
+//         value={username}
+//         onChange={(e) => setUsername(e.target.value)}
+//         required
+//       />
+//     </label>
+//     <label>
+//       Password:
+//       <input
+//         type="password"
+//         value={password}
+//         onChange={(e) => setPassword(e.target.value)}
+//         required
+//       />
+//     </label>
+//     <button type="submit">Submit</button>
+//   </form>
+// );
