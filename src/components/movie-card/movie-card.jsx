@@ -6,15 +6,15 @@ export const MovieCard = ({ movie, onMovieClick }) => {
   return (
     <Card
       border="primary"
-      className="h-100"
+      className="p-2 h-100"
       onClick={() => onMovieClick(movie)}
       style={{ cursor: 'pointer' }}>
       <Card.Img alt="movie poster" src={movie.imagePath} />
       <Card.Body>
         <Card.Title className="text-center">{movie.title}</Card.Title>
         <Card.Text>{movie.genre}</Card.Text>
-        <Button className="btn btn-primary">More...</Button>
       </Card.Body>
+      <Card.Footer className="text-center text-muted">MORE INFO</Card.Footer>
     </Card>
   );
 };
@@ -25,11 +25,11 @@ MovieCard.propTypes = {
     imagePath: PropTypes.string.isRequired,
     genre: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      description: PropTypes.string,
+      description: PropTypes.string.isRequired,
     }),
     director: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      bio: PropTypes.string,
+      bio: PropTypes.string.isRequired,
       birth: PropTypes.string,
       death: PropTypes.string,
     }),

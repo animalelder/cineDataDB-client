@@ -15,18 +15,14 @@ export const MovieView = ({ movie, onCloseClick }) => {
         <span>Description: </span>
         <span>{movie.description}</span>
       </div>
-      {/*    <div>
-        <span>Genre: </span>
-        <span>{movie.genre.name}</span>
-      </div>
       <div>
-        <span>Description: </span>
-        <span>{movie.genre.description}</span>
+        <span>Genre: </span>
+        <span>{movie.genre}</span>
       </div>
       <div>
         <span>Director: </span>
-        <span>{movie.director.name}</span>
-      </div> */}
+        <span>{movie.director}</span>
+      </div>
       <button className="close-button" onClick={onCloseClick}>
         Close
       </button>
