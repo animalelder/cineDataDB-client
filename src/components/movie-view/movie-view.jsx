@@ -9,8 +9,7 @@ export const MovieView = ({ movie, onCloseClick }) => {
         <img src={movie.imagePath} alt="Movie poster" />
       </div>
       <div>
-        <span>Title: </span>
-        <span>{movie.title}</span>
+        <h1>{movie.title}</h1>
       </div>
       <div>
         <span>Description: </span>

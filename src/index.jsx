@@ -9,7 +9,7 @@ import './index.scss';
 const CineDataApp = () => {
   return (
     //Red border added for styling debug
-    <Container style={{ border: '1px solid red' }}>
+    <Container fluid>
       <MainView />
     </Container>
   );

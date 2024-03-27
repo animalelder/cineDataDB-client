@@ -30,6 +30,10 @@ export const MainView = () => {
             id: movie._id,
             title: movie.title,
             description: movie.description,
+            genre: movie.genre.name,
+            genreDescription: movie.genre.description,
+            director: movie.director.name,
+            dirBio: movie.director.bio,
             imagePath: movie.imagePath,
             featured: movie.Featured,
           };
@@ -75,13 +79,19 @@ export const MainView = () => {
               />
             </Col>
           ))}
-          <Button
-            className="btn btn-secondary"
-            onClick={() => {
-              setUser(null);
-            }}>
-            Logout 😵
-          </Button>
+          <Row>
+            <Col sm={8}></Col>
+            <Col></Col>
+            <Col className="mb-5">
+              <Button
+                className="btn btn-secondary text-light"
+                onClick={() => {
+                  setUser(null);
+                }}>
+                Logout 😵
+              </Button>
+            </Col>
+          </Row>
         </>
       )}
     </Row>
