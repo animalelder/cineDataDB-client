@@ -1,11 +1,16 @@
 // import PropTypes from 'prop-types';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import './movie-view.scss';
 
-export const MovieView = ({ movie, onCloseClick }) => {
+export const MovieView = ({ movies }) => {
+  const { movieId } = useParams();
+
+  const movie = movies.find((movie) => movie.id === movieId);
+
   return (
     <Container className="movie-poster">
       <Row>
@@ -36,9 +41,9 @@ export const MovieView = ({ movie, onCloseClick }) => {
       </Row>
       <Row classname="d-flex">
         <Col>
-          <button className="close-button float-end" onClick={onCloseClick}>
-            Close
-          </button>
+          <Link to={`/`}>
+            <button className="close-button float-end">Close</button>
+          </Link>
         </Col>
       </Row>
     </Container>

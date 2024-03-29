@@ -3,10 +3,11 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
+import { NavigationBar } from '../navigation-bar/navigation-bar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Placeholder from 'react-bootstrap/Placeholder';
-import Button from 'react-bootstrap/Button';
+
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -14,7 +15,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  //  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     fetch('https://cine-data-db-04361cdbefbe.herokuapp.com/movies', {
@@ -43,7 +44,89 @@ export const MainView = () => {
   }, [token]);
 
   return (
-    <Row className="justify-content-md-center">
+    <BrowserRouter>
+      <NavigationBar
+        user={user}
+        onLoggedOut={() => {
+          setUser(null);
+          setToken(null);
+        }}
+      />
+      <Row className="justify-content-md-center">
+        <Routes>
+          <Route
+            path="/signup"
+            element={
+              <>
+                {user ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Col md={5}>
+                    <SignupView />
+                  </Col>
+                )}
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <>
+                {user ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Col md={5}>
+                    <LoginView
+                      onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
+                    />
+                  </Col>
+                )}
+              </>
+            }
+          />
+          <Route
+            path="/movies/:movieId"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" />
+                ) : (
+                  <Col md={8}>
+                    <MovieView movies={movies} />
+                  </Col>
+                )}
+              </>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : (
+                  <>
+                    {movies.map((movie) => (
+                      <Col className="mb-4" key={movie.id} xs={6} md={4} lg={3}>
+                        <MovieCard movie={movie} />
+                      </Col>
+                    ))}
+                  </>
+                )}
+              </>
+            }
+          />
+        </Routes>
+      </Row>
+    </BrowserRouter>
+  );
+};
+
+/*
+
       {!user ? (
         <>
           <LoginView
@@ -94,49 +177,5 @@ export const MainView = () => {
           </Row>
         </>
       )}
-    </Row>
-  );
-};
 
-// if (!user) {
-//   return (
-//       <Row className="justify-content-center">
-//           <LoginView
-//             onLoggedIn={(user, token) => {
-//               setUser(user);
-//               setToken(token);
-//             }}
-//           />
-//         <Placeholder className="mx-auto w-50" as="span" animation="glow">
-//           <Placeholder md={12} bg="success" />
-//         </Placeholder>
-//           <SignupView />
-//       </Row>
-//   );
-// }
-
-// if (selectedMovie) {
-//   return (
-//     <MovieView
-//       movie={selectedMovie}
-//       onCloseClick={() => setSelectedMovie(null)}
-//     />
-//   );
-// }
-
-// return (
-//   <>
-//     <div>
-//       {movies.map((movie) => (
-//         <MovieCard
-//           key={movie.id}
-//           movie={movie}
-//           onMovieClick={(newSelectedMovie) => {
-//             setSelectedMovie(newSelectedMovie);
-//           }}
-//         />
-//       ))}
-//     </div>
-
-//   </>
-// );
+      */

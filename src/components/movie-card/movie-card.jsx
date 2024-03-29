@@ -1,21 +1,26 @@
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
+import { Link } from 'react-router-dom';
 
-export const MovieCard = ({ movie, onMovieClick }) => {
+export const MovieCard = ({ movie }) => {
   return (
-    <Card
-      className="border-primary shadow-lg p-2 h-100"
-      onClick={() => onMovieClick(movie)}
-      style={{ cursor: 'pointer' }}>
-      <Card.Img alt="movie poster" src={movie.imagePath} />
+    <Card className="border-primary shadow-lg h-100">
       <Card.Body>
+        <Card.Img alt="movie poster" src={movie.imagePath} />
         <Card.Title as="h5" className="text-center">
           {movie.title}
         </Card.Title>
-        <Card.Text className="text-uppercase fs-6">{movie.genre}</Card.Text>
         <div class="clearfix">
-          <Button className="btn-sm bg-dark float-end">MORE INFO</Button>
+          <Card.Text className="text-uppercase float-left">
+            <Badge pill bg="secondary">
+              {movie.genre}
+            </Badge>
+          </Card.Text>
+          <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+            <Button className="btn-sm bg-dark float-end">MORE INFO</Button>
+          </Link>
         </div>
       </Card.Body>
     </Card>
@@ -38,5 +43,4 @@ MovieCard.propTypes = {
     }),
     Featured: PropTypes.bool,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };
