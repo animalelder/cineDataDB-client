@@ -1,32 +1,47 @@
 // import PropTypes from 'prop-types';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import './movie-view.scss';
 
 export const MovieView = ({ movie, onCloseClick }) => {
   return (
-    <div>
-      <div className="movie-poster">
-        <img src={movie.imagePath} alt="Movie poster" />
-      </div>
-      <div>
+    <Container className="movie-poster">
+      <Row>
+        <Col className="text-center">
+          <img
+            src={movie.imagePath}
+            className="ratio ratio 2 / 3"
+            alt="Movie poster"
+          />
+        </Col>
+      </Row>
+      <Row>
         <h1>{movie.title}</h1>
-      </div>
-      <div>
-        <span>Description: </span>
-        <span>{movie.description}</span>
-      </div>
-      <div>
-        <span>Genre: </span>
-        <span>{movie.genre}</span>
-      </div>
-      <div>
-        <span>Director: </span>
-        <span>{movie.director}</span>
-      </div>
-      <button className="close-button" onClick={onCloseClick}>
-        Close
-      </button>
-    </div>
+      </Row>
+      <Row>
+        <Col className="col-9">
+          <span>Description: </span>
+          <span>{movie.description}</span>
+        </Col>
+        <Col>
+          <span>Genre: </span>
+          <span>{movie.genre}</span>
+        </Col>
+        <Col>
+          <span>Director: </span>
+          <span>{movie.director}</span>
+        </Col>
+      </Row>
+      <Row classname="d-flex">
+        <Col>
+          <button className="close-button float-end" onClick={onCloseClick}>
+            Close
+          </button>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

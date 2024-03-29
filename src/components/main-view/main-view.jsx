@@ -58,7 +58,7 @@ export const MainView = () => {
           <SignupView />
         </>
       ) : selectedMovie ? (
-        <Col md={8}>
+        <Col className="mt-3" xs={10} lg={6}>
           <MovieView
             movie={selectedMovie}
             onCloseClick={() => setSelectedMovie(null)}
@@ -69,7 +69,7 @@ export const MainView = () => {
       ) : (
         <>
           {movies.map((movie) => (
-            <Col className="mb-4" key={movie.id} md={3}>
+            <Col className="mb-4" key={movie.id} xs={6} md={4} lg={3}>
               <MovieCard
                 className="h-100"
                 movie={movie}
@@ -80,7 +80,7 @@ export const MainView = () => {
             </Col>
           ))}
           <Row>
-            <Col sm={8}></Col>
+            <Col sm={2}></Col>
             <Col></Col>
             <Col className="mb-5">
               <Button

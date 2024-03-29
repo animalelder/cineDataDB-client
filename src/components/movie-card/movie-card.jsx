@@ -1,20 +1,23 @@
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 export const MovieCard = ({ movie, onMovieClick }) => {
   return (
     <Card
-      border="primary"
-      className="p-2 h-100"
+      className="border-primary shadow-lg p-2 h-100"
       onClick={() => onMovieClick(movie)}
       style={{ cursor: 'pointer' }}>
       <Card.Img alt="movie poster" src={movie.imagePath} />
       <Card.Body>
-        <Card.Title className="text-center">{movie.title}</Card.Title>
-        <Card.Text>{movie.genre}</Card.Text>
+        <Card.Title as="h5" className="text-center">
+          {movie.title}
+        </Card.Title>
+        <Card.Text className="text-uppercase fs-6">{movie.genre}</Card.Text>
+        <div class="clearfix">
+          <Button className="btn-sm bg-dark float-end">MORE INFO</Button>
+        </div>
       </Card.Body>
-      <Card.Footer className="text-center text-muted">MORE INFO</Card.Footer>
     </Card>
   );
 };
