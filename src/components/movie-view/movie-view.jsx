@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 import './movie-view.scss';
 
 export const MovieView = ({ movies }) => {
@@ -15,7 +16,7 @@ export const MovieView = ({ movies }) => {
     <Container className="movie-poster">
       <Row>
         <Col className="text-center">
-          <img src={movie.imagePath} alt="Movie poster" />
+          <Image fluid src={movie.imagePath} alt="Movie poster" />
         </Col>
       </Row>
       <Row>

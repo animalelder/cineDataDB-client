@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
-    <Navbar bg="tertiary" expand="lg">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      variant="dark"
+      sticky="top"
+      className="bg-dark mb-2">
       <Container>
         <Navbar.Brand as={Link} to="/">
           cineDataDB

@@ -8,8 +8,8 @@ import './index.scss';
 // Main component (will eventually use all the others)
 const CineDataApp = () => {
   return (
-    //Red border added for styling debug
-    <Container className="w-75">
+    // Can add red border for styling debug
+    <Container fluid>
       <MainView />
     </Container>
   );

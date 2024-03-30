@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
@@ -8,8 +9,6 @@ import { NavigationBar } from '../navigation-bar/navigation-bar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -95,9 +94,9 @@ export const MainView = () => {
             element={
               <>
                 {!user ? (
-                  <Navigate to="/login" />
+                  <Navigate to="/login" repleace />
                 ) : (
-                  <Col md={8}>
+                  <Col>
                     <MovieView movies={movies} />
                   </Col>
                 )}
@@ -114,7 +113,10 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col className="mb-4" key={movie.id} xs={6} md={4} lg={3}>
-                        <MovieCard movie={movie} />
+                        <MovieCard
+                          movie={movie}
+                          isFavorite={user.favoriteMovies.includes(movie.id)}
+                        />
                       </Col>
                     ))}
                   </>

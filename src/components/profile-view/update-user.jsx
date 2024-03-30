@@ -71,7 +71,7 @@ export const UpdateUser = ({
             className="mb-3">
             <Form.Control
               type="date"
-              value={formData.birthday}
+              value={formData.birthdate}
               placeholder="12/25/1999"
               onChange={(e) => handleUpdate(e)}
               required
