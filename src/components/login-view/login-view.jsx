@@ -41,44 +41,46 @@ export const LoginView = ({ onLoggedIn }) => {
       });
   };
   return (
-    <Row className="justify-content-center">
+    <Row className='justify-content-center'>
       <Col md={8} xl={6}>
-        <Card className="p-5">
-          <Card.Body className="d-flex flex-column align-items-center">
+        <Card className='p-5'>
+          <Card.Body className='d-flex flex-column align-items-center'>
             <Card.Title>Log into Your Account</Card.Title>
             <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="formUsername" className="mt-2">
+              <Form.Group controlId='formUsername' className='mt-2'>
                 <FloatingLabel
-                  controlId="floatingInput"
-                  label="Username"
-                  className="mb-3">
+                  controlId='floatingInput'
+                  label='Username'
+                  className='mb-3'
+                >
                   <Form.Control
-                    type="text"
-                    placeholder="Username"
+                    type='text'
+                    placeholder='Username'
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    minLength="5"
+                    minLength='5'
                   />
                 </FloatingLabel>
               </Form.Group>
 
-              <Form.Group controlId="formPassword">
+              <Form.Group controlId='formPassword'>
                 <FloatingLabel
-                  controlId="floatingPassword"
-                  label="Password"
-                  className="mb-3">
+                  controlId='floatingPassword'
+                  label='Password'
+                  className='mb-3'
+                >
                   <Form.Control
-                    type="password"
-                    placeholder="Password"
+                    type='password'
+                    placeholder='Password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </FloatingLabel>
               </Form.Group>
-              <Row className="justify-content-end m-2">
-                <Button className="w-50" variant="success" type="submit">
+              <Row className='justify-content-end m-2'>
+                <Button className='w-50' variant='success' type='submit'>
                   Submit
                 </Button>
               </Row>
@@ -89,27 +91,3 @@ export const LoginView = ({ onLoggedIn }) => {
     </Row>
   );
 };
-
-// return (
-//   <form onSubmit={handleSubmit}>
-//     <label>
-//       Username:
-//       <input
-//         type="text"
-//         value={username}
-//         onChange={(e) => setUsername(e.target.value)}
-//         required
-//       />
-//     </label>
-//     <label>
-//       Password:
-//       <input
-//         type="password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//         required
-//       />
-//     </label>
-//     <button type="submit">Submit</button>
-//   </form>
-// );

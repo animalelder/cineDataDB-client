@@ -39,79 +39,79 @@ export const SignupView = () => {
   };
 
   return (
-    <Row className="justify-content-center">
+    <Row className='justify-content-center'>
       <Col xs={12} md={8} xl={6}>
-        <Card className="m-2">
-          <Card.Body className="d-flex flex-column align-items-center">
+        <Card className='m-2'>
+          <Card.Body className='d-flex flex-column align-items-center'>
             <Card.Title>Create an Account</Card.Title>
             <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="signUpFormUsername">
+              <Form.Group controlId='signUpFormUsername'>
                 <FloatingLabel
-                  controlId="formUsername"
-                  label="Username"
-                  className="mb-3">
+                  controlId='formUsername'
+                  label='Username'
+                  className='mb-3'>
                   <Form.Control
-                    type="text"
+                    type='text'
                     value={username}
-                    placeholder="Username"
+                    placeholder='Username'
                     autoFocus
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    minLength="5"
+                    minLength='5'
                   />
-                  <Form.Text id="usernameHelpBlock" muted>
+                  <Form.Text id='usernameHelpBlock' muted>
                     Username must be at least 5 characters.
                   </Form.Text>
                 </FloatingLabel>
               </Form.Group>
 
-              <Form.Group controlId="signUpFormPassword">
+              <Form.Group controlId='signUpFormPassword'>
                 <FloatingLabel
-                  controlId="formPassword"
-                  label="Password"
-                  className="mb-3">
+                  controlId='formPassword'
+                  label='Password'
+                  className='mb-3'>
                   <Form.Control
-                    type="password"
-                    placeholder="Password"
+                    type='password'
+                    placeholder='Password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-                  <Form.Text id="passwordHelpBlock" muted>
+                  <Form.Text id='passwordHelpBlock' muted>
                     No spaces or special characters.
                   </Form.Text>
                 </FloatingLabel>
               </Form.Group>
-              <Form.Group controlId="signUpFormEmail">
+              <Form.Group controlId='signUpFormEmail'>
                 <FloatingLabel
-                  controlId="formEmail"
-                  label="Email Address"
-                  className="mb-3">
+                  controlId='formEmail'
+                  label='Email Address'
+                  className='mb-3'>
                   <Form.Control
-                    type="email"
-                    placeholder="name@example.com"
+                    type='email'
+                    placeholder='name@example.com'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </FloatingLabel>
               </Form.Group>
-              <Form.Group controlId="signUpFormBirthday">
+              <Form.Group controlId='signUpFormBirthday'>
                 <FloatingLabel
-                  controlId="formBirthday"
-                  label="Date of Birth"
-                  className="mb-3">
+                  controlId='formBirthday'
+                  label='Date of Birth'
+                  className='mb-3'>
                   <Form.Control
-                    type="date"
+                    type='date'
                     value={birthday}
-                    placeholder="12/25/1999"
+                    placeholder='12/25/1999'
                     onChange={(e) => setBirthday(e.target.value)}
                     required
                   />
                 </FloatingLabel>
               </Form.Group>
-              <Row className="justify-content-end m-2">
-                <Button className="w-50" variant="success" type="submit">
+              <Row className='justify-content-end m-2'>
+                <Button className='w-50' variant='success' type='submit'>
                   Submit
                 </Button>
               </Row>
@@ -122,46 +122,3 @@ export const SignupView = () => {
     </Row>
   );
 };
-
-// return (
-//   <form onSubmit={handleSubmit}>
-//     <label>
-//       Username:
-//       <input
-//         type="text"
-//         value={username}
-//         onChange={(e) => setUsername(e.target.value)}
-//         required
-//         minLength="5"
-//       />
-//     </label>
-//     <label>
-//       Password:
-//       <input
-//         type="password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//         required
-//       />
-//     </label>
-//     <label>
-//       Email:
-//       <input
-//         type="email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         required
-//       />
-//     </label>
-//     <label>
-//       Birthday:
-//       <input
-//         type="date"
-//         value={birthday}
-//         onChange={(e) => setBirthday(e.target.value)}
-//         required
-//       />
-//     </label>
-//     <button type="submit">Submit</button>
-//   </form>
-// );

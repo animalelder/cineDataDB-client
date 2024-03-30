@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
@@ -13,17 +12,17 @@ export const MovieView = ({ movies }) => {
   const movie = movies.find((movie) => movie.id === movieId);
 
   return (
-    <Container className="movie-poster">
+    <Container className='movie-poster'>
       <Row>
-        <Col className="text-center">
-          <Image fluid src={movie.imagePath} alt="Movie poster" />
+        <Col className='text-center'>
+          <Image fluid src={movie.imagePath} alt='Movie poster' />
         </Col>
       </Row>
       <Row>
         <h1>{movie.title}</h1>
       </Row>
       <Row>
-        <Col className="col-9">
+        <Col className='col-9'>
           <span>Description: </span>
           <span>{movie.description}</span>
         </Col>
@@ -36,25 +35,13 @@ export const MovieView = ({ movies }) => {
           <span>{movie.director}</span>
         </Col>
       </Row>
-      <Row classname="d-flex">
+      <Row classname='d-flex'>
         <Col>
           <Link to={`/`}>
-            <button className="close-button float-end">Close</button>
+            <button className='close-button float-end'>Close</button>
           </Link>
         </Col>
       </Row>
     </Container>
   );
 };
-
-// MovieView.propTypes = {
-//   movie: PropTypes.shape({
-//     title: PropTypes.string.isRequired,
-//     description: PropTypes.string.isRequired,
-//     genre: PropTypes.object.isRequired,
-//     director: PropTypes.object,
-//     imagePath: PropTypes.string,
-//     featured: PropTypes.bool,
-//   }).isRequired,
-//   onBackClick: PropTypes.func.isRequired,
-// };

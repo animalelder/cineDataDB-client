@@ -16,7 +16,6 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
-  //  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     fetch('https://cine-data-db-04361cdbefbe.herokuapp.com/movies', {
@@ -54,14 +53,14 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
-      <Row className="justify-content-md-center">
+      <Row className='justify-content-md-center'>
         <Routes>
           <Route
-            path="/signup"
+            path='/signup'
             element={
               <Container fluid>
                 {user ? (
-                  <Navigate to="/" />
+                  <Navigate to='/' />
                 ) : (
                   <>
                     <SignupView />
@@ -71,11 +70,11 @@ export const MainView = () => {
             }
           />
           <Route
-            path="/login"
+            path='/login'
             element={
               <>
                 {user ? (
-                  <Navigate to="/" />
+                  <Navigate to='/' />
                 ) : (
                   <Row>
                     <LoginView
@@ -90,11 +89,11 @@ export const MainView = () => {
             }
           />
           <Route
-            path="/movies/:movieId"
+            path='/movies/:movieId'
             element={
               <>
                 {!user ? (
-                  <Navigate to="/login" repleace />
+                  <Navigate to='/login' repleace />
                 ) : (
                   <Col>
                     <MovieView movies={movies} />
@@ -104,15 +103,15 @@ export const MainView = () => {
             }
           />
           <Route
-            path="/"
+            path='/'
             element={
               <>
                 {!user ? (
-                  <Navigate to="/login" replace />
+                  <Navigate to='/login' replace />
                 ) : (
                   <>
                     {movies.map((movie) => (
-                      <Col className="mb-4" key={movie.id} xs={6} md={4} lg={3}>
+                      <Col className='mb-4' key={movie.id} xs={6} md={4} lg={3}>
                         <MovieCard
                           movie={movie}
                           isFavorite={user.favoriteMovies.includes(movie.id)}
@@ -125,11 +124,11 @@ export const MainView = () => {
             }
           />
           <Route
-            path="/profile"
+            path='/profile'
             element={
               <>
                 {!user ? (
-                  <Navigate to="/login" replace />
+                  <Navigate to='/login' replace />
                 ) : (
                   <Col md={8}>
                     <ProfileView
@@ -147,58 +146,3 @@ export const MainView = () => {
     </BrowserRouter>
   );
 };
-
-/*
-
-      {!user ? (
-        <>
-          <LoginView
-            onLoggedIn={(user, token) => {
-              setUser(user);
-              setToken(token);
-            }}
-          />
-          <Placeholder className="mx-auto w-50" as="span" animation="glow">
-            <Placeholder md={12} bg="success" />
-          </Placeholder>
-          <SignupView />
-        </>
-      ) : selectedMovie ? (
-        <Col className="mt-3" xs={10} lg={6}>
-          <MovieView
-            movie={selectedMovie}
-            onCloseClick={() => setSelectedMovie(null)}
-          />
-        </Col>
-      ) : movies.length === 0 ? (
-        <div>The list is empty!</div>
-      ) : (
-        <>
-          {movies.map((movie) => (
-            <Col className="mb-4" key={movie.id} xs={6} md={4} lg={3}>
-              <MovieCard
-                className="h-100"
-                movie={movie}
-                onMovieClick={(newSelectedMovie) => {
-                  setSelectedMovie(newSelectedMovie);
-                }}
-              />
-            </Col>
-          ))}
-          <Row>
-            <Col sm={2}></Col>
-            <Col></Col>
-            <Col className="mb-5">
-              <Button
-                className="btn btn-secondary text-light"
-                onClick={() => {
-                  setUser(null);
-                }}>
-                Logout 😵
-              </Button>
-            </Col>
-          </Row>
-        </>
-      )}
-
-      */
