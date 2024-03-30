@@ -3,9 +3,11 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
+import { ProfileView } from '../profile-view/profile-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
@@ -50,6 +52,7 @@ export const MainView = () => {
         onLoggedOut={() => {
           setUser(null);
           setToken(null);
+          localStorage.clear();
         }}
       />
       <Row className="justify-content-md-center">
@@ -57,15 +60,15 @@ export const MainView = () => {
           <Route
             path="/signup"
             element={
-              <>
+              <Container fluid>
                 {user ? (
                   <Navigate to="/" />
                 ) : (
-                  <Col md={5}>
+                  <>
                     <SignupView />
-                  </Col>
+                  </>
                 )}
-              </>
+              </Container>
             }
           />
           <Route
@@ -75,14 +78,14 @@ export const MainView = () => {
                 {user ? (
                   <Navigate to="/" />
                 ) : (
-                  <Col md={5}>
+                  <Row>
                     <LoginView
                       onLoggedIn={(user, token) => {
                         setUser(user);
                         setToken(token);
                       }}
                     />
-                  </Col>
+                  </Row>
                 )}
               </>
             }
@@ -115,6 +118,24 @@ export const MainView = () => {
                       </Col>
                     ))}
                   </>
+                )}
+              </>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : (
+                  <Col md={8}>
+                    <ProfileView
+                      localUser={user}
+                      movies={movies}
+                      token={token}
+                    />
+                  </Col>
                 )}
               </>
             }

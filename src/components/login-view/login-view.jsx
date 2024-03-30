@@ -42,8 +42,8 @@ export const LoginView = ({ onLoggedIn }) => {
   };
   return (
     <Row className="justify-content-center">
-      <Col md={6} xl={4}>
-        <Card className="m-5">
+      <Col md={8} xl={6}>
+        <Card className="p-5">
           <Card.Body className="d-flex flex-column align-items-center">
             <Card.Title>Log into Your Account</Card.Title>
             <Form onSubmit={handleSubmit}>
@@ -54,10 +54,11 @@ export const LoginView = ({ onLoggedIn }) => {
                   className="mb-3">
                   <Form.Control
                     type="text"
+                    placeholder="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    minLength="3"
+                    minLength="5"
                   />
                 </FloatingLabel>
               </Form.Group>
@@ -69,6 +70,7 @@ export const LoginView = ({ onLoggedIn }) => {
                   className="mb-3">
                   <Form.Control
                     type="password"
+                    placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required

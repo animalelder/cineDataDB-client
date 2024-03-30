@@ -15,11 +15,7 @@ export const MovieView = ({ movies }) => {
     <Container className="movie-poster">
       <Row>
         <Col className="text-center">
-          <img
-            src={movie.imagePath}
-            className="ratio ratio 2 / 3"
-            alt="Movie poster"
-          />
+          <img src={movie.imagePath} alt="Movie poster" />
         </Col>
       </Row>
       <Row>

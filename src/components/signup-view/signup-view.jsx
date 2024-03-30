@@ -40,8 +40,8 @@ export const SignupView = () => {
 
   return (
     <Row className="justify-content-center">
-      <Col md={6} xl={4}>
-        <Card className="m-5">
+      <Col xs={12} md={8} xl={6}>
+        <Card className="m-2">
           <Card.Body className="d-flex flex-column align-items-center">
             <Card.Title>Create an Account</Card.Title>
             <Form onSubmit={handleSubmit}>
@@ -53,10 +53,15 @@ export const SignupView = () => {
                   <Form.Control
                     type="text"
                     value={username}
+                    placeholder="Username"
+                    autoFocus
                     onChange={(e) => setUsername(e.target.value)}
                     required
                     minLength="5"
                   />
+                  <Form.Text id="usernameHelpBlock" muted>
+                    Username must be at least 5 characters.
+                  </Form.Text>
                 </FloatingLabel>
               </Form.Group>
 
@@ -67,10 +72,14 @@ export const SignupView = () => {
                   className="mb-3">
                   <Form.Control
                     type="password"
+                    placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
+                  <Form.Text id="passwordHelpBlock" muted>
+                    No spaces or special characters.
+                  </Form.Text>
                 </FloatingLabel>
               </Form.Group>
               <Form.Group controlId="signUpFormEmail">
@@ -80,6 +89,7 @@ export const SignupView = () => {
                   className="mb-3">
                   <Form.Control
                     type="email"
+                    placeholder="name@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -94,13 +104,14 @@ export const SignupView = () => {
                   <Form.Control
                     type="date"
                     value={birthday}
+                    placeholder="12/25/1999"
                     onChange={(e) => setBirthday(e.target.value)}
                     required
                   />
                 </FloatingLabel>
               </Form.Group>
               <Row className="justify-content-end m-2">
-                <Button className="w-50" variant="primary" type="submit">
+                <Button className="w-50" variant="success" type="submit">
                   Submit
                 </Button>
               </Row>

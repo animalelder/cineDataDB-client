@@ -13,13 +13,13 @@ export const MovieCard = ({ movie }) => {
           {movie.title}
         </Card.Title>
         <div class="clearfix">
-          <Card.Text className="text-uppercase float-left">
+          <Card.Text className="text-uppercase float-start">
             <Badge pill bg="secondary">
               {movie.genre}
             </Badge>
           </Card.Text>
           <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-            <Button className="btn-sm bg-dark float-end">MORE INFO</Button>
+            <Button className="btn-sm bg-dark float-end">INFO</Button>
           </Link>
         </div>
       </Card.Body>
