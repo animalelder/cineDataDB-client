@@ -27727,7 +27727,8 @@ const MovieCard = ({ movie, isFavorite })=>{
         setUnFav(movie.id);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
-        className: "border-primary shadow-lg h-100",
+        border: "light",
+        className: "shadow-lg h-100",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {

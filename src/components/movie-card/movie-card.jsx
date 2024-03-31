@@ -97,7 +97,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
   };
 
   return (
-    <Card className='border-primary shadow-lg h-100'>
+    <Card border='light' className='shadow-lg h-100'>
       <Card.Body>
         <Card.Img alt='movie poster' src={movie.imagePath} />
         <Card.Title as='h6' className='mt-1 text-center'>
