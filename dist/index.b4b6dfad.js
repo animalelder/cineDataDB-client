@@ -27769,11 +27769,12 @@ const MovieCard = ({ movie, isFavorite })=>{
                                     columnNumber: 13
                                 }, undefined),
                                 isFavorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                    variant: "danger",
+                                    variant: "secondary",
                                     size: "sm",
-                                    className: "text-light ms-auto",
+                                    className: "text-danger ms-auto",
                                     onClick: handleRemoveFromFavorites,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                        id: "favorited",
                                         class: "bi bi-heart-fill"
                                     }, void 0, false, {
                                         fileName: "src/components/movie-card/movie-card.jsx",
@@ -27790,7 +27791,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                                     className: "text-danger ms-auto",
                                     onClick: handleAddToFavorites,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                        class: "bi bi-heart-fill"
+                                        class: "bi bi-heart"
                                     }, void 0, false, {
                                         fileName: "src/components/movie-card/movie-card.jsx",
                                         lineNumber: 133,
