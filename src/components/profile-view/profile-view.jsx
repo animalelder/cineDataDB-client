@@ -9,8 +9,8 @@ export const ProfileView = ({ localUser, movies, token }) => {
 
   const [username, setUsername] = useState(storedUser.username);
   const [email, setEmail] = useState(storedUser.email);
-  const [password, setPassword] = useState(storedUser.password);
-  const [birthdate, setBirthdate] = useState(storedUser.birthdate);
+  const [password, setPassword] = useState();
+  const [birthdate, setBirthdate] = useState();
   const [user, setUser] = useState();
   const favoriteMovies =
     user === undefined
@@ -128,30 +128,24 @@ export const ProfileView = ({ localUser, movies, token }) => {
   }, [token]);
 
   return (
-    <Container className="mx-1">
+    <Container className='mx-1'>
       <Row>
-        <Card className="mb-5">
+        <Card className='mb-5'>
           <Card.Body>
             <Card.Title>My Profile </Card.Title>
             <Card.Text>
-              {user && (
-                <UserInfo
-                  name={user.username}
-                  email={user.email}
-                  birthdate={user.birthdate}
-                />
-              )}
+              {user && <UserInfo name={user.username} email={user.email} />}
             </Card.Text>
           </Card.Body>
         </Card>
         <Row>
-          <Col className="mb-5" xs={12} md={12}>
+          <Col className='mb-5' xs={12} md={12}>
             {favoriteMovies && (
               <FavoriteMovies user={user} favoriteMovies={favoriteMovies} />
             )}
           </Col>
         </Row>
-        <Card className="mb-5">
+        <Card className='mb-5'>
           <Card.Body>
             <UpdateUser
               formData={formData}
