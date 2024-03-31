@@ -97,46 +97,50 @@ export const MovieCard = ({ movie, isFavorite }) => {
   };
 
   return (
-    <Card className="border-primary shadow-lg h-100">
+    <Card className='border-primary shadow-lg h-100'>
       <Card.Body>
-        <Card.Img alt="movie poster" src={movie.imagePath} />
-        <Card.Title as="h6" className="mt-1 text-center">
+        <Card.Img alt='movie poster' src={movie.imagePath} />
+        <Card.Title as='h6' className='mt-1 text-center'>
           {movie.title}
         </Card.Title>
-        <Container>
-          <Card.Text className="text-center text-uppercase">
-            <Stack direction="horizontal" gap={1}>
-              <Badge bg="secondary" className="p-2">
-                {movie.genre}
-              </Badge>
+        <Card.Text>
+          <Stack
+            direction='horizontal'
+            className='d-flex justify-content-between text-uppercase'
+            gap={1}
+          >
+            <Badge bg='secondary' className='p-2'>
+              {movie.genre}
+            </Badge>
 
-              {isFavorite ? (
-                <Badge
-                  pill
-                  as="button"
-                  bg="light"
-                  className="p-2 ms-auto"
-                  onClick={handleRemoveFromFavorites}>
-                  💔
-                </Badge>
-              ) : (
-                <Badge
-                  pill
-                  as="button"
-                  bg="light"
-                  className="p-2 ms-auto"
-                  onClick={handleAddToFavorites}>
-                  ❤️
-                </Badge>
-              )}
-              <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-                <Badge as="button" className="p-2" bg="secondary">
-                  🎥
-                </Badge>
-              </Link>
-            </Stack>
-          </Card.Text>
-        </Container>
+            {isFavorite ? (
+              <Badge
+                pill
+                as='button'
+                bg='light'
+                className='p-2 ms-auto'
+                onClick={handleRemoveFromFavorites}
+              >
+                💔
+              </Badge>
+            ) : (
+              <Badge
+                pill
+                as='button'
+                bg='light'
+                className='p-2 ms-auto'
+                onClick={handleAddToFavorites}
+              >
+                ❤️
+              </Badge>
+            )}
+            <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+              <Badge as='button' className='p-2' bg='secondary'>
+                🎥
+              </Badge>
+            </Link>
+          </Stack>
+        </Card.Text>
       </Card.Body>
     </Card>
   );

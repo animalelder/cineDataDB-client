@@ -13225,20 +13225,12 @@ textarea.form-control-lg {
   }
 }
 
-img {
-  width: 50vh;
+img.detail-img {
+  min-width: 400px;
+  height: 90vh;
 }
 
 .movie-poster {
-  margin: 20px;
-}
-
-.close-button {
-  color: #95a5a6;
-  background-color: #2c3e50;
-  border: none;
-  border-radius: 4px;
-  align-self: last baseline;
-  padding: 4px 12px;
+  margin: 1px;
 }
 /*# sourceMappingURL=index.2212206d.css.map */

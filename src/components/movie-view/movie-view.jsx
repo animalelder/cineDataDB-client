@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import CloseButton from 'react-bootstrap/CloseButton';
 import './movie-view.scss';
 
 export const MovieView = ({ movies }) => {
@@ -12,34 +13,34 @@ export const MovieView = ({ movies }) => {
   const movie = movies.find((movie) => movie.id === movieId);
 
   return (
-    <Container className='movie-poster'>
+    <Container fluid className='movie-poster'>
       <Row>
+        <Link to={`/`}>
+          <CloseButton className='float-end' />
+        </Link>
         <Col className='text-center'>
-          <Image fluid src={movie.imagePath} alt='Movie poster' />
+          <Image
+            fluid
+            className='detail-img'
+            src={movie.imagePath}
+            alt='Movie poster'
+          />
         </Col>
-      </Row>
-      <Row>
-        <h1>{movie.title}</h1>
-      </Row>
-      <Row>
-        <Col className='col-9'>
-          <span>Description: </span>
-          <span>{movie.description}</span>
-        </Col>
-        <Col>
-          <span>Genre: </span>
-          <span>{movie.genre}</span>
-        </Col>
-        <Col>
-          <span>Director: </span>
-          <span>{movie.director}</span>
-        </Col>
-      </Row>
-      <Row classname='d-flex'>
-        <Col>
-          <Link to={`/`}>
-            <button className='close-button float-end'>Close</button>
-          </Link>
+        <Col className='d-grid'>
+          <Row className='align-items-start text-center'>
+            <h1>{movie.title}</h1>
+          </Row>
+
+          <Row className='align-content-around'>
+            <dl>
+              <dt>Description: </dt>
+              <dd>{movie.description}</dd>
+              <dt>Genre: </dt>
+              <dd>{movie.genre}</dd>
+              <dt>Director: </dt>
+              <dd>{movie.director}</dd>
+            </dl>
+          </Row>
         </Col>
       </Row>
     </Container>
