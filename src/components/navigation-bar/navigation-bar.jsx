@@ -5,33 +5,34 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
     <Navbar
       collapseOnSelect
-      expand="lg"
-      variant="dark"
-      sticky="top"
-      className="bg-dark mb-2">
-      <Container>
-        <Navbar.Brand as={Link} to="/">
+      expand='lg'
+      sticky='top'
+      className='bg-primary mb-2'
+      data-bs-theme='dark'
+    >
+      <Container fluid>
+        <Navbar.Brand as={Link} to='/'>
           cineDataDB
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav'>
+          <Nav className='me-auto'>
             {!user && (
               <>
-                <Nav.Link as={Link} to="/login">
+                <Nav.Link as={Link} to='/login'>
                   Login
                 </Nav.Link>
-                <Nav.Link as={Link} to="/signup">
+                <Nav.Link as={Link} to='/signup'>
                   Signup
                 </Nav.Link>
               </>
             )}
             {user && (
               <>
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={Link} to='/'>
                   Movies
                 </Nav.Link>
-                <Nav.Link as={Link} to="/profile">
+                <Nav.Link as={Link} to='/profile'>
                   Profile
                 </Nav.Link>
                 <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>

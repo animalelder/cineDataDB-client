@@ -109,35 +109,33 @@ export const MovieCard = ({ movie, isFavorite }) => {
             className='d-flex justify-content-between text-uppercase'
             gap={1}
           >
-            <Badge bg='secondary' className='p-2'>
+            <Badge bg='primary' className='px-2 py-1 align-self-end'>
               {movie.genre}
             </Badge>
 
             {isFavorite ? (
-              <Badge
-                pill
-                as='button'
-                bg='light'
-                className='p-2 ms-auto'
+              <Button
+                variant='danger'
+                size='sm'
+                className='text-light ms-auto'
                 onClick={handleRemoveFromFavorites}
               >
-                💔
-              </Badge>
+                <i class='bi bi-heart-fill' />
+              </Button>
             ) : (
-              <Badge
-                pill
-                as='button'
-                bg='light'
-                className='p-2 ms-auto'
+              <Button
+                variant='light'
+                size='sm'
+                className='text-danger ms-auto'
                 onClick={handleAddToFavorites}
               >
-                ❤️
-              </Badge>
+                <i class='bi bi-heart-fill' />
+              </Button>
             )}
             <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-              <Badge as='button' className='p-2' bg='secondary'>
-                🎥
-              </Badge>
+              <Button size='sm' variant='info'>
+                <i class='bi bi-info-square-fill' />
+              </Button>
             </Link>
           </Stack>
         </Card.Text>
