@@ -27740,8 +27740,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
-                    as: "h6",
-                    className: "mt-1 text-center",
+                    className: "text-center text-primary object-fit-scale",
                     children: movie.title
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
@@ -27749,82 +27748,89 @@ const MovieCard = ({ movie, isFavorite })=>{
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _stackDefault.default), {
-                        direction: "horizontal",
-                        className: "d-flex justify-content-between text-uppercase",
-                        gap: 1,
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
-                                bg: "primary",
-                                className: "px-2 py-1 align-self-end",
-                                children: movie.genre
-                            }, void 0, false, {
-                                fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 112,
-                                columnNumber: 13
-                            }, undefined),
-                            isFavorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                variant: "danger",
-                                size: "sm",
-                                className: "text-light ms-auto",
-                                onClick: handleRemoveFromFavorites,
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                    class: "bi bi-heart-fill"
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 107,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _stackDefault.default), {
+                            direction: "horizontal",
+                            className: "d-flex justify-content-between align-items-end text-uppercase",
+                            gap: 1,
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
+                                    bg: "primary",
+                                    className: "px-2 py-1 align-self-end",
+                                    children: movie.genre
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 123,
-                                    columnNumber: 17
-                                }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 117,
-                                columnNumber: 15
-                            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                variant: "light",
-                                size: "sm",
-                                className: "text-danger ms-auto",
-                                onClick: handleAddToFavorites,
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                    class: "bi bi-heart-fill"
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 132,
-                                    columnNumber: 17
-                                }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 126,
-                                columnNumber: 15
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: `/movies/${encodeURIComponent(movie.id)}`,
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                    lineNumber: 113,
+                                    columnNumber: 13
+                                }, undefined),
+                                isFavorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                    variant: "danger",
                                     size: "sm",
-                                    variant: "info",
+                                    className: "text-light ms-auto",
+                                    onClick: handleRemoveFromFavorites,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                        class: "bi bi-info-square-fill"
+                                        class: "bi bi-heart-fill"
                                     }, void 0, false, {
                                         fileName: "src/components/movie-card/movie-card.jsx",
-                                        lineNumber: 137,
+                                        lineNumber: 124,
                                         columnNumber: 17
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 136,
+                                    lineNumber: 118,
                                     columnNumber: 15
+                                }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                    variant: "light",
+                                    size: "sm",
+                                    className: "text-danger ms-auto",
+                                    onClick: handleAddToFavorites,
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                        class: "bi bi-heart-fill"
+                                    }, void 0, false, {
+                                        fileName: "src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 133,
+                                        columnNumber: 17
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 127,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: `/movies/${encodeURIComponent(movie.id)}`,
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                        size: "sm",
+                                        variant: "info",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                            class: "bi bi-info-square-fill"
+                                        }, void 0, false, {
+                                            fileName: "src/components/movie-card/movie-card.jsx",
+                                            lineNumber: 138,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 137,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 136,
+                                    columnNumber: 13
                                 }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 135,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 107,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 108,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
                     lineNumber: 106,
                     columnNumber: 9
