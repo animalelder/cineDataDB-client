@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { UserInfo } from './user-info';
-import { Card, Container, Row, Col } from 'react-bootstrap';
-import { FavoriteMovies } from './favorite-movies';
-import { UpdateUser } from './update-user';
+import { useEffect, useState } from "react";
+import { Card, Container, Row, Col } from "react-bootstrap";
+import { UserInfo } from "./user-info";
+import { FavoriteMovies } from "./favorite-movies";
+import { UpdateUser } from "./update-user";
 
 export const ProfileView = ({ localUser, movies, token }) => {
-  const storedUser = JSON.parse(localStorage.getItem('user'));
+  const storedUser = JSON.parse(localStorage.getItem("user"));
 
   const [username, setUsername] = useState(storedUser.username);
   const [email, setEmail] = useState(storedUser.email);
@@ -29,26 +29,26 @@ export const ProfileView = ({ localUser, movies, token }) => {
     fetch(
       `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}`,
       {
-        method: 'PUT',
+        method: "PUT",
         body: JSON.stringify(formData),
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     )
       .then((response) => {
         if (response.ok) {
-          alert('Update successful');
+          alert("Update successful");
           window.location.reload();
 
           return response.json();
         }
-        alert('Update failed');
+        alert("Update failed");
       })
       .then((user) => {
         if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify(user));
           setUser(user);
         }
       })
@@ -59,16 +59,16 @@ export const ProfileView = ({ localUser, movies, token }) => {
 
   const handleUpdate = (e) => {
     switch (e.target.type) {
-      case 'text':
+      case "text":
         setUsername(e.target.value);
         break;
-      case 'email':
+      case "email":
         setEmail(e.target.value);
         break;
-      case 'password':
+      case "password":
         setPassword(e.target.value);
         break;
-      case 'date':
+      case "date":
         setBirthdate(e.target.value);
       default:
     }
@@ -78,19 +78,19 @@ export const ProfileView = ({ localUser, movies, token }) => {
     fetch(
       `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`,
       {
-        method: 'DELETE',
+        method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      }
+      },
     ).then((response) => {
       if (response.ok) {
-        alert('Account deleted successfully.');
+        alert("Account deleted successfully.");
         localStorage.clear();
         window.location.reload();
       } else {
-        alert('Something went wrong.');
+        alert("Something went wrong.");
       }
     });
   };
@@ -100,12 +100,16 @@ export const ProfileView = ({ localUser, movies, token }) => {
       return;
     }
 
-    fetch('https://cine-data-db-04361cdbefbe.herokuapp.com/users', {
-      headers: { Authorization: `Bearer ${token}` },
+    fetch("https://cine-data-db-04361cdbefbe.herokuapp.com/users", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Users data: ', data);
+        console.log("Users data: ", data);
         const usersFromApi = data.map((queryUser) => {
           return {
             id: queryUser._id,
@@ -118,7 +122,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
         });
         setUser(usersFromApi.find((u) => u.username === localUser.username));
         //   localStorage.setItem('user', JSON.stringify(user));
-        console.log('Profile Saved User: ' + JSON.stringify(user));
+        console.log("Profile Saved User: " + JSON.stringify(user));
         //   console.log("User Result Data: " + storedUser.username );
         //   storedUser = user;
       })
@@ -128,9 +132,9 @@ export const ProfileView = ({ localUser, movies, token }) => {
   }, [token]);
 
   return (
-    <Container className='mx-1'>
+    <Container className="mx-1">
       <Row>
-        <Card className='mb-5'>
+        <Card className="mb-5">
           <Card.Body>
             <Card.Title>My Profile </Card.Title>
             <Card.Text>
@@ -139,13 +143,13 @@ export const ProfileView = ({ localUser, movies, token }) => {
           </Card.Body>
         </Card>
         <Row>
-          <Col className='mb-5' xs={12} md={12}>
+          <Col className="mb-5" xs={12} md={12}>
             {favoriteMovies && (
               <FavoriteMovies user={user} favoriteMovies={favoriteMovies} />
             )}
           </Col>
         </Row>
-        <Card className='mb-5'>
+        <Card className="mb-5">
           <Card.Body>
             <UpdateUser
               formData={formData}

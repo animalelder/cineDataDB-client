@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
-import { LoginView } from '../login-view/login-view';
-import { SignupView } from '../signup-view/signup-view';
-import { ProfileView } from '../profile-view/profile-view';
-import { NavigationBar } from '../navigation-bar/navigation-bar';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
+import { SignupView } from "../signup-view/signup-view";
+import { ProfileView } from "../profile-view/profile-view";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem('user'));
-  const storedToken = localStorage.getItem('token');
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch('https://cine-data-db-04361cdbefbe.herokuapp.com/movies', {
-      method: 'GET',
+    fetch("https://cine-data-db-04361cdbefbe.herokuapp.com/movies", {
+      method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -53,14 +53,14 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
-      <Row className='justify-content-md-center'>
+      <Row className="justify-content-md-center">
         <Routes>
           <Route
-            path='/signup'
+            path="/signup"
             element={
               <Container fluid>
                 {user ? (
-                  <Navigate to='/' />
+                  <Navigate to="/" />
                 ) : (
                   <>
                     <SignupView />
@@ -70,11 +70,11 @@ export const MainView = () => {
             }
           />
           <Route
-            path='/login'
+            path="/login"
             element={
               <>
                 {user ? (
-                  <Navigate to='/' />
+                  <Navigate to="/" />
                 ) : (
                   <Row>
                     <LoginView
@@ -89,11 +89,11 @@ export const MainView = () => {
             }
           />
           <Route
-            path='/movies/:movieId'
+            path="/movies/:movieId"
             element={
               <>
                 {!user ? (
-                  <Navigate to='/login' repleace />
+                  <Navigate to="/login" repleace />
                 ) : (
                   <Col>
                     <MovieView movies={movies} />
@@ -103,15 +103,15 @@ export const MainView = () => {
             }
           />
           <Route
-            path='/'
+            path="/"
             element={
               <>
                 {!user ? (
-                  <Navigate to='/login' replace />
+                  <Navigate to="/login" replace />
                 ) : (
                   <>
                     {movies.map((movie) => (
-                      <Col className='mb-4' key={movie.id} xs={6} md={4} lg={3}>
+                      <Col className="mb-4" key={movie.id} xs={6} md={4} lg={3}>
                         <MovieCard
                           movie={movie}
                           isFavorite={user.favoriteMovies.includes(movie.id)}
@@ -124,11 +124,11 @@ export const MainView = () => {
             }
           />
           <Route
-            path='/profile'
+            path="/profile"
             element={
               <>
                 {!user ? (
-                  <Navigate to='/login' replace />
+                  <Navigate to="/login" replace />
                 ) : (
                   <Col md={8}>
                     <ProfileView
