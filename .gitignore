@@ -3,3 +3,5 @@ node_modules
 .parcel-cache
 movies.json
 genre.json
+.vscode/settings.json
+settings.json

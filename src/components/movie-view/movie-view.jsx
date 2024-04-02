@@ -1,43 +1,48 @@
-// import PropTypes from 'prop-types';
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import CloseButton from "react-bootstrap/CloseButton";
+import "./movie-view.scss";
 
-import './movie-view.scss';
+export const MovieView = ({ movies }) => {
+  const { movieId } = useParams();
 
-export const MovieView = ({ movie, onCloseClick }) => {
+  const movie = movies.find((movie) => movie.id === movieId);
+
   return (
-    <div>
-      <div className="movie-poster">
-        <img src={movie.imagePath} alt="Movie poster" />
-      </div>
-      <div>
-        <h1>{movie.title}</h1>
-      </div>
-      <div>
-        <span>Description: </span>
-        <span>{movie.description}</span>
-      </div>
-      <div>
-        <span>Genre: </span>
-        <span>{movie.genre}</span>
-      </div>
-      <div>
-        <span>Director: </span>
-        <span>{movie.director}</span>
-      </div>
-      <button className="close-button" onClick={onCloseClick}>
-        Close
-      </button>
-    </div>
+    <Container fluid className="movie-poster">
+      <Row>
+        <Link to={`/`}>
+          <CloseButton className="float-end" />
+        </Link>
+        <Col className="text-center">
+          <Image
+            fluid
+            className="detail-img"
+            src={movie.imagePath}
+            alt="Movie poster"
+          />
+        </Col>
+        <Col className="d-grid">
+          <Row className="align-items-start text-center">
+            <h1>{movie.title}</h1>
+          </Row>
+
+          <Row className="align-content-around">
+            <dl>
+              <dt>Description: </dt>
+              <dd>{movie.description}</dd>
+              <dt>Genre: </dt>
+              <dd>{movie.genre}</dd>
+              <dt>Director: </dt>
+              <dd>{movie.director}</dd>
+            </dl>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   );
 };
-
-// MovieView.propTypes = {
-//   movie: PropTypes.shape({
-//     title: PropTypes.string.isRequired,
-//     description: PropTypes.string.isRequired,
-//     genre: PropTypes.object.isRequired,
-//     director: PropTypes.object,
-//     imagePath: PropTypes.string,
-//     featured: PropTypes.bool,
-//   }).isRequired,
-//   onBackClick: PropTypes.func.isRequired,
-// };
