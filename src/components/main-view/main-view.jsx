@@ -6,6 +6,8 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { ScrollTop } from "../navigation-bar/scroll-top";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -53,7 +55,7 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
-      <Row className="my-4 justify-content-md-center">
+      <Row className="my-4 mx-2 justify-content-md-center">
         <Routes>
           <Route
             path="/signup"
@@ -112,12 +114,12 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col
-                        className="mb-4 mx-1 px-auto"
+                        className="mb-4"
                         key={movie.id}
                         sm={6}
-                        md={4}
-                        lg={3}
-                        xl={2}
+                        md={6}
+                        lg={4}
+                        xl={3}
                       >
                         <MovieCard
                           movie={movie}

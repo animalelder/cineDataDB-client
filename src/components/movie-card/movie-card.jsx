@@ -101,44 +101,49 @@ export const MovieCard = ({ movie, isFavorite }) => {
   return (
     <Card border="light" className="shadow-lg h-100">
       <Card.Body>
-        <Card.Img alt="movie poster" src={movie.imagePath} />
-        <Card.Title className="text-center text-dark">{movie.title}</Card.Title>
-        <Card.Text as="span" className="align-bottom">
-          <Stack
-            direction="horizontal"
-            className="d-flex justify-content-between align-self-end align-items-end text-uppercase"
-            gap={1}
-          >
-            <Badge bg="primary" className="px-2 py-2 me-auto align-self-end">
-              {movie.genre}
-            </Badge>
-
-            {isFav ? (
-              <Button
-                variant="secondary"
-                size="sm"
-                className="text-danger ms-auto"
-                onClick={handleRemoveFromFavorites}
-              >
-                <i id="favorited" className="bi bi-heart-fill" />
-              </Button>
-            ) : (
-              <Button
-                variant="light"
-                size="sm"
-                className="text-danger ms-auto"
-                onClick={handleAddToFavorites}
-              >
-                <i className="bi bi-heart" />
-              </Button>
-            )}
-            <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-              <Button size="sm" variant="info">
-                <i className="bi bi-info-square-fill" />
-              </Button>
-            </Link>
-          </Stack>
+        <Card.Img
+          alt="movie poster"
+          className="card-img"
+          src={movie.imagePath}
+        />
+        <Card.Text className="text-center text-dark movie-title">
+          {movie.title}
         </Card.Text>
+        <Card.Text as="span" className="align-bottom"></Card.Text>
+        <Stack
+          direction="horizontal"
+          className="buttons d-flex justify-content-between align-self-end align-items-end text-uppercase"
+          gap={1}
+        >
+          <Badge bg="primary" className="px-2 py-2 me-auto align-self-end">
+            {movie.genre}
+          </Badge>
+
+          {isFav ? (
+            <Button
+              variant="secondary"
+              size="sm"
+              className="text-danger ms-auto"
+              onClick={handleRemoveFromFavorites}
+            >
+              <i id="favorited" className="bi bi-heart-fill" />
+            </Button>
+          ) : (
+            <Button
+              variant="light"
+              size="sm"
+              className="text-danger ms-auto"
+              onClick={handleAddToFavorites}
+            >
+              <i className="bi bi-heart" />
+            </Button>
+          )}
+          <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+            <Button size="sm" variant="info">
+              <i className="bi bi-info-square-fill" />
+            </Button>
+          </Link>
+        </Stack>
       </Card.Body>
     </Card>
   );
