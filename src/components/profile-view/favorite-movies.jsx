@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 export const FavoriteMovies = ({ user, favoriteMovies }) => {
   return (
     <Row>
-      <Col md={12}>
+      <Col>
         <h3>My Favorite Movies</h3>
       </Col>
       <Row>
         {favoriteMovies.map((movie) => {
           return (
-            <Col className="mb-5" key={movie.id} xs={12} sm={6} lg={4}>
+            <Col className="mb-5" key={movie.id} xs={6} md={4} xl={3}>
               <Link to={`/movies/${movie.id}`} />
               <MovieCard
                 movie={movie}

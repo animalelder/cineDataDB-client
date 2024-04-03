@@ -132,7 +132,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
   }, [user]);
 
   return (
-    <Container className="mx-1">
+    <Container className="mx-auto">
       <Row>
         <Card className="mb-5">
           <Card.Body>
@@ -143,22 +143,26 @@ export const ProfileView = ({ localUser, movies, token }) => {
           </Card.Body>
         </Card>
         <Row>
-          <Col className="mb-5" xs={12} md={12}>
+          <Col className="px-5 mb-5">
             {favoriteMovies && (
               <FavoriteMovies user={user} favoriteMovies={favoriteMovies} />
             )}
           </Col>
         </Row>
-        <Card className="mb-5">
-          <Card.Body>
-            <UpdateUser
-              formData={formData}
-              handleUpdate={handleUpdate}
-              handleSubmit={handleSubmit}
-              handleDeleteAccount={handleDeleteAccount}
-            />
-          </Card.Body>
-        </Card>
+        <Row>
+          <Col className="mx-auto mb-5" xs={12} sm={6} md={8}>
+            <Card className="mb-5">
+              <Card.Body>
+                <UpdateUser
+                  formData={formData}
+                  handleUpdate={handleUpdate}
+                  handleSubmit={handleSubmit}
+                  handleDeleteAccount={handleDeleteAccount}
+                />
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </Row>
     </Container>
   );

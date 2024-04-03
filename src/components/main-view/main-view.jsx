@@ -53,7 +53,7 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
-      <Row className="justify-content-md-center">
+      <Row className="my-4 justify-content-md-center">
         <Routes>
           <Route
             path="/signup"
@@ -93,9 +93,9 @@ export const MainView = () => {
             element={
               <>
                 {!user ? (
-                  <Navigate to="/login" repleace />
+                  <Navigate to="/login" replace />
                 ) : (
-                  <Col>
+                  <Col className="mx-2">
                     <MovieView movies={movies} />
                   </Col>
                 )}
@@ -111,7 +111,13 @@ export const MainView = () => {
                 ) : (
                   <>
                     {movies.map((movie) => (
-                      <Col className="mb-4" key={movie.id} xs={6} md={4} lg={3}>
+                      <Col
+                        className="mb-4 mx-1"
+                        key={movie.id}
+                        xs={12}
+                        md={4}
+                        xl={3}
+                      >
                         <MovieCard
                           movie={movie}
                           isFavorite={user.favoriteMovies.includes(movie.id)}
@@ -130,7 +136,7 @@ export const MainView = () => {
                 {!user ? (
                   <Navigate to="/login" replace />
                 ) : (
-                  <Col md={8}>
+                  <Col>
                     <ProfileView
                       localUser={user}
                       movies={movies}

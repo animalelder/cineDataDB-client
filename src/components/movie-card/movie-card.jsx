@@ -105,7 +105,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
         <Card.Title className="text-center text-primary object-fit-scale">
           {movie.title}
         </Card.Title>
-        <Card.Text className="align-self-end">
+        <Card.Text as="span" className="align-self-end">
           <Stack
             direction="horizontal"
             className="d-flex justify-content-between align-self-end align-items-end text-uppercase"
