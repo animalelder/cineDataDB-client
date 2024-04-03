@@ -13,7 +13,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
-
+  const [isFav, setIsFav] = useState(isFavorite);
   const [addFav, setAddFav] = useState("");
   const [unFav, setUnFav] = useState("");
 
@@ -36,8 +36,8 @@ export const MovieCard = ({ movie, isFavorite }) => {
             alert("Oops!");
             throw new Error("Failed to add movie to favorites.");
           }
-          alert("Movie added to favorites successfully!");
-          window.location.reload();
+          // alert("Movie added to favorites successfully!");
+          // window.location.reload();
           return response.json();
         })
         .then((user) => {
@@ -49,6 +49,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
         .catch((error) => {
           console.error(error);
         });
+      return setIsFav(true);
     };
     const removeFromFavorites = () => {
       fetch(
@@ -67,8 +68,8 @@ export const MovieCard = ({ movie, isFavorite }) => {
           if (!response.ok) {
             throw new Error("Failed to remove movie from favorites.");
           }
-          alert("Movie removed from favorites successfully!");
-          window.location.reload();
+          // alert("Movie removed from favorites successfully!");
+          // window.location.reload();
           return response.json();
         })
         .then((user) => {
@@ -80,14 +81,15 @@ export const MovieCard = ({ movie, isFavorite }) => {
         .catch((error) => {
           console.error(error);
         });
+      return setIsFav(false);
     };
     if (addFav) {
-      addToFavorites();
+      addToFavorites(movie.id);
     }
     if (unFav) {
-      removeFromFavorites();
+      removeFromFavorites(movie.id);
     }
-  }, [addFav, unFav, token]);
+  }, [isFav, addFav, unFav, user]);
 
   const handleAddToFavorites = () => {
     setAddFav(movie.id);
@@ -104,17 +106,16 @@ export const MovieCard = ({ movie, isFavorite }) => {
           {movie.title}
         </Card.Title>
         <Card.Text>
-          <hr />
           <Stack
             direction="horizontal"
-            className="d-flex justify-content-between align-items-end text-uppercase"
+            className="d-flex justify-content-between align-content-end align-items-end text-uppercase"
             gap={1}
           >
             <Badge bg="primary" className="px-2 py-1 align-self-end">
               {movie.genre}
             </Badge>
 
-            {isFavorite ? (
+            {isFav ? (
               <Button
                 variant="secondary"
                 size="sm"
@@ -130,7 +131,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
                 className="text-danger ms-auto"
                 onClick={handleAddToFavorites}
               >
-                <i class="bi bi-heart" />
+                <i className="bi bi-heart" />
               </Button>
             )}
             <Link to={`/movies/${encodeURIComponent(movie.id)}`}>

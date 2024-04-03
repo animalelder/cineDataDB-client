@@ -27610,6 +27610,7 @@ const MovieCard = ({ movie, isFavorite })=>{
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
+    const [isFav, setIsFav] = (0, _react.useState)(isFavorite);
     const [addFav, setAddFav] = (0, _react.useState)("");
     const [unFav, setUnFav] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
@@ -27625,8 +27626,8 @@ const MovieCard = ({ movie, isFavorite })=>{
                     alert("Oops!");
                     throw new Error("Failed to add movie to favorites.");
                 }
-                alert("Movie added to favorites successfully!");
-                window.location.reload();
+                // alert("Movie added to favorites successfully!");
+                // window.location.reload();
                 return response.json();
             }).then((user)=>{
                 if (user) {
@@ -27636,6 +27637,7 @@ const MovieCard = ({ movie, isFavorite })=>{
             }).catch((error)=>{
                 console.error(error);
             });
+            return setIsFav(true);
         };
         const removeFromFavorites = ()=>{
             fetch(`https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}/favorites/${encodeURIComponent(movie.id)}`, {
@@ -27646,8 +27648,8 @@ const MovieCard = ({ movie, isFavorite })=>{
                 }
             }).then((response)=>{
                 if (!response.ok) throw new Error("Failed to remove movie from favorites.");
-                alert("Movie removed from favorites successfully!");
-                window.location.reload();
+                // alert("Movie removed from favorites successfully!");
+                // window.location.reload();
                 return response.json();
             }).then((user)=>{
                 if (user) {
@@ -27657,13 +27659,15 @@ const MovieCard = ({ movie, isFavorite })=>{
             }).catch((error)=>{
                 console.error(error);
             });
+            return setIsFav(false);
         };
-        if (addFav) addToFavorites();
-        if (unFav) removeFromFavorites();
+        if (addFav) addToFavorites(movie.id);
+        if (unFav) removeFromFavorites(movie.id);
     }, [
+        isFav,
         addFav,
         unFav,
-        token
+        user
     ]);
     const handleAddToFavorites = ()=>{
         setAddFav(movie.id);
@@ -27681,7 +27685,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                     src: movie.imagePath
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 102,
+                    lineNumber: 104,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
@@ -27689,111 +27693,104 @@ const MovieCard = ({ movie, isFavorite })=>{
                     children: movie.title
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 103,
+                    lineNumber: 105,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 107,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _stackDefault.default), {
-                            direction: "horizontal",
-                            className: "d-flex justify-content-between align-items-end text-uppercase",
-                            gap: 1,
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
-                                    bg: "primary",
-                                    className: "px-2 py-1 align-self-end",
-                                    children: movie.genre
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _stackDefault.default), {
+                        direction: "horizontal",
+                        className: "d-flex justify-content-between align-content-end align-items-end text-uppercase",
+                        gap: 1,
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
+                                bg: "primary",
+                                className: "px-2 py-1 align-self-end",
+                                children: movie.genre
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 114,
+                                columnNumber: 13
+                            }, undefined),
+                            isFav ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                variant: "secondary",
+                                size: "sm",
+                                className: "text-danger ms-auto",
+                                onClick: handleRemoveFromFavorites,
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                    id: "favorited",
+                                    className: "bi bi-heart-fill"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 113,
-                                    columnNumber: 13
-                                }, undefined),
-                                isFavorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                    variant: "secondary",
-                                    size: "sm",
-                                    className: "text-danger ms-auto",
-                                    onClick: handleRemoveFromFavorites,
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                        id: "favorited",
-                                        className: "bi bi-heart-fill"
-                                    }, void 0, false, {
-                                        fileName: "src/components/movie-card/movie-card.jsx",
-                                        lineNumber: 124,
-                                        columnNumber: 17
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 118,
-                                    columnNumber: 15
-                                }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                    variant: "light",
-                                    size: "sm",
-                                    className: "text-danger ms-auto",
-                                    onClick: handleAddToFavorites,
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                        class: "bi bi-heart"
-                                    }, void 0, false, {
-                                        fileName: "src/components/movie-card/movie-card.jsx",
-                                        lineNumber: 133,
-                                        columnNumber: 17
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 127,
-                                    columnNumber: 15
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: `/movies/${encodeURIComponent(movie.id)}`,
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                        size: "sm",
-                                        variant: "info",
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                            className: "bi bi-info-square-fill"
-                                        }, void 0, false, {
-                                            fileName: "src/components/movie-card/movie-card.jsx",
-                                            lineNumber: 138,
-                                            columnNumber: 17
-                                        }, undefined)
-                                    }, void 0, false, {
-                                        fileName: "src/components/movie-card/movie-card.jsx",
-                                        lineNumber: 137,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 136,
-                                    columnNumber: 13
+                                    lineNumber: 125,
+                                    columnNumber: 17
                                 }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 108,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 119,
+                                columnNumber: 15
+                            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                variant: "light",
+                                size: "sm",
+                                className: "text-danger ms-auto",
+                                onClick: handleAddToFavorites,
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                    className: "bi bi-heart"
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 134,
+                                    columnNumber: 17
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 128,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: `/movies/${encodeURIComponent(movie.id)}`,
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                    size: "sm",
+                                    variant: "info",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                        className: "bi bi-info-square-fill"
+                                    }, void 0, false, {
+                                        fileName: "src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 139,
+                                        columnNumber: 17
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 138,
+                                    columnNumber: 15
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 137,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 109,
+                        columnNumber: 11
+                    }, undefined)
+                }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 106,
+                    lineNumber: 108,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 101,
+            lineNumber: 103,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 100,
+        lineNumber: 102,
         columnNumber: 5
     }, undefined);
 };
-_s(MovieCard, "58ghXoBZ6m/FauYSeVlCpJlAwVM=");
+_s(MovieCard, "4sGQsHc0vWCDRNqr7iXZ88F25p8=");
 _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
