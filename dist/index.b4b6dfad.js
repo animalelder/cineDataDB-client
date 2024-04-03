@@ -27697,9 +27697,10 @@ const MovieCard = ({ movie, isFavorite })=>{
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
+                    className: "align-self-end",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _stackDefault.default), {
                         direction: "horizontal",
-                        className: "d-flex justify-content-between align-content-end align-items-end text-uppercase",
+                        className: "d-flex justify-content-between align-self-end align-items-end text-uppercase",
                         gap: 1,
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
@@ -42495,7 +42496,7 @@ const ProfileView = ({ localUser, movies, token })=>{
             console.error(error);
         });
     }, [
-        token
+        user
     ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         className: "mx-1",

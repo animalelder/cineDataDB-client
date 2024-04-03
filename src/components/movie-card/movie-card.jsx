@@ -105,10 +105,10 @@ export const MovieCard = ({ movie, isFavorite }) => {
         <Card.Title className="text-center text-primary object-fit-scale">
           {movie.title}
         </Card.Title>
-        <Card.Text>
+        <Card.Text className="align-self-end">
           <Stack
             direction="horizontal"
-            className="d-flex justify-content-between align-content-end align-items-end text-uppercase"
+            className="d-flex justify-content-between align-self-end align-items-end text-uppercase"
             gap={1}
           >
             <Badge bg="primary" className="px-2 py-1 align-self-end">

@@ -129,7 +129,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
       .catch((error) => {
         console.error(error);
       });
-  }, [token]);
+  }, [user]);
 
   return (
     <Container className="mx-1">
