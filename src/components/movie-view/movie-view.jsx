@@ -13,8 +13,8 @@ export const MovieView = ({ movies }) => {
   const movie = movies.find((movie) => movie.id === movieId);
 
   return (
-    <Container fluid className="movie-poster">
-      <Row>
+    <Container className="movie-poster">
+      <Row className="mx-auto">
         <Link to={`/`}>
           <CloseButton className="float-end" />
         </Link>
@@ -31,7 +31,7 @@ export const MovieView = ({ movies }) => {
             <h1>{movie.title}</h1>
           </Row>
 
-          <Row className="align-content-around">
+          <Row className="align-items-around">
             <dl>
               <dt>Description: </dt>
               <dd>{movie.description}</dd>

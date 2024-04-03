@@ -1,8 +1,10 @@
 img.detail-img {
-  height: 90vh;
+  max-height: 70vh;
   min-width: 400px;
 }
 
 .movie-poster {
-  margin: 1px;
+  margin-top: 1vh;
+  margin: auto;
+  max-height: 75vw;
 }

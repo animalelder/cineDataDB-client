@@ -102,16 +102,14 @@ export const MovieCard = ({ movie, isFavorite }) => {
     <Card border="light" className="shadow-lg h-100">
       <Card.Body>
         <Card.Img alt="movie poster" src={movie.imagePath} />
-        <Card.Title className="text-center text-primary object-fit-scale">
-          {movie.title}
-        </Card.Title>
-        <Card.Text as="span" className="align-self-end">
+        <Card.Title className="text-center text-dark">{movie.title}</Card.Title>
+        <Card.Text as="span" className="align-bottom">
           <Stack
             direction="horizontal"
             className="d-flex justify-content-between align-self-end align-items-end text-uppercase"
             gap={1}
           >
-            <Badge bg="primary" className="px-2 py-1 align-self-end">
+            <Badge bg="primary" className="px-2 py-2 me-auto align-self-end">
               {movie.genre}
             </Badge>
 
