@@ -96,10 +96,10 @@ export const MainView = () => {
               <>
                 {!user ? (
                   <Navigate to="/login" replace />
+                ) : movies.length === 0 ? (
+                  <Col>No movies to display!</Col>
                 ) : (
-                  <Col className="mx-2">
-                    <MovieView movies={movies} />
-                  </Col>
+                  <MovieView movies={movies} />
                 )}
               </>
             }

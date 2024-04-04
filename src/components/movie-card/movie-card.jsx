@@ -16,6 +16,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
   const [isFav, setIsFav] = useState(isFavorite);
   const [addFav, setAddFav] = useState("");
   const [unFav, setUnFav] = useState("");
+  const imagePath = movie.imagePath;
 
   useEffect(() => {
     const addToFavorites = () => {
@@ -101,11 +102,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
   return (
     <Card border="light" className="shadow-lg h-100">
       <Card.Body>
-        <Card.Img
-          alt="movie poster"
-          className="card-img"
-          src={movie.imagePath}
-        />
+        <Card.Img alt="movie poster" className="card-img" src={imagePath} />
         <Card.Text className="text-center text-dark movie-title">
           {movie.title}
         </Card.Text>

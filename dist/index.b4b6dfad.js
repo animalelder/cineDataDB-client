@@ -27463,18 +27463,17 @@ const MainView = ()=>{
                                     fileName: "src/components/main-view/main-view.jsx",
                                     lineNumber: 98,
                                     columnNumber: 19
-                                }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                                    className: "mx-2",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-                                        movies: movies
-                                    }, void 0, false, {
-                                        fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 101,
-                                        columnNumber: 21
-                                    }, void 0)
+                                }, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                                    children: "No movies to display!"
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
                                     lineNumber: 100,
+                                    columnNumber: 19
+                                }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+                                    movies: movies
+                                }, void 0, false, {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 102,
                                     columnNumber: 19
                                 }, void 0)
                             }, void 0, false)
@@ -27616,6 +27615,7 @@ const MovieCard = ({ movie, isFavorite })=>{
     const [isFav, setIsFav] = (0, _react.useState)(isFavorite);
     const [addFav, setAddFav] = (0, _react.useState)("");
     const [unFav, setUnFav] = (0, _react.useState)("");
+    const imagePath = movie.imagePath;
     (0, _react.useEffect)(()=>{
         const addToFavorites = ()=>{
             fetch(`https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}/favorites/${encodeURIComponent(movie.id)}`, {
@@ -27686,10 +27686,10 @@ const MovieCard = ({ movie, isFavorite })=>{
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {
                     alt: "movie poster",
                     className: "card-img",
-                    src: movie.imagePath
+                    src: imagePath
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 104,
+                    lineNumber: 105,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
@@ -27697,7 +27697,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                     children: movie.title
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 109,
+                    lineNumber: 106,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
@@ -27705,7 +27705,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                     className: "align-bottom"
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 112,
+                    lineNumber: 109,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _stackDefault.default), {
@@ -27719,7 +27719,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                             children: movie.genre
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 118,
+                            lineNumber: 115,
                             columnNumber: 11
                         }, undefined),
                         isFav ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -27732,12 +27732,12 @@ const MovieCard = ({ movie, isFavorite })=>{
                                 className: "bi bi-heart-fill"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 129,
+                                lineNumber: 126,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 123,
+                            lineNumber: 120,
                             columnNumber: 13
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                             variant: "light",
@@ -27748,12 +27748,12 @@ const MovieCard = ({ movie, isFavorite })=>{
                                 className: "bi bi-heart"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 138,
+                                lineNumber: 135,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 132,
+                            lineNumber: 129,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -27765,34 +27765,34 @@ const MovieCard = ({ movie, isFavorite })=>{
                                     className: "bi bi-info-square-fill"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 143,
+                                    lineNumber: 140,
                                     columnNumber: 15
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 142,
+                                lineNumber: 139,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 141,
+                            lineNumber: 138,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 113,
+                    lineNumber: 110,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 103,
+            lineNumber: 104,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 102,
+        lineNumber: 103,
         columnNumber: 5
     }, undefined);
 };
