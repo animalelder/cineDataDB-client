@@ -14,89 +14,86 @@ export const MovieCard = ({ movie, isFavorite }) => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [isFav, setIsFav] = useState(isFavorite);
-  const [addFav, setAddFav] = useState("");
-  const [unFav, setUnFav] = useState("");
+  //const [addFav, setAddFav] = useState("");
+  //const [unFav, setUnFav] = useState("");
   // const imagePath = movie.imagePath;
 
   useEffect(() => {
-    const addToFavorites = () => {
-      fetch(
-        `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${
-          user.username
-        }/favorites/${encodeURIComponent(movie.id)}`,
-        {
-          method: "PUT",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        },
-      )
-        .then((response) => {
-          if (!response.ok) {
-            alert("Oops!");
-            throw new Error("Failed to add movie to favorites.");
-          }
-          // alert("Movie added to favorites successfully!");
-          window.location.reload();
-          return response.json();
-        })
-        .then((updatedUser) => {
-          if (updatedUser) {
-            localStorage.setItem("user", JSON.stringify(updatedUser));
-            setUser(updatedUser);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      return setIsFav(true);
-    };
-    const removeFromFavorites = () => {
-      fetch(
-        `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${
-          user.username
-        }/favorites/${encodeURIComponent(movie.id)}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        },
-      )
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to remove movie from favorites.");
-          }
-          // alert("Movie removed from favorites successfully!");
-          window.location.reload();
-          return response.json();
-        })
-        .then((updatedUser) => {
-          if (updatedUser) {
-            localStorage.setItem("user", JSON.stringify(updatedUser));
-            setUser(updatedUser);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      return setIsFav(false);
-    };
-    if (addFav) {
-      addToFavorites(movie.id);
-    }
-    if (unFav) {
-      removeFromFavorites(movie.id);
-    }
-  }, [isFav, addFav, unFav, user]);
+    setIsFav(user.favoriteMovies.includes(movie.id));
+  }, [isFav, user]);
 
   const handleAddToFavorites = () => {
-    setAddFav(movie.id);
+    addToFavorites(movie.id);
   };
   const handleRemoveFromFavorites = () => {
-    setUnFav(movie.id);
+    removeFromFavorites(movie.id);
+  };
+
+  const addToFavorites = () => {
+    fetch(
+      `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${
+        user.username
+      }/favorites/${encodeURIComponent(movie.id)}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      },
+    )
+      .then((response) => {
+        if (!response.ok) {
+          alert("Oops!");
+          throw new Error("Failed to add movie to favorites.");
+        }
+        // alert("Movie added to favorites successfully!");
+        //window.location.reload();
+        return response.json();
+      })
+      .then((updatedUser) => {
+        if (updatedUser) {
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+          setUser(updatedUser);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    //return setIsFav(true);
+  };
+
+  const removeFromFavorites = () => {
+    fetch(
+      `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${
+        user.username
+      }/favorites/${encodeURIComponent(movie.id)}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      },
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to remove movie from favorites.");
+        }
+        // alert("Movie removed from favorites successfully!");
+        //window.location.reload();
+        return response.json();
+      })
+      .then((updatedUser) => {
+        if (updatedUser) {
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+          setUser(updatedUser);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    //return setIsFav(false);
   };
 
   return (

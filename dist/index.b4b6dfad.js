@@ -27613,70 +27613,67 @@ const MovieCard = ({ movie, isFavorite })=>{
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [isFav, setIsFav] = (0, _react.useState)(isFavorite);
-    const [addFav, setAddFav] = (0, _react.useState)("");
-    const [unFav, setUnFav] = (0, _react.useState)("");
+    //const [addFav, setAddFav] = useState("");
+    //const [unFav, setUnFav] = useState("");
     // const imagePath = movie.imagePath;
     (0, _react.useEffect)(()=>{
-        const addToFavorites = ()=>{
-            fetch(`https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}/favorites/${encodeURIComponent(movie.id)}`, {
-                method: "PUT",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "application/json"
-                }
-            }).then((response)=>{
-                if (!response.ok) {
-                    alert("Oops!");
-                    throw new Error("Failed to add movie to favorites.");
-                }
-                // alert("Movie added to favorites successfully!");
-                window.location.reload();
-                return response.json();
-            }).then((updatedUser)=>{
-                if (updatedUser) {
-                    localStorage.setItem("user", JSON.stringify(updatedUser));
-                    setUser(updatedUser);
-                }
-            }).catch((error)=>{
-                console.error(error);
-            });
-            return setIsFav(true);
-        };
-        const removeFromFavorites = ()=>{
-            fetch(`https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}/favorites/${encodeURIComponent(movie.id)}`, {
-                method: "DELETE",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "application/json"
-                }
-            }).then((response)=>{
-                if (!response.ok) throw new Error("Failed to remove movie from favorites.");
-                // alert("Movie removed from favorites successfully!");
-                window.location.reload();
-                return response.json();
-            }).then((updatedUser)=>{
-                if (updatedUser) {
-                    localStorage.setItem("user", JSON.stringify(updatedUser));
-                    setUser(updatedUser);
-                }
-            }).catch((error)=>{
-                console.error(error);
-            });
-            return setIsFav(false);
-        };
-        if (addFav) addToFavorites(movie.id);
-        if (unFav) removeFromFavorites(movie.id);
+        setIsFav(user.favoriteMovies.includes(movie.id));
     }, [
         isFav,
-        addFav,
-        unFav,
         user
     ]);
     const handleAddToFavorites = ()=>{
-        setAddFav(movie.id);
+        addToFavorites(movie.id);
     };
     const handleRemoveFromFavorites = ()=>{
-        setUnFav(movie.id);
+        removeFromFavorites(movie.id);
+    };
+    const addToFavorites = ()=>{
+        fetch(`https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}/favorites/${encodeURIComponent(movie.id)}`, {
+            method: "PUT",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        }).then((response)=>{
+            if (!response.ok) {
+                alert("Oops!");
+                throw new Error("Failed to add movie to favorites.");
+            }
+            // alert("Movie added to favorites successfully!");
+            //window.location.reload();
+            return response.json();
+        }).then((updatedUser)=>{
+            if (updatedUser) {
+                localStorage.setItem("user", JSON.stringify(updatedUser));
+                setUser(updatedUser);
+            }
+        }).catch((error)=>{
+            console.error(error);
+        });
+    //return setIsFav(true);
+    };
+    const removeFromFavorites = ()=>{
+        fetch(`https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}/favorites/${encodeURIComponent(movie.id)}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        }).then((response)=>{
+            if (!response.ok) throw new Error("Failed to remove movie from favorites.");
+            // alert("Movie removed from favorites successfully!");
+            //window.location.reload();
+            return response.json();
+        }).then((updatedUser)=>{
+            if (updatedUser) {
+                localStorage.setItem("user", JSON.stringify(updatedUser));
+                setUser(updatedUser);
+            }
+        }).catch((error)=>{
+            console.error(error);
+        });
+    //return setIsFav(false);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
         border: "light",
@@ -27689,7 +27686,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                     src: movie.imagePath
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 105,
+                    lineNumber: 102,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
@@ -27697,7 +27694,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                     children: movie.title
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 110,
+                    lineNumber: 107,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
@@ -27705,7 +27702,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                     className: "align-bottom"
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 113,
+                    lineNumber: 110,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _stackDefault.default), {
@@ -27719,7 +27716,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                             children: movie.genre
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 119,
+                            lineNumber: 116,
                             columnNumber: 11
                         }, undefined),
                         isFav ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -27732,12 +27729,12 @@ const MovieCard = ({ movie, isFavorite })=>{
                                 className: "bi bi-heart-fill"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 130,
+                                lineNumber: 127,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 124,
+                            lineNumber: 121,
                             columnNumber: 13
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                             variant: "light",
@@ -27748,12 +27745,12 @@ const MovieCard = ({ movie, isFavorite })=>{
                                 className: "bi bi-heart"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 139,
+                                lineNumber: 136,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 133,
+                            lineNumber: 130,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -27765,38 +27762,38 @@ const MovieCard = ({ movie, isFavorite })=>{
                                     className: "bi bi-info-square-fill"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 144,
+                                    lineNumber: 141,
                                     columnNumber: 15
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 143,
+                                lineNumber: 140,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 142,
+                            lineNumber: 139,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 114,
+                    lineNumber: 111,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 104,
+            lineNumber: 101,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 103,
+        lineNumber: 100,
         columnNumber: 5
     }, undefined);
 };
-_s(MovieCard, "4sGQsHc0vWCDRNqr7iXZ88F25p8=");
+_s(MovieCard, "I4iyrRGNX7+U16crAxWZBM72WaA=");
 _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
