@@ -16,7 +16,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
   const [isFav, setIsFav] = useState(isFavorite);
   const [addFav, setAddFav] = useState("");
   const [unFav, setUnFav] = useState("");
-  const imagePath = movie.imagePath;
+  // const imagePath = movie.imagePath;
 
   useEffect(() => {
     const addToFavorites = () => {
@@ -38,13 +38,13 @@ export const MovieCard = ({ movie, isFavorite }) => {
             throw new Error("Failed to add movie to favorites.");
           }
           // alert("Movie added to favorites successfully!");
-          // window.location.reload();
+          window.location.reload();
           return response.json();
         })
-        .then((user) => {
-          if (user) {
-            localStorage.setItem("user", JSON.stringify(user));
-            setUser(user);
+        .then((updatedUser) => {
+          if (updatedUser) {
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+            setUser(updatedUser);
           }
         })
         .catch((error) => {
@@ -70,13 +70,13 @@ export const MovieCard = ({ movie, isFavorite }) => {
             throw new Error("Failed to remove movie from favorites.");
           }
           // alert("Movie removed from favorites successfully!");
-          // window.location.reload();
+          window.location.reload();
           return response.json();
         })
-        .then((user) => {
-          if (user) {
-            localStorage.setItem("user", JSON.stringify(user));
-            setUser(user);
+        .then((updatedUser) => {
+          if (updatedUser) {
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+            setUser(updatedUser);
           }
         })
         .catch((error) => {
@@ -102,7 +102,11 @@ export const MovieCard = ({ movie, isFavorite }) => {
   return (
     <Card border="light" className="shadow-lg h-100">
       <Card.Body>
-        <Card.Img alt="movie poster" className="card-img" src={imagePath} />
+        <Card.Img
+          alt="movie poster"
+          className="card-img"
+          src={movie.imagePath}
+        />
         <Card.Text className="text-center text-dark movie-title">
           {movie.title}
         </Card.Text>
