@@ -1,16 +1,35 @@
-.card-container {
-  backdrop-filter: blur(20px);
-}
+// .card-container {
+//   backdrop-filter: blur(20px);
+//   a {
+//     color: #f0f0f0;
+//     &:hover {
+//       border: 0.1rem solid #f0f0f0;
+//     }
+//   }
+// }
+
+// .card-container:hover {
+//   opacity: 1;
+//   backdrop-filter: blur(1px);
+// }
 
 #favorited {
   color: red;
+}
+
+#title {
+  a {
+    text-decoration: none;
+  }
+  text-decoration-line: none;
+  text-decoration-line: none;
 }
 
 .card-img {
   border: 0.5rem solid white;
 }
 
-.buttons {
-  position: absolute;
-  bottom: 1em;
-}
+// .btn {
+//   position: absolute;
+//   bottom: 1em;
+// }

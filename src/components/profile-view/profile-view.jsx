@@ -143,7 +143,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
           </Card.Body>
         </Card>
         <Row>
-          <Col className="px-5 mb-5">
+          <Col className=" mb-5">
             {favoriteMovies && (
               <FavoriteMovies user={user} favoriteMovies={favoriteMovies} />
             )}

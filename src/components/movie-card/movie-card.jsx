@@ -97,38 +97,49 @@ export const MovieCard = ({ movie, isFavorite }) => {
   };
 
   return (
-    <Card border="light" className="bg-primary card-container shadow-lg h-100">
+    <Card
+      border="light"
+      className="bg-secondary card-container shadow-lg h-100"
+    >
       <Card.Body>
         <Card.Img
           alt="movie poster"
           className="card-img"
           src={movie.imagePath}
         />
-        <Card.Title className="text-center text-light movie-title">
-          {movie.title}
-        </Card.Title>
-        <Card.Text as="span" className="align-bottom"></Card.Text>
+
+        <div id="title" className="d-grid text-center">
+          <Badge bg="secondary" size="sm" className="mt-1 movie-title">
+            {movie.title}
+          </Badge>
+        </div>
+        {/* <Card.Text as="span" className="align-bottom"></Card.Text> */}
+      </Card.Body>
+      <Card.Footer>
         <Stack
           direction="horizontal"
           className="buttons d-flex justify-content-between align-self-end align-items-end text-uppercase"
           gap={1}
         >
-          <Badge bg="success" className="px-2 py-2 me-auto align-self-end">
+          <Badge
+            bg="secondary"
+            className="me-auto py-1 align-self-end text-light"
+          >
             {movie.genre}
           </Badge>
 
           {isFav ? (
             <Button
-              variant="dark"
+              variant="outline-danger"
               size="sm"
-              className="bg-dark text-danger ms-auto"
+              className="bg-light text-danger ms-auto"
               onClick={handleRemoveFromFavorites}
             >
               <i id="favorited" className="bi bi-heart-fill" />
             </Button>
           ) : (
             <Button
-              variant="success"
+              variant="outline-secondary"
               size="sm"
               className="text-danger bg-light ms-auto"
               onClick={handleAddToFavorites}
@@ -137,12 +148,16 @@ export const MovieCard = ({ movie, isFavorite }) => {
             </Button>
           )}
           <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-            <Button className="bg-warning" size="sm" variant="info">
+            <Button
+              variant="outline-secondary"
+              className="bg-info text-light"
+              size="sm"
+            >
               <i className="bi bi-info-square-fill" />
             </Button>
           </Link>
         </Stack>
-      </Card.Body>
+      </Card.Footer>
     </Card>
   );
 };

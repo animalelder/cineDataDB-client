@@ -7,10 +7,10 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
       collapseOnSelect
       expand="lg"
       sticky="top"
-      className="navvie bg-primary mb-2"
+      className="m-2 bg-primary mb-2"
       data-bs-theme="dark"
     >
-      <Container fluid>
+      <Container>
         <Navbar.Brand as={Link} to="/">
           cineDataDB
         </Navbar.Brand>

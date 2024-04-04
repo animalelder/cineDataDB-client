@@ -27677,67 +27677,77 @@ const MovieCard = ({ movie, isFavorite })=>{
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
         border: "light",
-        className: "bg-primary card-container shadow-lg h-100",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {
-                    alt: "movie poster",
-                    className: "card-img",
-                    src: movie.imagePath
-                }, void 0, false, {
-                    fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 102,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
-                    className: "text-center text-light movie-title",
-                    children: movie.title
-                }, void 0, false, {
-                    fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 107,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
-                    as: "span",
-                    className: "align-bottom"
-                }, void 0, false, {
-                    fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 110,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _stackDefault.default), {
+        className: "bg-secondary card-container shadow-lg h-100",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {
+                        alt: "movie poster",
+                        className: "card-img",
+                        src: movie.imagePath
+                    }, void 0, false, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 105,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        id: "title",
+                        className: "d-grid text-center",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
+                            bg: "secondary",
+                            size: "sm",
+                            className: "mt-1 movie-title",
+                            children: movie.title
+                        }, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 112,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 111,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-card/movie-card.jsx",
+                lineNumber: 104,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Footer, {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _stackDefault.default), {
                     direction: "horizontal",
                     className: "buttons d-flex justify-content-between align-self-end align-items-end text-uppercase",
                     gap: 1,
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
-                            bg: "success",
-                            className: "px-2 py-2 me-auto align-self-end",
+                            bg: "secondary",
+                            className: "me-auto py-1 align-self-end text-light",
                             children: movie.genre
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 116,
+                            lineNumber: 124,
                             columnNumber: 11
                         }, undefined),
                         isFav ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                            variant: "dark",
+                            variant: "outline-danger",
                             size: "sm",
-                            className: "bg-dark text-danger ms-auto",
+                            className: "bg-light text-danger ms-auto",
                             onClick: handleRemoveFromFavorites,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                 id: "favorited",
                                 className: "bi bi-heart-fill"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 127,
+                                lineNumber: 138,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 121,
+                            lineNumber: 132,
                             columnNumber: 13
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                            variant: "success",
+                            variant: "outline-secondary",
                             size: "sm",
                             className: "text-danger bg-light ms-auto",
                             onClick: handleAddToFavorites,
@@ -27745,50 +27755,50 @@ const MovieCard = ({ movie, isFavorite })=>{
                                 className: "bi bi-heart"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 136,
+                                lineNumber: 147,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 130,
+                            lineNumber: 141,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: `/movies/${encodeURIComponent(movie.id)}`,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                className: "bg-warning",
+                                variant: "outline-secondary",
+                                className: "bg-info text-light",
                                 size: "sm",
-                                variant: "info",
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                     className: "bi bi-info-square-fill"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 141,
+                                    lineNumber: 156,
                                     columnNumber: 15
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 140,
+                                lineNumber: 151,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 139,
+                            lineNumber: 150,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 111,
+                    lineNumber: 119,
                     columnNumber: 9
                 }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 101,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
+            }, void 0, false, {
+                fileName: "src/components/movie-card/movie-card.jsx",
+                lineNumber: 118,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/components/movie-card/movie-card.jsx",
         lineNumber: 100,
         columnNumber: 5
@@ -38079,10 +38089,9 @@ const NavigationBar = ({ user, onLoggedOut })=>{
         collapseOnSelect: true,
         expand: "lg",
         sticky: "top",
-        className: "navvie bg-primary mb-2",
+        className: "m-2 bg-primary mb-2",
         "data-bs-theme": "dark",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
-            fluid: true,
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
                     as: (0, _reactRouterDom.Link),
@@ -42701,7 +42710,7 @@ const ProfileView = ({ localUser, movies, token })=>{
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                        className: "px-5 mb-5",
+                        className: " mb-5",
                         children: favoriteMovies && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _favoriteMovies.FavoriteMovies), {
                             user: user,
                             favoriteMovies: favoriteMovies
