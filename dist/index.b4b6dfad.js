@@ -27677,7 +27677,7 @@ const MovieCard = ({ movie, isFavorite })=>{
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
         border: "light",
-        className: "shadow-lg h-100",
+        className: "bg-primary card-container shadow-lg h-100",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {
@@ -27689,8 +27689,8 @@ const MovieCard = ({ movie, isFavorite })=>{
                     lineNumber: 102,
                     columnNumber: 9
                 }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
-                    className: "text-center text-dark movie-title",
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
+                    className: "text-center text-light movie-title",
                     children: movie.title
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
@@ -27711,7 +27711,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                     gap: 1,
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
-                            bg: "primary",
+                            bg: "success",
                             className: "px-2 py-2 me-auto align-self-end",
                             children: movie.genre
                         }, void 0, false, {
@@ -27720,9 +27720,9 @@ const MovieCard = ({ movie, isFavorite })=>{
                             columnNumber: 11
                         }, undefined),
                         isFav ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                            variant: "secondary",
+                            variant: "dark",
                             size: "sm",
-                            className: "text-danger ms-auto",
+                            className: "bg-dark text-danger ms-auto",
                             onClick: handleRemoveFromFavorites,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                 id: "favorited",
@@ -27737,9 +27737,9 @@ const MovieCard = ({ movie, isFavorite })=>{
                             lineNumber: 121,
                             columnNumber: 13
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                            variant: "light",
+                            variant: "success",
                             size: "sm",
-                            className: "text-danger ms-auto",
+                            className: "text-danger bg-light ms-auto",
                             onClick: handleAddToFavorites,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                 className: "bi bi-heart"
@@ -27756,6 +27756,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: `/movies/${encodeURIComponent(movie.id)}`,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                className: "bg-warning",
                                 size: "sm",
                                 variant: "info",
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
@@ -38078,7 +38079,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
         collapseOnSelect: true,
         expand: "lg",
         sticky: "top",
-        className: "bg-primary mb-2",
+        className: "navvie bg-primary mb-2",
         "data-bs-theme": "dark",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
             fluid: true,
@@ -38131,7 +38132,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                         as: (0, _reactRouterDom.Link),
                                         to: "/",
-                                        children: "Movies"
+                                        children: "See All of the Movies"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
                                         lineNumber: 32,
@@ -38147,6 +38148,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                        className: "highlight",
                                         onClick: onLoggedOut,
                                         children: "Logout"
                                     }, void 0, false, {

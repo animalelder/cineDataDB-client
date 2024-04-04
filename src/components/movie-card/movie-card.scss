@@ -1,10 +1,9 @@
-#favorited {
-  color: red;
+.card-container {
+  backdrop-filter: blur(20px);
 }
 
-.movie-title {
-  font-size: 1.5rem;
-  font-weight: bolder;
+#favorited {
+  color: red;
 }
 
 .card-img {
