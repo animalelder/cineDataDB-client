@@ -1,17 +1,16 @@
 img.detail-img {
-  max-height: 70vh;
   min-width: 400px;
   max-width: 50%;
 }
 
 .movie-details {
-  border: 2px solid #aaa;
   margin-top: 1vh;
   margin-bottom: 5rem;
   max-width: 95vw;
+  background-blend-mode: lighten;
 }
 
 .similar-movies {
   margin-top: 5rem;
-  max-width: 75vw;
+  max-width: 85vw;
 }

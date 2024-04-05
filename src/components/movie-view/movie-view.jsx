@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
@@ -16,8 +17,8 @@ export const MovieView = ({ movies }) => {
   const movie = movies.find((movie) => movie.id === movieId);
 
   return (
-    <Container>
-      <Container className="movie-details mb-5">
+    <Container fluid>
+      <Card className="movie-details bg-secondary mb-5 py-2">
         <Row className="mx-auto">
           <Link to={`/`}>
             <CloseButton className="float-end" />
@@ -27,7 +28,7 @@ export const MovieView = ({ movies }) => {
               fluid
               className="detail-img"
               src={movie.imagePath}
-              alt="Movie poster"
+              alt={`movie poster for ${movie.title}`}
             />
           </Col>
           <Col className="d-grid">
@@ -47,15 +48,18 @@ export const MovieView = ({ movies }) => {
             </Row>
           </Col>
         </Row>
-        <Container className="mx-auto similar-movies">
-          <ScrollTop />
-          <SimilarMovies
-            movieid={movie.id}
-            movies={movies}
-            genreSim={movie.genre}
-          />
-        </Container>
-      </Container>
+        <Card className="bg-info bg-opacity-75 mx-auto similar-movies">
+          <Card.Header className="bg-primary">Similar Movies</Card.Header>
+          <Card.Body>
+            <ScrollTop />
+            <SimilarMovies
+              movieid={movie.id}
+              movies={movies}
+              genreSim={movie.genre}
+            />
+          </Card.Body>
+        </Card>
+      </Card>
     </Container>
   );
 };

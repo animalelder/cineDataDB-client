@@ -8,7 +8,6 @@ import "./index.scss";
 // Main component (will eventually use all the others)
 const CineDataApp = () => {
   return (
-    // Can add red border for styling debug
     <Container fluid>
       <MainView />
     </Container>

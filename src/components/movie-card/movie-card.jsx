@@ -103,13 +103,18 @@ export const MovieCard = ({ movie, isFavorite }) => {
     >
       <Card.Body>
         <Card.Img
-          alt="movie poster"
+          alt={`movie poster for ${movie.title}`}
           className="card-img"
           src={movie.imagePath}
         />
 
-        <div id="title" className="d-grid text-center">
-          <Badge bg="secondary" size="sm" className="mt-1 movie-title">
+        <div className="d-grid text-center">
+          <Badge
+            id="title"
+            bg="secondary"
+            size="lg"
+            className="mt-1 text-muted"
+          >
             {movie.title}
           </Badge>
         </div>
@@ -149,8 +154,8 @@ export const MovieCard = ({ movie, isFavorite }) => {
           )}
           <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
             <Button
-              variant="outline-secondary"
-              className="bg-info text-light"
+              variant="outline-light"
+              className="bg-info text-secondary"
               size="sm"
             >
               <i className="bi bi-info-square-fill" />

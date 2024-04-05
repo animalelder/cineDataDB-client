@@ -17,20 +17,21 @@ export const SimilarMovies = ({ movieid, movies, genreSim }) => {
 
   return (
     <Row>
-      <Col>
-        <h3>Similar Movies</h3>
-      </Col>
-      <Row>
-        {genreMovies.map((movie) => {
-          return (
-            <Col className="mt-5" key={movie.id} xs={6} xl={4}>
-              <Link to={`/movies/${movie.id}`} />
+      {genreMovies.map((movie) => {
+        return (
+          <Col
+            className="mb-3 bg-opacity-75 text-center"
+            key={movie.id}
+            xs={6}
+            md={4}
+            xl={3}
+          >
+            <Link to={`/movies/${movie.id}`} />
 
-              <MovieCard movie={movie} />
-            </Col>
-          );
-        })}
-      </Row>
+            <MovieCard movie={movie} />
+          </Col>
+        );
+      })}
     </Row>
   );
 };

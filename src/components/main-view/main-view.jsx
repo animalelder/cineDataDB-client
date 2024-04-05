@@ -55,7 +55,7 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
-      <Row className="my-4 mx-2 justify-content-md-center">
+      <Row className="my-4 mx-1 justify-content-md-center">
         <Routes>
           <Route
             path="/signup"

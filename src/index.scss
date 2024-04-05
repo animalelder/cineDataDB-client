@@ -1,14 +1,17 @@
 // $primary: #2c3e50;
 // $secondary: #95a5a6;
-$primary: #e2649c;
-$danger: #f1184c;
-$info: #576ddd;
-$enable-shadows: true;
-$enable-rfs: true;
-$enable-grid-classes: true;
-$card-border-radius: 0.3rem;
+$primary: hsl(355, 63%, 51%);
+$danger: hsl(0, 100%, 45%);
+$info: hsl(197, 63%, 51%);
+$dark: hsl(196, 63%, 6%);
+// $info: hsl(187, 40%, 50%);
+
+// $enable-shadows: true;
+// $enable-rfs: true;
+// $enable-grid-classes: true;
+// $card-border-radius: 0.3rem;
 $card-inner-border-radius: 0.5rem;
-$btn-disabled-opacity: 0.8;
+// $btn-disabled-opacity: 0.8;
 
 // Import Bootstrap
 
