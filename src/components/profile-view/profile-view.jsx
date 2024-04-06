@@ -11,7 +11,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
   const [email, setEmail] = useState(storedUser.email);
   const [password, setPassword] = useState();
   const [birthdate, setBirthdate] = useState();
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(localUser);
   const favoriteMovies =
     user === undefined
       ? []
@@ -97,49 +97,39 @@ export const ProfileView = ({ localUser, movies, token }) => {
 
   useEffect(() => {
     if (!token) {
-      return;
+      return null;
     }
 
-    fetch("https://cine-data-db-04361cdbefbe.herokuapp.com/users", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
+    fetch(
+      `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
       },
-    })
+    )
       .then((response) => response.json())
       .then((data) => {
-        console.log("Users data: ", data);
-        const usersFromApi = data.map((queryUser) => {
-          return {
-            id: queryUser._id,
-            username: queryUser.username,
-            password: queryUser.password,
-            email: queryUser.email,
-            birthdate: queryUser.birthdate,
-            favoriteMovies: queryUser.favoriteMovies,
-          };
-        });
-        setUser(usersFromApi.find((u) => u.username === localUser.username));
+        setUser(data);
         //   localStorage.setItem('user', JSON.stringify(user));
-        console.log("Profile Saved User: " + JSON.stringify(user));
+        console.log("Profile Saved User: " + JSON.stringify(data));
         //   console.log("User Result Data: " + storedUser.username );
         //   storedUser = user;
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [user]);
+  }, [token]);
 
   return (
     <Container className="mx-auto">
       <Row>
-        <Card className="mb-5">
+        <Card className="mb-5 w-50">
+          <Card.Title as="h1">My Profile </Card.Title>
           <Card.Body>
-            <Card.Title>My Profile </Card.Title>
-            <Card.Text>
-              {user && <UserInfo name={user.username} email={user.email} />}
-            </Card.Text>
+            {user && <UserInfo name={user.username} email={user.email} />}
           </Card.Body>
         </Card>
         <Row>

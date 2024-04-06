@@ -14,7 +14,7 @@ export const UpdateUser = ({
   return (
     <Row>
       <Form onSubmit={handleSubmit}>
-        <h3>Update profile information</h3>
+        <h3>Update My User Information</h3>
         <Form.Group controlId="updateFormUsername">
           <FloatingLabel
             controlId="formUsername"

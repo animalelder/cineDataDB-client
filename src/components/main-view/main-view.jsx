@@ -42,6 +42,7 @@ export const MainView = () => {
           };
         });
         setMovies(moviesFromApi);
+        console.log("Set movies.");
       });
   }, [token]);
 
