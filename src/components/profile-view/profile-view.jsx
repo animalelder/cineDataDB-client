@@ -97,7 +97,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
 
   useEffect(() => {
     if (!token) {
-      return null;
+      return;
     }
 
     fetch(
@@ -124,35 +124,37 @@ export const ProfileView = ({ localUser, movies, token }) => {
   }, [token]);
 
   return (
-    <Container className="mx-auto">
+    <Container>
+      <Row className="mx-auto">
+        <Col>
+          <Card className="m-5 p-3">
+            <Card.Title as="h1">My Profile </Card.Title>
+            <Card.Body>
+              {user && <UserInfo name={user.username} email={user.email} />}
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
       <Row>
-        <Card className="mb-5 w-50">
-          <Card.Title as="h1">My Profile </Card.Title>
-          <Card.Body>
-            {user && <UserInfo name={user.username} email={user.email} />}
-          </Card.Body>
-        </Card>
-        <Row>
-          <Col className=" mb-5">
-            {favoriteMovies && (
-              <FavoriteMovies user={user} favoriteMovies={favoriteMovies} />
-            )}
-          </Col>
-        </Row>
-        <Row>
-          <Col className="mx-auto mb-5" xs={12} sm={6} md={8}>
-            <Card className="mb-5">
-              <Card.Body>
-                <UpdateUser
-                  formData={formData}
-                  handleUpdate={handleUpdate}
-                  handleSubmit={handleSubmit}
-                  handleDeleteAccount={handleDeleteAccount}
-                />
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+        <Col className=" mb-5">
+          {favoriteMovies && (
+            <FavoriteMovies user={user} favoriteMovies={favoriteMovies} />
+          )}
+        </Col>
+      </Row>
+      <Row>
+        <Col className="mx-auto mb-5" xs={12} sm={6} md={8}>
+          <Card className="mb-5">
+            <Card.Body>
+              <UpdateUser
+                formData={formData}
+                handleUpdate={handleUpdate}
+                handleSubmit={handleSubmit}
+                handleDeleteAccount={handleDeleteAccount}
+              />
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );

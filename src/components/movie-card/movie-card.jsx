@@ -14,9 +14,6 @@ export const MovieCard = ({ movie, isFavorite }) => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [isFav, setIsFav] = useState(isFavorite);
-  //const [addFav, setAddFav] = useState("");
-  //const [unFav, setUnFav] = useState("");
-  // const imagePath = movie.imagePath;
 
   useEffect(() => {
     setIsFav(user.favoriteMovies.includes(movie.id));

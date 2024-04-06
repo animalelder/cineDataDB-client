@@ -24,7 +24,6 @@ export const SimilarMovies = ({ movieid, movies, genreSim }) => {
             key={movie.id}
             xs={6}
             md={4}
-            xl={3}
           >
             <Link to={`/movies/${movie.id}`} />
 
