@@ -1,10 +1,17 @@
 // $primary: #2c3e50;
 // $secondary: #95a5a6;
-$primary: hsl(355, 63%, 51%);
-$danger: hsl(0, 100%, 45%);
-$info: hsl(197, 63%, 51%);
-$dark: hsl(196, 63%, 6%);
+$primary: #d13340;
+$secondary: #33d1c4;
+$danger: #bf0000;
+$info: #278fb8;
+$dark: #0e0915;
+
 // $info: hsl(187, 40%, 50%);
+
+// :focus {
+//   outline: none;
+//   box-shadow: 0 0 0 3px hsla(220, 100%, 50%, 80%);
+// }
 
 // $enable-shadows: true;
 // $enable-rfs: true;
