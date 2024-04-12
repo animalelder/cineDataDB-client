@@ -106,7 +106,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
         />
 
         <div className="d-grid text-center">
-          <Badge id="title" bg="secondary" className="mt-1 text-muted">
+          <Badge bg="secondary" className="mt-1 text-muted">
             {movie.title}
           </Badge>
         </div>

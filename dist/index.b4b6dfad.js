@@ -27689,7 +27689,6 @@ const MovieCard = ({ movie, isFavorite })=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "d-grid text-center",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _badgeDefault.default), {
-                            id: "title",
                             bg: "secondary",
                             className: "mt-1 text-muted",
                             children: movie.title
