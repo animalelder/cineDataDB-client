@@ -1,6 +1,6 @@
 img.detail-img {
   min-width: 400px;
-  max-width: 50%;
+  max-width: 48%;
   outline: hsla(27, 67%, 47%, 0.8);
   outline-style: ridge;
   outline-width: 1rem;
@@ -29,6 +29,7 @@ img.detail-img {
   right: 0;
   margin-right: 4.8vw;
   transform: scale(1.5);
+  z-index: 999;
 
   &:hover {
     transform: scale(2.5);

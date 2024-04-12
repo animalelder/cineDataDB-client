@@ -58,7 +58,9 @@ export const MovieView = ({ movies }) => {
           </Col>
         </Row>
         <Card className="bg-info bg-opacity-75 mx-auto similar-movies">
-          <Card.Header className="bg-primary">Similar Movies</Card.Header>
+          <Card.Header className="bg-primary text-center">
+            Similar Movies
+          </Card.Header>
           <Card.Body>
             <ScrollTop />
             <SimilarMovies

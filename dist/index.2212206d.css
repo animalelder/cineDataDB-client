@@ -699,7 +699,6 @@ progress {
   background-color: var(--bs-body-bg);
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
-  box-shadow: var(--bs-box-shadow-sm);
   max-width: 100%;
   height: auto;
   padding: .25rem;
@@ -2259,7 +2258,6 @@ progress {
   color: var(--bs-body-color);
   appearance: none;
   border-radius: var(--bs-border-radius);
-  box-shadow: var(--bs-box-shadow-inset);
   background-color: #0000;
   background-clip: padding-box;
   border: 1px solid #fff6;
@@ -2288,7 +2286,7 @@ progress {
 
 .form-control:focus {
   color: var(--bs-body-color);
-  box-shadow: var(--bs-box-shadow-inset), none;
+  box-shadow: none;
   background-color: #0000;
   border-color: #fff6;
   outline: 0;
@@ -2430,7 +2428,6 @@ textarea.form-control-lg {
   background-color: #0000;
   background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
   border-radius: var(--bs-border-radius);
-  box-shadow: var(--bs-box-shadow-inset);
   background-position: right 1.5rem center;
   background-repeat: no-repeat;
   background-size: 16px 12px;
@@ -2451,7 +2448,7 @@ textarea.form-control-lg {
 }
 
 .form-select:focus {
-  box-shadow: var(--bs-box-shadow-inset), none;
+  box-shadow: none;
   border-color: #fff6;
   outline: 0;
 }
@@ -2673,7 +2670,6 @@ textarea.form-control-lg {
   height: 1rem;
   margin-top: -.25rem;
   transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  box-shadow: 0 .1rem .25rem #0000001a;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2689,7 +2685,6 @@ textarea.form-control-lg {
 .form-range::-webkit-slider-runnable-track {
   color: #0000;
   cursor: pointer;
-  box-shadow: var(--bs-box-shadow-inset);
   background-color: #0003;
   border-color: #0000;
   border-radius: 1rem;
@@ -2705,7 +2700,6 @@ textarea.form-control-lg {
   width: 1rem;
   height: 1rem;
   transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  box-shadow: 0 .1rem .25rem #0000001a;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2721,7 +2715,6 @@ textarea.form-control-lg {
 .form-range::-moz-range-track {
   color: #0000;
   cursor: pointer;
-  box-shadow: var(--bs-box-shadow-inset);
   background-color: #0003;
   border-color: #0000;
   border-radius: 1rem;
@@ -2936,7 +2929,7 @@ textarea.form-control-lg {
 
 .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
   border-color: var(--bs-form-valid-border-color);
-  box-shadow: var(--bs-box-shadow-inset), 0 0 0 .25rem rgba(var(--bs-success-rgb), .25);
+  box-shadow: 0 0 0 .25rem rgba(var(--bs-success-rgb), .25);
 }
 
 .was-validated textarea.form-control:valid, textarea.form-control.is-valid {
@@ -2957,7 +2950,7 @@ textarea.form-control-lg {
 
 .was-validated .form-select:valid:focus, .form-select.is-valid:focus {
   border-color: var(--bs-form-valid-border-color);
-  box-shadow: var(--bs-box-shadow-inset), 0 0 0 .25rem rgba(var(--bs-success-rgb), .25);
+  box-shadow: 0 0 0 .25rem rgba(var(--bs-success-rgb), .25);
 }
 
 .was-validated .form-control-color:valid, .form-control-color.is-valid {
@@ -3025,7 +3018,7 @@ textarea.form-control-lg {
 
 .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
   border-color: var(--bs-form-invalid-border-color);
-  box-shadow: var(--bs-box-shadow-inset), 0 0 0 .25rem rgba(var(--bs-danger-rgb), .25);
+  box-shadow: 0 0 0 .25rem rgba(var(--bs-danger-rgb), .25);
 }
 
 .was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
@@ -3046,7 +3039,7 @@ textarea.form-control-lg {
 
 .was-validated .form-select:invalid:focus, .form-select.is-invalid:focus {
   border-color: var(--bs-form-invalid-border-color);
-  box-shadow: var(--bs-box-shadow-inset), 0 0 0 .25rem rgba(var(--bs-danger-rgb), .25);
+  box-shadow: 0 0 0 .25rem rgba(var(--bs-danger-rgb), .25);
 }
 
 .was-validated .form-control-color:invalid, .form-control-color.is-invalid {
@@ -3107,7 +3100,6 @@ textarea.form-control-lg {
   border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
   border-radius: var(--bs-btn-border-radius);
   background-color: var(--bs-btn-bg);
-  box-shadow: var(--bs-btn-box-shadow);
   text-decoration: none;
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   display: inline-block;
@@ -3135,13 +3127,13 @@ textarea.form-control-lg {
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);
   border-color: var(--bs-btn-hover-border-color);
-  box-shadow: var(--bs-btn-box-shadow), var(--bs-btn-focus-box-shadow);
+  box-shadow: var(--bs-btn-focus-box-shadow);
   outline: 0;
 }
 
 .btn-check:focus-visible + .btn {
   border-color: var(--bs-btn-hover-border-color);
-  box-shadow: var(--bs-btn-box-shadow), var(--bs-btn-focus-box-shadow);
+  box-shadow: var(--bs-btn-focus-box-shadow);
   outline: 0;
 }
 
@@ -3149,11 +3141,10 @@ textarea.form-control-lg {
   color: var(--bs-btn-active-color);
   background-color: var(--bs-btn-active-bg);
   border-color: var(--bs-btn-active-border-color);
-  box-shadow: var(--bs-btn-active-shadow);
 }
 
 .btn-check:checked + .btn:focus-visible, :not(.btn-check) + .btn:active:focus-visible, .btn:first-child:active:focus-visible, .btn.active:focus-visible, .btn.show:focus-visible, .btn-check:checked:focus-visible + .btn {
-  box-shadow: var(--bs-btn-active-shadow), var(--bs-btn-focus-box-shadow);
+  box-shadow: var(--bs-btn-focus-box-shadow);
 }
 
 .btn:disabled, .btn.disabled, fieldset:disabled .btn {
@@ -3162,7 +3153,6 @@ textarea.form-control-lg {
   background-color: var(--bs-btn-disabled-bg);
   border-color: var(--bs-btn-disabled-border-color);
   opacity: var(--bs-btn-disabled-opacity);
-  box-shadow: none;
 }
 
 .btn-primary {
@@ -3575,7 +3565,6 @@ textarea.form-control-lg {
   background-color: var(--bs-dropdown-bg);
   border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
   border-radius: var(--bs-dropdown-border-radius);
-  box-shadow: var(--bs-dropdown-box-shadow);
   background-clip: padding-box;
   margin: 0;
   list-style: none;
@@ -3927,14 +3916,6 @@ textarea.form-control-lg {
   padding-right: .75rem;
 }
 
-.btn-group.show .dropdown-toggle {
-  box-shadow: inset 0 3px 5px #00000020;
-}
-
-.btn-group.show .dropdown-toggle.btn-link {
-  box-shadow: none;
-}
-
 .btn-group-vertical {
   flex-direction: column;
   justify-content: center;
@@ -4263,7 +4244,6 @@ textarea.form-control-lg {
 
   .navbar-expand-sm .offcanvas {
     z-index: auto;
-    box-shadow: none;
     flex-grow: 1;
     transition: none;
     position: static;
@@ -4321,7 +4301,6 @@ textarea.form-control-lg {
 
   .navbar-expand-md .offcanvas {
     z-index: auto;
-    box-shadow: none;
     flex-grow: 1;
     transition: none;
     position: static;
@@ -4379,7 +4358,6 @@ textarea.form-control-lg {
 
   .navbar-expand-lg .offcanvas {
     z-index: auto;
-    box-shadow: none;
     flex-grow: 1;
     transition: none;
     position: static;
@@ -4437,7 +4415,6 @@ textarea.form-control-lg {
 
   .navbar-expand-xl .offcanvas {
     z-index: auto;
-    box-shadow: none;
     flex-grow: 1;
     transition: none;
     position: static;
@@ -4495,7 +4472,6 @@ textarea.form-control-lg {
 
   .navbar-expand-xxl .offcanvas {
     z-index: auto;
-    box-shadow: none;
     flex-grow: 1;
     transition: none;
     position: static;
@@ -4552,7 +4528,6 @@ textarea.form-control-lg {
 
 .navbar-expand .offcanvas {
   z-index: auto;
-  box-shadow: none;
   flex-grow: 1;
   transition: none;
   position: static;
@@ -4616,7 +4591,6 @@ textarea.form-control-lg {
   background-color: var(--bs-card-bg);
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
-  box-shadow: var(--bs-card-box-shadow);
   background-clip: border-box;
   flex-direction: column;
   min-width: 0;
@@ -5212,7 +5186,6 @@ textarea.form-control-lg {
   font-size: var(--bs-progress-font-size);
   background-color: var(--bs-progress-bg);
   border-radius: var(--bs-progress-border-radius);
-  box-shadow: var(--bs-progress-box-shadow);
   display: flex;
   overflow: hidden;
 }
@@ -5845,7 +5818,6 @@ textarea.form-control-lg {
   background-color: var(--bs-modal-bg);
   border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
   border-radius: var(--bs-modal-border-radius);
-  box-shadow: var(--bs-modal-box-shadow);
   background-clip: padding-box;
   outline: 0;
   flex-direction: column;
@@ -6229,7 +6201,6 @@ textarea.form-control-lg {
   background-color: var(--bs-popover-bg);
   border: var(--bs-popover-border-width) solid var(--bs-popover-border-color);
   border-radius: var(--bs-popover-border-radius);
-  box-shadow: var(--bs-popover-box-shadow);
   background-clip: padding-box;
   text-decoration: none;
   display: block;
@@ -6645,7 +6616,6 @@ textarea.form-control-lg {
     color: var(--bs-offcanvas-color);
     visibility: hidden;
     background-color: var(--bs-offcanvas-bg);
-    box-shadow: var(--bs-offcanvas-box-shadow);
     transition: var(--bs-offcanvas-transition);
     background-clip: padding-box;
     outline: 0;
@@ -6734,7 +6704,6 @@ textarea.form-control-lg {
     color: var(--bs-offcanvas-color);
     visibility: hidden;
     background-color: var(--bs-offcanvas-bg);
-    box-shadow: var(--bs-offcanvas-box-shadow);
     transition: var(--bs-offcanvas-transition);
     background-clip: padding-box;
     outline: 0;
@@ -6823,7 +6792,6 @@ textarea.form-control-lg {
     color: var(--bs-offcanvas-color);
     visibility: hidden;
     background-color: var(--bs-offcanvas-bg);
-    box-shadow: var(--bs-offcanvas-box-shadow);
     transition: var(--bs-offcanvas-transition);
     background-clip: padding-box;
     outline: 0;
@@ -6912,7 +6880,6 @@ textarea.form-control-lg {
     color: var(--bs-offcanvas-color);
     visibility: hidden;
     background-color: var(--bs-offcanvas-bg);
-    box-shadow: var(--bs-offcanvas-box-shadow);
     transition: var(--bs-offcanvas-transition);
     background-clip: padding-box;
     outline: 0;
@@ -7001,7 +6968,6 @@ textarea.form-control-lg {
     color: var(--bs-offcanvas-color);
     visibility: hidden;
     background-color: var(--bs-offcanvas-bg);
-    box-shadow: var(--bs-offcanvas-box-shadow);
     transition: var(--bs-offcanvas-transition);
     background-clip: padding-box;
     outline: 0;
@@ -7089,7 +7055,6 @@ textarea.form-control-lg {
   color: var(--bs-offcanvas-color);
   visibility: hidden;
   background-color: var(--bs-offcanvas-bg);
-  box-shadow: var(--bs-offcanvas-box-shadow);
   transition: var(--bs-offcanvas-transition);
   background-clip: padding-box;
   outline: 0;
@@ -13788,7 +13753,7 @@ body {
 img.detail-img {
   outline: 1rem ridge #c87028cc;
   min-width: 400px;
-  max-width: 50%;
+  max-width: 48%;
   margin: 2rem 1rem 1rem;
   box-shadow: 0 0 25px 21px #0053b9;
 }
@@ -13807,6 +13772,7 @@ img.detail-img {
 
 .close-button {
   float: right;
+  z-index: 999;
   margin-right: 4.8vw;
   position: fixed;
   right: 0;
