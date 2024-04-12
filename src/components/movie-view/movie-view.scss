@@ -18,6 +18,12 @@ img.detail-img {
   background-blend-mode: lighten;
 }
 
+.movie-title {
+  color: hsl(355, 63%, 40%);
+  font-weight: 800;
+  text-shadow: #000;
+}
+
 .similar-movies {
   margin-top: 5rem;
   max-width: 85vw;

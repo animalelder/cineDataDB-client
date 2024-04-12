@@ -13765,6 +13765,12 @@ img.detail-img {
   margin-bottom: 5rem;
 }
 
+.movie-title {
+  color: #a62630;
+  text-shadow: #000;
+  font-weight: 800;
+}
+
 .similar-movies {
   max-width: 85vw;
   margin-top: 5rem;

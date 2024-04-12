@@ -42,7 +42,7 @@ export const MovieView = ({ movies }) => {
           </Col>
           <Col className="d-grid">
             <Row className="align-items-start text-center">
-              <h1>{movie.title}</h1>
+              <h2 className="movie-title">{movie.title}</h2>
             </Row>
 
             <Row className="align-items-around">
