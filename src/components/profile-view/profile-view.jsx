@@ -10,7 +10,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
 
   const [username, setUsername] = useState(storedUser.username);
   const [email, setEmail] = useState(storedUser.email);
-  const [password, setPassword] = useState(null);
+  const [password, setPassword] = useState("");
   const [birthdate, setBirthdate] = useState(storedUser.birthdate);
   const [user, setUser] = useState(localUser);
   const favoriteMovies =
@@ -133,7 +133,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
       <Row className="text-center">
         <Col xs={12} md={6} className="mx-auto">
           <Card className=" m-4">
-            <Card.Header as="h2" className="bg-primary text-center">
+            <Card.Header as="h3" className="bg-primary text-center">
               Hi, {user.username}!
             </Card.Header>
             <Card.Body>
@@ -149,7 +149,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
         </Col>
         <Col className="mx-auto mb-5" xs={12} md={6}>
           <Card className="mb-5">
-            <Card.Header as="h2" className="bg-primary text-center">
+            <Card.Header as="h3" className="bg-primary text-center">
               Update Account
             </Card.Header>
             <Card.Body>

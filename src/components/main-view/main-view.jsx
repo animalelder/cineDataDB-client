@@ -25,7 +25,13 @@ export const MainView = () => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.log("Error fetching movies.");
+        }
+      })
       .then((data) => {
         const moviesFromApi = data.map((movie) => {
           return {
