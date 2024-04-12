@@ -13,7 +13,6 @@ export const UpdateUser = ({
   return (
     <Row>
       <Form onSubmit={handleSubmit}>
-        <h3>Update My User Information</h3>
         <Form.Group controlId="updateFormUsername">
           <FloatingLabel
             controlId="formUsername"
@@ -82,17 +81,12 @@ export const UpdateUser = ({
           </FloatingLabel>
         </Form.Group>
         <Row>
-          <ButtonGroup>
-            <Button variant="success" type="submit">
-              UPDATE INFO
-            </Button>
-            <Button variant="light" disabled>
-              OR
-            </Button>
-            <Button onClick={() => handleDeleteAccount()} variant="danger">
-              DELETE ACCOUNT
-            </Button>
-          </ButtonGroup>
+          <Button className="mb-2" variant="light" type="submit">
+            UPDATE INFO
+          </Button>
+          <Button onClick={() => handleDeleteAccount()} variant="danger">
+            DELETE ACCOUNT
+          </Button>
         </Row>
       </Form>
     </Row>

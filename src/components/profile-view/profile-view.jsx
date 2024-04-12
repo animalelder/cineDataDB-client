@@ -10,7 +10,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
 
   const [username, setUsername] = useState(storedUser.username);
   const [email, setEmail] = useState(storedUser.email);
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState(null);
   const [birthdate, setBirthdate] = useState(storedUser.birthdate);
   const [user, setUser] = useState(localUser);
   const favoriteMovies =
@@ -130,11 +130,11 @@ export const ProfileView = ({ localUser, movies, token }) => {
 
   return (
     <Container className="mx-auto">
-      <Row>
-        <Col>
-          <Card className="w-75 m-4">
+      <Row className="text-center">
+        <Col xs={12} md={6} className="mx-auto">
+          <Card className=" m-4">
             <Card.Header as="h2" className="bg-primary text-center">
-              User Info for <em>{user.username}</em>
+              Hi, {user.username}!
             </Card.Header>
             <Card.Body>
               {user && (
@@ -144,6 +144,21 @@ export const ProfileView = ({ localUser, movies, token }) => {
                   birthdate={formData.birthdate}
                 />
               )}
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col className="mx-auto mb-5" xs={12} md={6}>
+          <Card className="mb-5">
+            <Card.Header as="h2" className="bg-primary text-center">
+              Update Account
+            </Card.Header>
+            <Card.Body>
+              <UpdateUser
+                formData={formData}
+                handleUpdate={handleUpdate}
+                handleSubmit={handleSubmit}
+                handleDeleteAccount={handleDeleteAccount}
+              />
             </Card.Body>
           </Card>
         </Col>
@@ -158,20 +173,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
           )}
         </Col>
       </Card>
-      <Row>
-        <Col className="mx-auto mb-5" xs={12} sm={6} md={8}>
-          <Card className="mb-5">
-            <Card.Body>
-              <UpdateUser
-                formData={formData}
-                handleUpdate={handleUpdate}
-                handleSubmit={handleSubmit}
-                handleDeleteAccount={handleDeleteAccount}
-              />
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      <Row></Row>
     </Container>
   );
 };

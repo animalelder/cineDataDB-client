@@ -1,10 +1,14 @@
 img.detail-img {
   min-width: 400px;
   max-width: 50%;
-  outline: hsla(27, 67%, 47%, 0.7);
+  outline: hsla(27, 67%, 47%, 0.8);
   outline-style: ridge;
   outline-width: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  box-shadow: 0px 0px 25px 21px #0053b9;
 }
 
 .movie-details {
@@ -23,7 +27,7 @@ img.detail-img {
   position: fixed;
   float: right;
   right: 0;
-  margin-right: 4.3vw;
+  margin-right: 4.8vw;
   transform: scale(1.5);
 
   &:hover {
