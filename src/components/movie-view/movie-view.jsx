@@ -8,21 +8,30 @@ import Image from "react-bootstrap/Image";
 import CloseButton from "react-bootstrap/CloseButton";
 import { SimilarMovies } from "./similar-movies";
 import { ScrollTop } from "../navigation-bar/scroll-top";
+import { useNavigate } from "react-router-dom";
 
 import "./movie-view.scss";
 
 export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
+  const navigate = useNavigate();
 
   const movie = movies.find((movie) => movie.id === movieId);
 
   return (
     <Container fluid>
       <Card className="movie-details bg-secondary mb-5 py-2">
+        <Row className="d-grid align-content-end">
+          <CloseButton
+            className="close-button float-end"
+            onClick={() => navigate(-1)}
+          />
+        </Row>
         <Row className="mx-auto">
-          <Link to={`/`}>
-            <CloseButton className="float-end" />
-          </Link>
+          {/* This is where it would be nice to have a back button to go back to
+          the main view. 
+        onClick={() => navigate(-1)} */}
+
           <Col className="text-center">
             <Image
               fluid

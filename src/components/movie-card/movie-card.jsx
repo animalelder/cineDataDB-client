@@ -106,12 +106,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
         />
 
         <div className="d-grid text-center">
-          <Badge
-            id="title"
-            bg="secondary"
-            size="lg"
-            className="mt-1 text-muted"
-          >
+          <Badge id="title" bg="secondary" className="mt-1 text-muted">
             {movie.title}
           </Badge>
         </div>
@@ -134,27 +129,33 @@ export const MovieCard = ({ movie, isFavorite }) => {
             <Button
               variant="outline-danger"
               size="sm"
-              className="bg-light text-danger ms-auto"
+              className="card-btn bg-light text-danger ms-auto"
               onClick={handleRemoveFromFavorites}
             >
+              {" "}
+              ♥️
               <i id="favorited" className="bi bi-heart-fill" />
             </Button>
           ) : (
             <Button
-              variant="outline-secondary"
+              variant="outline-danger"
               size="sm"
-              className="text-danger bg-light ms-auto"
+              className="card-btn text-danger bg-light ms-auto"
               onClick={handleAddToFavorites}
             >
+              {" "}
+              🤍❓
               <i className="bi bi-heart" />
             </Button>
           )}
           <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
             <Button
-              variant="outline-light"
-              className="bg-info text-secondary"
+              variant="outline-secondary"
+              className="bg-light text-secondary"
               size="sm"
             >
+              {" "}
+              ℹ️
               <i className="bi bi-info-square-fill" />
             </Button>
           </Link>

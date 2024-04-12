@@ -12,6 +12,7 @@
 //   opacity: 1;
 //   backdrop-filter: blur(1px);
 // }
+@import url("https:; //cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 #favorited {
   color: red;
@@ -23,6 +24,17 @@
 
 .card-img {
   border: 0.5rem solid white;
+}
+
+.card-btn {
+  box-sizing: border-box;
+  box-shadow:
+    rgba(48, 31, 71, 0.047) 0px 0.325px 0.675px 0px,
+    rgba(48, 31, 71, 0.067) 0px 0.75px 1.725px 0px,
+    rgba(48, 31, 71, 0.082) 0px 1.65px 3.55px 0px,
+    rgba(48, 31, 71, 0.1) 0px 3.375px 7.3px 0px,
+    rgba(48, 31, 71, 0.15) 0px 9.25px 20px 0px;
+  text-shadow: rgba(19, 134, 77, 0.25) 0px 2px 4px;
 }
 
 // .btn {

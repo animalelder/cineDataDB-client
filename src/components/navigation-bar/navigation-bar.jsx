@@ -1,5 +1,7 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Image } from "react-bootstrap";
+import logoImage from "../img/triangle.svg";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
@@ -12,11 +14,12 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
     >
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
-          cineDataDB
+          <Image src={logoImage} className="p-0 m-0" />
+          cineData
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="ms-auto">
             {!user && (
               <>
                 <Nav.Link as={Link} to="/login">

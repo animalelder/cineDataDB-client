@@ -3,6 +3,7 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { UserInfo } from "./user-info";
 import { FavoriteMovies } from "./favorite-movies";
 import { UpdateUser } from "./update-user";
+import formatDateForUser from "./format-date";
 
 export const ProfileView = ({ localUser, movies, token }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -10,7 +11,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
   const [username, setUsername] = useState(storedUser.username);
   const [email, setEmail] = useState(storedUser.email);
   const [password, setPassword] = useState();
-  const [birthdate, setBirthdate] = useState();
+  const [birthdate, setBirthdate] = useState(storedUser.birthdate);
   const [user, setUser] = useState(localUser);
   const favoriteMovies =
     user === undefined
@@ -20,7 +21,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
   const formData = {
     username: username,
     email: email,
-    birthdate: birthdate,
+    birthdate: formatDateForUser(birthdate),
     password: password,
   };
 
@@ -96,7 +97,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
   };
 
   useEffect(() => {
-    if (!token) {
+    if (token) {
       return;
     }
 
@@ -112,11 +113,13 @@ export const ProfileView = ({ localUser, movies, token }) => {
     )
       .then((response) => response.json())
       .then((data) => {
+        JSON.stringify(data);
         setUser(data);
         //   localStorage.setItem('user', JSON.stringify(user));
         console.log("Profile Saved User: " + JSON.stringify(data));
         //   console.log("User Result Data: " + storedUser.username );
         //   storedUser = user;
+        console.log(user.birthdate);
       })
       .catch((error) => {
         console.error(error);
@@ -127,21 +130,32 @@ export const ProfileView = ({ localUser, movies, token }) => {
     <Container>
       <Row className="mx-auto">
         <Col>
-          <Card className="m-5 p-3">
-            <Card.Title as="h1">My Profile </Card.Title>
+          <Card className="w-75 m-4">
+            <Card.Header as="h2" className="bg-primary text-center">
+              User Info for {user.username}
+            </Card.Header>
             <Card.Body>
-              {user && <UserInfo name={user.username} email={user.email} />}
+              {user && (
+                <UserInfo
+                  name={user.username}
+                  email={user.email}
+                  birthdate={formData.birthdate}
+                />
+              )}
             </Card.Body>
           </Card>
         </Col>
       </Row>
-      <Row>
-        <Col className=" mb-5">
+      <Card className="mb-3 bg-info bg-opacity-75 text-center">
+        <Card.Header className="bg-primary mb-2" as="h2">
+          My Favorite Movies
+        </Card.Header>
+        <Col className=" mb-1 p-2">
           {favoriteMovies && (
             <FavoriteMovies user={user} favoriteMovies={favoriteMovies} />
           )}
         </Col>
-      </Row>
+      </Card>
       <Row>
         <Col className="mx-auto mb-5" xs={12} sm={6} md={8}>
           <Card className="mb-5">

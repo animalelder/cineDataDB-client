@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Form from "react-bootstrap/Form";
@@ -48,7 +47,7 @@ export const UpdateUser = ({
               required
             />
             <Form.Text id="passwordHelpBlock" muted>
-              No spaces or special characters.
+              Enter current password or set a new password.
             </Form.Text>
           </FloatingLabel>
         </Form.Group>
@@ -76,7 +75,7 @@ export const UpdateUser = ({
             <Form.Control
               type="date"
               value={formData.birthdate}
-              placeholder="12/25/1999"
+              placeholder="1999/12/25"
               onChange={(e) => handleUpdate(e)}
               required
             />
