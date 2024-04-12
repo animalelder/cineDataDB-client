@@ -9,7 +9,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
       collapseOnSelect
       expand="lg"
       sticky="top"
-      className="bg-primary text-light mb-2"
+      className="bg-primary text-light mb-4"
       data-bs-theme="dark"
     >
       <Container fluid>

@@ -1,6 +1,10 @@
 img.detail-img {
   min-width: 400px;
   max-width: 50%;
+  outline: hsla(27, 67%, 47%, 0.7);
+  outline-style: ridge;
+  outline-width: 1rem;
+  margin-top: 1rem;
 }
 
 .movie-details {
@@ -19,5 +23,10 @@ img.detail-img {
   position: fixed;
   float: right;
   right: 0;
-  margin-right: 4.5vw;
+  margin-right: 4.3vw;
+  transform: scale(1.5);
+
+  &:hover {
+    transform: scale(2.5);
+  }
 }

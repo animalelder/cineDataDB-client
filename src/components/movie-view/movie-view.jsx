@@ -20,7 +20,7 @@ export const MovieView = ({ movies }) => {
 
   return (
     <Container fluid>
-      <Card className="movie-details bg-secondary mb-5 py-2">
+      <Card className="movie-details bg-secondary mb-5 p-2">
         <Row className="d-grid align-content-end">
           <CloseButton
             className="close-button float-end"

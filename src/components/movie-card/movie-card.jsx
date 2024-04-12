@@ -132,31 +132,25 @@ export const MovieCard = ({ movie, isFavorite }) => {
               className="card-btn bg-light text-danger ms-auto"
               onClick={handleRemoveFromFavorites}
             >
-              {" "}
               ♥️
-              <i id="favorited" className="bi bi-heart-fill" />
             </Button>
           ) : (
             <Button
-              variant="outline-danger"
+              variant="outline-info"
               size="sm"
-              className="card-btn text-danger bg-light ms-auto"
+              className="card-btn text-danger bg-info ms-auto"
               onClick={handleAddToFavorites}
             >
-              {" "}
-              🤍❓
-              <i className="bi bi-heart" />
+              🤍
             </Button>
           )}
           <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
             <Button
-              variant="outline-secondary"
+              variant="outline-light"
               className="bg-light text-secondary"
               size="sm"
             >
-              {" "}
               ℹ️
-              <i className="bi bi-info-square-fill" />
             </Button>
           </Link>
         </Stack>

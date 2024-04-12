@@ -88,6 +88,8 @@ export const ProfileView = ({ localUser, movies, token }) => {
     ).then((response) => {
       if (response.ok) {
         alert("Account deleted successfully.");
+        setUser(null);
+        setToken(null);
         localStorage.clear();
         window.location.reload();
       } else {
@@ -127,12 +129,12 @@ export const ProfileView = ({ localUser, movies, token }) => {
   }, [token]);
 
   return (
-    <Container>
-      <Row className="mx-auto">
+    <Container className="mx-auto">
+      <Row>
         <Col>
           <Card className="w-75 m-4">
             <Card.Header as="h2" className="bg-primary text-center">
-              User Info for {user.username}
+              User Info for <em>{user.username}</em>
             </Card.Header>
             <Card.Body>
               {user && (
