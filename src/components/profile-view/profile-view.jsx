@@ -3,7 +3,6 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { UserInfo } from "./user-info";
 import { FavoriteMovies } from "./favorite-movies";
 import { UpdateUser } from "./update-user";
-import formatDateForUser from "./format-date";
 
 export const ProfileView = ({ localUser, movies, token }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -21,7 +20,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
   const formData = {
     username: username,
     email: email,
-    birthdate: formatDateForUser(birthdate),
+    birthdate: birthdate,
     password: password,
   };
 
@@ -115,7 +114,6 @@ export const ProfileView = ({ localUser, movies, token }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        JSON.stringify(data);
         setUser(data);
         //   localStorage.setItem('user', JSON.stringify(user));
         console.log("Profile Saved User: " + JSON.stringify(data));
@@ -137,13 +135,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
               Hi, {user.username}!
             </Card.Header>
             <Card.Body>
-              {user && (
-                <UserInfo
-                  name={user.username}
-                  email={user.email}
-                  birthdate={formData.birthdate}
-                />
-              )}
+              {user && <UserInfo name={user.username} email={user.email} />}
             </Card.Body>
           </Card>
         </Col>

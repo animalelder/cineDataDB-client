@@ -1,5 +1,4 @@
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
@@ -74,7 +73,7 @@ export const UpdateUser = ({
             <Form.Control
               type="date"
               value={formData.birthdate}
-              placeholder="1999/12/25"
+              placeholder="1999-03-14"
               onChange={(e) => handleUpdate(e)}
               required
             />

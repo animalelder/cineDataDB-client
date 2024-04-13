@@ -13793,4 +13793,12 @@ dt {
   color: #1522ad;
   font-size: 1.5rem;
 }
+
+.searchBar {
+  width: 50rem;
+  max-width: 75vw;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 /*# sourceMappingURL=index.2212206d.css.map */
