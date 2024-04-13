@@ -2,7 +2,16 @@
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
-  width: 50rem;
+  width: 40rem;
   max-width: 75vw;
-  //inset: 0;
+  border: 0.25rem hsla(0, 0%, 100%, 0.5) solid;
+  background-color: hsla(0, 0%, 100%, 0.22);
+  background-blend-mode: lighten;
+  backdrop-filter: blur(20px);
+}
+
+.searchBar:focus {
+  background-color: hsla(0, 0%, 100%, 0.33);
+  border: 0.29rem hsla(0, 0%, 100%, 0.9) solid;
+  backdrop-filter: blur(10px);
 }

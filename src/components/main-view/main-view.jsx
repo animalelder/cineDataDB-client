@@ -146,13 +146,23 @@ export const MainView = () => {
                 ) : (
                   <>
                     <Container className="w-100 text-center">
-                      <input
+                      {/* <input
                         type="text"
                         value={searchTerm}
                         onChange={handleSearch}
                         placeholder="Search the films on cineData..."
                         className="searchBar"
-                      />
+                      /> */}
+                      <Form className="d-flex">
+                        <Form.Control
+                          type="search"
+                          value={searchTerm}
+                          onChange={handleSearch}
+                          placeholder="Search the films on cineData..."
+                          className="searchBar"
+                          aria-label="Search"
+                        />
+                      </Form>
                     </Container>
                     {filteredMovies.map((movie) => (
                       <Col

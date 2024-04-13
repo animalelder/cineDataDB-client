@@ -13795,10 +13795,20 @@ dt {
 }
 
 .searchBar {
-  width: 50rem;
+  background-blend-mode: lighten;
+  backdrop-filter: blur(20px);
+  background-color: #ffffff38;
+  border: .25rem solid #ffffff80;
+  width: 40rem;
   max-width: 75vw;
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.searchBar:focus {
+  backdrop-filter: blur(10px);
+  background-color: #ffffff54;
+  border: .29rem solid #ffffffe6;
 }
 /*# sourceMappingURL=index.2212206d.css.map */
