@@ -1,6 +1,5 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Image } from "react-bootstrap";
 import logoImage from "../img/triangle.svg";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {

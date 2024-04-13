@@ -1,12 +1,7 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Stack from "react-bootstrap/Stack";
-import Badge from "react-bootstrap/Badge";
+import { Card, Button, Stack, Badge } from "react-bootstrap";
 
 export const MovieCard = ({ movie, isFavorite }) => {
   const storedToken = localStorage.getItem("token");

@@ -1,5 +1,3 @@
-import React from "react";
-
 export const UserInfo = ({ email, name }) => {
   return (
     <dl>

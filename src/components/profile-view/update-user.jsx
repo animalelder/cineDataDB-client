@@ -1,7 +1,4 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+import { Button, Form, Row, FloatingLabel } from "react-bootstrap";
 
 export const UpdateUser = ({
   formData,
@@ -22,6 +19,8 @@ export const UpdateUser = ({
               type="text"
               value={formData.username}
               placeholder="Username"
+              label="Change Username"
+              name="username-field"
               onChange={(e) => handleUpdate(e)}
               required
               minLength="5"
@@ -39,8 +38,10 @@ export const UpdateUser = ({
           >
             <Form.Control
               type="password"
+              label="Change Password"
               placeholder="Password"
               value={formData.password}
+              name="password-field"
               onChange={(e) => handleUpdate(e)}
               required
             />
@@ -57,7 +58,9 @@ export const UpdateUser = ({
           >
             <Form.Control
               type="email"
+              label="Change Email Address"
               placeholder="name@example.com"
+              name="email-field"
               value={formData.email}
               onChange={(e) => handleUpdate(e)}
               required
@@ -72,7 +75,9 @@ export const UpdateUser = ({
           >
             <Form.Control
               type="date"
+              label="Date of Birth"
               value={formData.birthdate}
+              name="user-birthdate"
               placeholder="1999-03-14"
               onChange={(e) => handleUpdate(e)}
               required

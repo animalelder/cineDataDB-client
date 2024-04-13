@@ -6,10 +6,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import { Form } from "react-bootstrap";
+import { Form, Row, Col, Container } from "react-bootstrap";
 import { debounce } from "lodash";
 import "./main-view.scss";
 
@@ -74,7 +71,7 @@ export const MainView = () => {
       movie.title.toLowerCase().includes(searchTerm.toLowerCase()),
     );
     setFilteredMovies(filteredMovies);
-  }, 300);
+  }, 350);
 
   return (
     <BrowserRouter>
@@ -146,22 +143,18 @@ export const MainView = () => {
                 ) : (
                   <>
                     <Container className="w-100 text-center">
-                      {/* <input
-                        type="text"
-                        value={searchTerm}
-                        onChange={handleSearch}
-                        placeholder="Search the films on cineData..."
-                        className="searchBar"
-                      /> */}
                       <Form className="d-flex">
-                        <Form.Control
-                          type="search"
-                          value={searchTerm}
-                          onChange={handleSearch}
-                          placeholder="Search the films on cineData..."
-                          className="searchBar"
-                          aria-label="Search"
-                        />
+                        <>
+                          <Form.Control
+                            type="search"
+                            name="movie-search"
+                            value={searchTerm}
+                            onChange={handleSearch}
+                            placeholder="Search the films on cineData..."
+                            className="searchBar"
+                            aria-label="Search"
+                          />
+                        </>
                       </Form>
                     </Container>
                     {filteredMovies.map((movie) => (

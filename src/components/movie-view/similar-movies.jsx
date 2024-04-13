@@ -1,8 +1,6 @@
-import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { MovieCard } from "../movie-card/movie-card";
-import { Link } from "react-router-dom";
 
 export const SimilarMovies = ({ movieid, movies, genreSim }) => {
   const genreMovies = movies.filter((m) => {
