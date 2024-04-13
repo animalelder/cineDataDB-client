@@ -24,6 +24,7 @@ export const MovieView = ({ movies }) => {
         <Row className="d-grid align-content-end">
           <CloseButton
             className="close-button float-end"
+            role="navigation"
             onClick={() => navigate(-1)}
           />
         </Row>
@@ -40,12 +41,12 @@ export const MovieView = ({ movies }) => {
               alt={`movie poster for ${movie.title}`}
             />
           </Col>
-          <Col className="d-grid">
+          <Col xs={12} lg={6} className="d-grid">
             <Row className="align-items-start text-center">
               <h2 className="movie-title">{movie.title}</h2>
             </Row>
 
-            <Row className="align-items-around">
+            <Row className="align-middle">
               <dl>
                 <dt>Description: </dt>
                 <dd>{movie.description}</dd>

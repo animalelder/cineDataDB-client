@@ -13766,8 +13766,9 @@ img.detail-img {
 }
 
 .movie-title {
-  color: #a62630;
-  text-shadow: #000;
+  color: #d13340;
+  text-shadow: 0 .125rem .25rem #001919b9;
+  letter-spacing: .025rem;
   font-weight: 800;
 }
 
@@ -13779,18 +13780,23 @@ img.detail-img {
 .close-button {
   float: right;
   z-index: 999;
+  background-blend-mode: lighten;
+  background-color: #fff3;
   margin-right: 5rem;
   position: fixed;
   right: 0;
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 .close-button:hover {
-  transform: scale(2.5);
+  background-color: #ffffffba;
+  transform: scale(1.9);
 }
 
 dt {
-  color: #1522ad;
+  color: #2735d2;
+  text-shadow: .125rem .125rem .25rem #34101080;
+  letter-spacing: .025rem;
   font-size: 1.5rem;
 }
 
