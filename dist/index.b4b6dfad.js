@@ -42165,14 +42165,14 @@ const SignupView = ()=>{
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)("");
-    const [birthday, setBirthday] = (0, _react.useState)("");
+    const [birthdate, setBirthdate] = (0, _react.useState)("");
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
             username: username,
             password: password,
             email: email,
-            birthDate: birthday
+            birthdate: birthdate
         };
         fetch("https://cine-data-db-04361cdbefbe.herokuapp.com/users", {
             method: "POST",
@@ -42321,9 +42321,9 @@ const SignupView = ()=>{
                                         className: "mb-3",
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                             type: "date",
-                                            value: birthday,
+                                            value: birthdate,
                                             placeholder: "12/25/1999",
-                                            onChange: (e)=>setBirthday(e.target.value),
+                                            onChange: (e)=>setBirthdate(e.target.value),
                                             required: true
                                         }, void 0, false, {
                                             fileName: "src/components/signup-view/signup-view.jsx",
@@ -42385,7 +42385,7 @@ const SignupView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(SignupView, "jsOQN3GC2XlBG9ITlzCdpyJOnso=");
+_s(SignupView, "RIZRq4jE1cgzcLOHGIpSeTDhd80=");
 _c = SignupView;
 var _c;
 $RefreshReg$(_c, "SignupView");

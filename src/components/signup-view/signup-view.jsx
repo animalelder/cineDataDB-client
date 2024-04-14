@@ -5,7 +5,7 @@ export const SignupView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
+  const [birthdate, setBirthdate] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,7 +14,7 @@ export const SignupView = () => {
       username: username,
       password: password,
       email: email,
-      birthDate: birthday,
+      birthdate: birthdate,
     };
 
     fetch("https://cine-data-db-04361cdbefbe.herokuapp.com/users", {
@@ -102,9 +102,9 @@ export const SignupView = () => {
                 >
                   <Form.Control
                     type="date"
-                    value={birthday}
+                    value={birthdate}
                     placeholder="12/25/1999"
-                    onChange={(e) => setBirthday(e.target.value)}
+                    onChange={(e) => setBirthdate(e.target.value)}
                     required
                   />
                 </FloatingLabel>
