@@ -22,7 +22,16 @@
   cursor: zoom-in;
 }
 
+.movie-card {
+  aspect-ratio: 16 / 10;
+}
 // .btn {
 //   position: absolute;
 //   bottom: 1em;
 // }
+
+.movie-card-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  text-shadow: #360000 0.125rem 0.125rem 0.25rem;
+}

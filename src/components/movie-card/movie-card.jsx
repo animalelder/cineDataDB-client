@@ -91,7 +91,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
   return (
     <Card
       border="light"
-      className="bg-secondary card-container shadow-lg h-100"
+      className="movie-card bg-secondary card-container shadow-lg h-100"
     >
       <Card.Body>
         <Card.Img
@@ -101,9 +101,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
         />
 
         <div className="d-grid text-center">
-          <Badge bg="secondary" className="mt-1 text-muted">
-            {movie.title}
-          </Badge>
+          <span className="mt-1 movie-card-title">{movie.title}</span>
         </div>
         {/* <Card.Text as="span" className="align-bottom"></Card.Text> */}
       </Card.Body>

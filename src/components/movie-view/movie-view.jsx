@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -21,12 +22,15 @@ export const MovieView = ({ movies }) => {
   return (
     <Container fluid>
       <Card className="movie-details bg-secondary mb-5 p-2">
-        <Row className="d-grid align-content-end">
-          <CloseButton
-            className="close-button float-end"
+        <Row className="d-grid align-items-end">
+          <Button
+            size="sm"
+            className="float-end bg-info close-button"
             role="navigation"
             onClick={() => navigate(-1)}
-          />
+          >
+            GO BACK
+          </Button>
         </Row>
         <Row className="mx-auto">
           {/* This is where it would be nice to have a back button to go back to

@@ -13760,9 +13760,11 @@ img.detail-img {
 
 .movie-details {
   background-blend-mode: lighten;
+  min-width: 510px;
   max-width: 95vw;
   margin-top: 1vh;
   margin-bottom: 5rem;
+  margin-left: auto;
 }
 
 .movie-title {
@@ -13778,20 +13780,19 @@ img.detail-img {
 }
 
 .close-button {
-  float: right;
-  z-index: 999;
-  background-blend-mode: lighten;
-  background-color: #fff3;
-  margin-right: 1.8vw;
-  position: fixed;
-  top: 8vw;
-  right: 0;
-  transform: scale(1.2);
+  grid-column-start: 40;
+  width: 10rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  font-weight: 800;
+  display: grid;
+  position: relative;
+  transform: scale(.8);
 }
 
 .close-button:hover {
   background-color: #ffffffba;
-  transform: scale(1.9);
+  transform: scale(1);
 }
 
 dt {

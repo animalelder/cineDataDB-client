@@ -67,8 +67,10 @@ export const MainView = () => {
   };
 
   const debouncedSearch = debounce((searchTerm) => {
-    const filteredMovies = movies.filter((movie) =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    const filteredMovies = movies.filter(
+      (movie) =>
+        movie.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase()),
     );
     setFilteredMovies(filteredMovies);
   }, 350);
