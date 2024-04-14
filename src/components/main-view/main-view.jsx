@@ -26,8 +26,6 @@ export const MainView = () => {
 
     fetch("https://cine-data-db-04361cdbefbe.herokuapp.com/movies", {
       method: "GET",
-      mode: "cors",
-      cache: "no-cache",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",

@@ -10,17 +10,6 @@ export const MovieCard = ({ movie, isFavorite }) => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [isFav, setIsFav] = useState(isFavorite);
 
-  useEffect(() => {
-    setIsFav(user.favoriteMovies.includes(movie.id));
-  }, [isFav, user]);
-
-  const handleAddToFavorites = () => {
-    addToFavorites(movie.id);
-  };
-  const handleRemoveFromFavorites = () => {
-    removeFromFavorites(movie.id);
-  };
-
   const addToFavorites = () => {
     fetch(
       `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${
@@ -52,7 +41,6 @@ export const MovieCard = ({ movie, isFavorite }) => {
       .catch((error) => {
         console.error(error);
       });
-    //return setIsFav(true);
   };
 
   const removeFromFavorites = () => {
@@ -85,7 +73,19 @@ export const MovieCard = ({ movie, isFavorite }) => {
       .catch((error) => {
         console.error(error);
       });
-    //return setIsFav(false);
+  };
+
+  useEffect(() => {
+    setIsFav(user.favoriteMovies.includes(movie.id));
+  }, [isFav, user]);
+
+  const handleAddToFavorites = () => {
+    addToFavorites(movie.id);
+    setIsFav(!isFav);
+  };
+  const handleRemoveFromFavorites = () => {
+    removeFromFavorites(movie.id);
+    setIsFav(!isFav);
   };
 
   return (
@@ -156,6 +156,7 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     imagePath: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,

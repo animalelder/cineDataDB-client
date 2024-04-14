@@ -21,7 +21,12 @@ export const UpdateUser = ({
               placeholder="Username"
               label="Change Username"
               name="username-field"
-              onChange={(e) => handleUpdate(e)}
+              onChange={(e) =>
+                setFormData((prevUser) => ({
+                  ...prevUser,
+                  username: e.target.value,
+                }))
+              }
               required
               minLength="5"
             />

@@ -13812,6 +13812,10 @@ dt {
   font-weight: 600;
 }
 
+.sim-card {
+  min-width: 300px;
+}
+
 .searchBar {
   background-blend-mode: lighten;
   backdrop-filter: blur(20px);

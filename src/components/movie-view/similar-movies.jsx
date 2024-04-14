@@ -18,7 +18,7 @@ export const SimilarMovies = ({ movieid, movies, genreSim }) => {
       {genreMovies.map((movie) => {
         return (
           <Col
-            className="mb-2 bg-opacity-75 text-center"
+            className="sim-card mb-2 bg-opacity-75 text-center"
             key={movie.id}
             xs={12}
             sm={6}
