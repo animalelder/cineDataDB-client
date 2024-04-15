@@ -3,13 +3,14 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { UserInfo } from "./user-info";
 import { FavoriteMovies } from "./favorite-movies";
 import { Button, Form, FloatingLabel } from "react-bootstrap";
+import "./profile-view.scss";
 
-export const ProfileView = ({ localUser, movies, userToken }) => {
+export const ProfileView = ({ localUser, movies, token }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
-  const [token, setToken] = useState(userToken);
+  const [uToken, setUToken] = useState(token);
   const [user, setUser] = useState(localUser);
-  const userUrl = `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`;
+  const userUrl = `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${localUser.username}`;
   const favoriteMovies =
     user === undefined
       ? []
@@ -18,14 +19,14 @@ export const ProfileView = ({ localUser, movies, userToken }) => {
   const [formData, setFormData] = useState({
     username: user.username,
     email: user.email,
-    birthdate: user.birthdate,
+    birthdate: user.birthdate.slice(0, 10),
     password: "",
   });
 
   const handleSubmit = (event) => {
     event.preventDefault(event);
     fetch(
-      `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`,
+      `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}`,
       {
         method: "PUT",
         body: JSON.stringify(formData),
@@ -55,6 +56,41 @@ export const ProfileView = ({ localUser, movies, userToken }) => {
       });
   };
 
+  // };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault(event);
+  //   fetch(
+  //     `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`,
+  //     {
+  //       method: "PUT",
+  //       body: JSON.stringify(formData),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     },
+  //   )
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         alert("Update successful");
+  //         window.location.reload();
+
+  //         return response.json();
+  //       }
+  //       alert("Update failed");
+  //     })
+  //     .then((user) => {
+  //       if (user) {
+  //         localStorage.setItem("user", JSON.stringify(user));
+  //         setUser(user);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
+
   const handleDeleteAccount = () => {
     fetch(
       `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`,
@@ -69,7 +105,7 @@ export const ProfileView = ({ localUser, movies, userToken }) => {
       if (response.ok) {
         alert("Account deleted successfully.");
         setUser(null);
-        setToken(null);
+        setUToken(null);
         localStorage.clear();
         window.location.reload();
       } else {
@@ -78,33 +114,38 @@ export const ProfileView = ({ localUser, movies, userToken }) => {
     });
   };
 
-  // const fetchUserData = () => {
-  //   fetch(
-  //     `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}`,
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //         "Content-Type": "application/json",
-  //       },
-  //     },
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setUser(data);
-  //       //   localStorage.setItem('user', JSON.stringify(user));
-  //       console.log("Profile Saved User: " + JSON.stringify(data));
-  //       //   console.log("User Result Data: " + storedUser.username );
-  //       //   storedUser = user;
-  //       console.log(user.birthdate);
-  //     })
-  //     .catch((error) => {
-  //       console.error("There was a mistake.");
-  //     });
-  // };
+  const fetchUserData = () => {
+    fetch(
+      `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    )
+      .then((response) => {
+        if (response.ok) {
+          console.log("User data fetched successfully.");
+          return response.json();
+        }
+        alert("Update failed");
+      })
+      .then((user) => {
+        if (user) {
+          localStorage.setItem("user", JSON.stringify(user));
+          setUser(user);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
-  // useEffect(() => {
-  //   fetchUserData();
-  // }, [user, token]);
+  useEffect(() => {
+    fetchUserData();
+  }, []);
 
   return (
     <Container className="mx-auto">
@@ -114,8 +155,14 @@ export const ProfileView = ({ localUser, movies, userToken }) => {
             <Card.Header as="h3" className="bg-primary text-center">
               Hi, {user.username}!
             </Card.Header>
-            <Card.Body>
-              {user && <UserInfo name={user.username} email={user.email} />}
+            <Card.Body className="user-info">
+              {user && (
+                <UserInfo
+                  name={user.username}
+                  email={user.email}
+                  birthdate={user.birthdate.slice(0, 10)}
+                />
+              )}
             </Card.Body>
           </Card>
         </Col>

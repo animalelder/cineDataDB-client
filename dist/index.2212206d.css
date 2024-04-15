@@ -13816,6 +13816,20 @@ dt {
   min-width: 300px;
 }
 
+.user-info, dt {
+  text-align: left;
+  color: #1a1f5a;
+  text-shadow: .125rem .125rem .25rem #34101080;
+  letter-spacing: .025rem;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+dl {
+  color: #faebd7;
+}
+
 .searchBar {
   background-blend-mode: lighten;
   backdrop-filter: blur(20px);
