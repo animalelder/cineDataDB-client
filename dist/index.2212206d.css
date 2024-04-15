@@ -13786,6 +13786,8 @@ img.detail-img {
 }
 
 .close-button {
+  background-color: #e7232380;
+  border: .2rem solid #d13340;
   grid-column-start: 40;
   width: 10rem;
   padding-top: .5rem;
@@ -13797,7 +13799,8 @@ img.detail-img {
 }
 
 .close-button:hover {
-  background-color: #ffffffba;
+  background-color: #ff0000ba;
+  font-size: 1.1em;
   transform: scale(1);
 }
 

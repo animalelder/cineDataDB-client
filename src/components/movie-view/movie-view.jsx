@@ -25,7 +25,7 @@ export const MovieView = ({ movies }) => {
         <Row className="d-grid align-items-end">
           <Button
             size="sm"
-            className="float-end bg-info close-button"
+            className="float-end close-button"
             role="navigation"
             onClick={() => navigate(-1)}
           >

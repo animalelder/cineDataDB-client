@@ -35,6 +35,7 @@ img.detail-img {
 
 .close-button {
   //position: fixed;
+  background-color: hsla(0, 80%, 52%, 0.503);
   width: 10rem;
   position: relative;
   display: grid;
@@ -45,13 +46,15 @@ img.detail-img {
   //top: 8vw;
   //margin-right: 1.8vw;
   transform: scale(0.8);
+  border: #d13340 0.2rem solid;
   // z-index: 999;
   // background-color: hsla(0, 0%, 100%, 0.2);
   //background-blend-mode: lighten;
 
   &:hover {
     transform: scale(1);
-    background-color: hsla(0, 0%, 100%, 0.73);
+    background-color: hsla(0, 100%, 50%, 0.73);
+    font-size: 1.1em;
   }
 }
 

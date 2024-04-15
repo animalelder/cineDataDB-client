@@ -27772,9 +27772,8 @@ const MovieCard = ({ movie, isFavorite })=>{
                             lineNumber: 122,
                             columnNumber: 13
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                            variant: "outline-info",
                             size: "sm",
-                            className: "card-btn text-danger bg-info ms-auto",
+                            className: "card-btn-none ms-auto",
                             onClick: handleAddToFavorites,
                             children: "\uD83E\uDD0D"
                         }, void 0, false, {
@@ -27791,12 +27790,12 @@ const MovieCard = ({ movie, isFavorite })=>{
                                 children: "\u2139\uFE0F"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 141,
+                                lineNumber: 140,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 140,
+                            lineNumber: 139,
                             columnNumber: 11
                         }, undefined)
                     ]
@@ -41683,7 +41682,7 @@ const MovieView = ({ movies })=>{
                     className: "d-grid align-items-end",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                         size: "sm",
-                        className: "float-end bg-info close-button",
+                        className: "float-end close-button",
                         role: "navigation",
                         onClick: ()=>navigate(-1),
                         children: "GO BACK"

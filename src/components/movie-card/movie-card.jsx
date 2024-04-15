@@ -129,9 +129,8 @@ export const MovieCard = ({ movie, isFavorite }) => {
             </Button>
           ) : (
             <Button
-              variant="outline-info"
               size="sm"
-              className="card-btn text-danger bg-info ms-auto"
+              className="card-btn-none ms-auto"
               onClick={handleAddToFavorites}
             >
               🤍
