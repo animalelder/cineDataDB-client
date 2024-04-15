@@ -1,6 +1,6 @@
-@import "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap";
 * {
-  font-family: Inter, sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 :root, [data-bs-theme="light"] {
@@ -13776,6 +13776,7 @@ img.detail-img {
   color: #d13340;
   text-shadow: 0 .125rem .25rem #001919b9;
   letter-spacing: .025rem;
+  font-size: 3rem;
   font-weight: 800;
 }
 
@@ -13808,8 +13809,8 @@ dt {
   color: #2735d2;
   text-shadow: .125rem .125rem .25rem #34101080;
   letter-spacing: .025rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 800;
 }
 
 .sim-card {
@@ -13828,6 +13829,10 @@ dt {
 
 dl {
   color: #faebd7;
+}
+
+user-card {
+  box-shadow: 10px 10px 25px 21px #0053b9;
 }
 
 .searchBar {

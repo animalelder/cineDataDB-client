@@ -151,7 +151,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
     <Container className="mx-auto">
       <Row className="text-center">
         <Col xs={12} md={6} className="mx-auto">
-          <Card className=" m-4">
+          <Card className=" m-4 user-card">
             <Card.Header as="h3" className="bg-primary text-center">
               Hi, {user.username}!
             </Card.Header>

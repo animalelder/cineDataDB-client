@@ -42746,7 +42746,7 @@ const ProfileView = ({ localUser, movies, token })=>{
                         md: 6,
                         className: "mx-auto",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-                            className: " m-4",
+                            className: " m-4 user-card",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Header, {
                                     as: "h3",
