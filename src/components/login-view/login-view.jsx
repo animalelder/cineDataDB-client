@@ -94,7 +94,7 @@ export const LoginView = ({ onLoggedIn }) => {
                 </FloatingLabel>
               </Form.Group>
               <Row className="justify-content-end m-2">
-                <Button className="w-50" variant="success" type="submit">
+                <Button variant="success" type="submit">
                   Submit
                 </Button>
               </Row>

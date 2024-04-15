@@ -28,8 +28,6 @@ export const MovieCard = ({ movie, isFavorite }) => {
           alert("Oops!");
           throw new Error("Failed to add movie to favorites.");
         }
-        // alert("Movie added to favorites successfully!");
-        //window.location.reload();
         return response.json();
       })
       .then((updatedUser) => {
@@ -60,8 +58,6 @@ export const MovieCard = ({ movie, isFavorite }) => {
         if (!response.ok) {
           throw new Error("Failed to remove movie from favorites.");
         }
-        // alert("Movie removed from favorites successfully!");
-        //window.location.reload();
         return response.json();
       })
       .then((updatedUser) => {
@@ -120,7 +116,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
 
           {isFav ? (
             <Button
-              variant="outline-danger"
+              variant="outline-light"
               size="sm"
               className="card-btn bg-light text-danger ms-auto"
               onClick={handleRemoveFromFavorites}

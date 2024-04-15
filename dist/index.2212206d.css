@@ -13838,6 +13838,10 @@ user-card {
   box-shadow: 10px 10px 25px 21px #0053b9;
 }
 
+h3 {
+  letter-spacing: .5vw;
+}
+
 .searchBar {
   background-blend-mode: lighten;
   backdrop-filter: blur(20px);

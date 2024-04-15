@@ -56,41 +56,6 @@ export const ProfileView = ({ localUser, movies, token }) => {
       });
   };
 
-  // };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault(event);
-  //   fetch(
-  //     `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`,
-  //     {
-  //       method: "PUT",
-  //       body: JSON.stringify(formData),
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     },
-  //   )
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         alert("Update successful");
-  //         window.location.reload();
-
-  //         return response.json();
-  //       }
-  //       alert("Update failed");
-  //     })
-  //     .then((user) => {
-  //       if (user) {
-  //         localStorage.setItem("user", JSON.stringify(user));
-  //         setUser(user);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
-
   const handleDeleteAccount = () => {
     fetch(
       `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`,
@@ -145,7 +110,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
 
   useEffect(() => {
     fetchUserData();
-  }, []);
+  }, [uToken]);
 
   return (
     <Container className="mx-auto">

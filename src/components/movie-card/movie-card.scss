@@ -1,17 +1,3 @@
-// .card-container {
-//   backdrop-filter: blur(20px);
-//   a {
-//     color: #f0f0f0;
-//     &:hover {
-//       border: 0.1rem solid #f0f0f0;
-//     }
-//   }
-// }
-
-// .card-container:hover {
-//   opacity: 1;
-//   backdrop-filter: blur(1px);
-// }
 @import url("https:; //cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 .card-img {
@@ -19,19 +5,15 @@
 }
 
 .card-btn-none {
-  background-color: hsl(0, 26%, 72%);
+  background-color: hsla(0, 26%, 72%, 0.563);
 }
 
 .movie-card {
   aspect-ratio: 16 / 10;
 }
-// .btn {
-//   position: absolute;
-//   bottom: 1em;
-// }
 
 .movie-card-title {
   font-size: 1.2em;
-  font-weight: 600;
+  font-weight: 800;
   text-shadow: #360000 0.125rem 0.125rem 0.25rem;
 }

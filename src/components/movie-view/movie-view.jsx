@@ -33,10 +33,6 @@ export const MovieView = ({ movies }) => {
           </Button>
         </Row>
         <Row className="mx-auto">
-          {/* This is where it would be nice to have a back button to go back to
-          the main view. 
-        onClick={() => navigate(-1)} */}
-
           <Col className="text-center">
             <Image
               fluid
