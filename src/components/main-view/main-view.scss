@@ -4,14 +4,14 @@
   margin-right: auto;
   width: 40rem;
   max-width: 75vw;
-  border: 0.25rem hsla(0, 0%, 100%, 0.5) solid;
+  border: 0.125rem hsla(0, 100%, 96%, 0.884) solid;
   background-color: hsla(0, 0%, 100%, 0.22);
-  background-blend-mode: lighten;
+  //background-blend-mode: lighten;
   backdrop-filter: blur(20px);
 }
 
 .searchBar:focus {
   background-color: hsla(0, 0%, 100%, 0.33);
-  border: 0.29rem hsla(0, 0%, 100%, 0.9) solid;
+  border: 0.2rem hsla(0, 0%, 100%, 0.9) solid;
   backdrop-filter: blur(10px);
 }

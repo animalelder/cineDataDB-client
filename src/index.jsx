@@ -8,7 +8,7 @@ import "./index.scss";
 // Main component (will eventually use all the others)
 const CineDataApp = () => {
   return (
-    <Container fluid>
+    <Container fluid className="gx-0">
       <MainView />
     </Container>
   );

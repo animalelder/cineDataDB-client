@@ -4,8 +4,13 @@
   border: 0.5rem solid white;
 }
 
-.card-btn-none {
+#card-btn-none {
   background-color: hsla(0, 26%, 72%, 0.563);
+  border: #360000 0.2rem solid;
+
+  &:hover {
+    background-color: hsla(0, 80%, 41%, 0.763);
+  }
 }
 
 .movie-card {

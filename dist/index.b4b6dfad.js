@@ -2963,6 +2963,7 @@ var _indexScss = require("./index.scss");
 const CineDataApp = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
         fluid: true,
+        className: "gx-0",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
             fileName: "src/index.jsx",
             lineNumber: 12,
@@ -27758,9 +27759,9 @@ const MovieCard = ({ movie, isFavorite })=>{
                             columnNumber: 11
                         }, undefined),
                         isFav ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                            variant: "outline-light",
+                            variant: "light",
                             size: "sm",
-                            className: "card-btn bg-light text-danger ms-auto",
+                            className: "ms-auto",
                             onClick: handleRemoveFromFavorites,
                             children: "\u2665\uFE0F"
                         }, void 0, false, {
@@ -27768,10 +27769,12 @@ const MovieCard = ({ movie, isFavorite })=>{
                             lineNumber: 118,
                             columnNumber: 13
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                            variant: "light",
                             size: "sm",
-                            className: "card-btn-none ms-auto",
+                            id: "card-btn-none",
+                            className: "card-btn-none  ms-auto",
                             onClick: handleAddToFavorites,
-                            children: "\uD83E\uDD0D"
+                            children: "\u2714\uFE0F"
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
                             lineNumber: 127,
@@ -27780,18 +27783,17 @@ const MovieCard = ({ movie, isFavorite })=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                             to: `/movies/${encodeURIComponent(movie.id)}`,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                variant: "outline-light",
-                                className: "bg-light text-secondary",
+                                variant: "light",
                                 size: "sm",
                                 children: "\u2139\uFE0F"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 136,
+                                lineNumber: 138,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 135,
+                            lineNumber: 137,
                             columnNumber: 11
                         }, undefined)
                     ]
@@ -41675,7 +41677,7 @@ const MovieView = ({ movies })=>{
             className: "movie-details bg-secondary mb-5 p-2",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
-                    className: "d-grid align-items-end",
+                    className: "d-grid align-self-end",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                         size: "sm",
                         className: "float-end close-button",

@@ -1,20 +1,23 @@
 img.detail-img {
   min-width: 400px;
   max-width: 48%;
-  outline: hsla(27, 67%, 47%, 0.8);
-  outline-style: ridge;
-  outline-width: 1rem;
+  outline: hsla(198, 49%, 85%, 0.84);
+  outline-style: solid;
+  outline-width: 0.52rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
-  box-shadow: 0px 0px 25px 21px #0053b9;
+  box-shadow: 0px 0px 65px 21px #3440d1;
+  // border-image-source: repeating-radial-gradient(to right, #b7e9f7, #dbf3fa);
+  // border-width: 2rem;
 }
 
 .movie-details {
-  margin-top: 1vh;
+  margin-top: 0.2vh;
   margin-bottom: 5rem;
-  margin-left: auto;
+  margin-left: 1vw;
+  margin-right: 1vw;
   min-width: 510px;
   max-width: 95vw;
   background-blend-mode: lighten;
@@ -34,22 +37,18 @@ img.detail-img {
 }
 
 .close-button {
-  //position: fixed;
-  background-color: hsla(0, 80%, 52%, 0.503);
-  width: 10rem;
+  background-color: hsl(0, 80%, 52%);
+  width: 8rem;
   position: relative;
-  display: grid;
-  grid-column-start: 40;
+
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  font-weight: 800;
-  //top: 8vw;
-  //margin-right: 1.8vw;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-shadow: rgba(88, 76, 76, 0.534) 0rem 0.125rem 0.25rem;
   transform: scale(0.8);
   border: #d13340 0.2rem solid;
-  // z-index: 999;
-  // background-color: hsla(0, 0%, 100%, 0.2);
-  //background-blend-mode: lighten;
 
   &:hover {
     transform: scale(1);
