@@ -9,12 +9,12 @@ export const SimilarMovies = ({ movieid, movies, genreSim }) => {
     }
   });
 
-  if (genreMovies.length > 6) {
-    genreMovies.length = 6;
+  if (genreMovies.length > 10) {
+    genreMovies.length = 10;
   }
 
   return (
-    <Row>
+    <Row className="d-flex justify-content-evenly">
       {genreMovies.map((movie) => {
         return (
           <Col

@@ -41891,8 +41891,9 @@ const SimilarMovies = ({ movieid, movies, genreSim })=>{
     const genreMovies = movies.filter((m)=>{
         if (m.genre === genreSim && m.id !== movieid) return m;
     });
-    if (genreMovies.length > 6) genreMovies.length = 6;
+    if (genreMovies.length > 10) genreMovies.length = 10;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+        className: "d-flex justify-content-evenly",
         children: genreMovies.map((movie)=>{
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                 className: "sim-card mb-2 bg-opacity-75 text-center",
