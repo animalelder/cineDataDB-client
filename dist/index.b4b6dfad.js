@@ -42620,13 +42620,14 @@ var _react = require("react");
 var _reactBootstrap = require("react-bootstrap");
 var _userInfo = require("./user-info");
 var _favoriteMovies = require("./favorite-movies");
-var _updateUser = require("./update-user");
 var _s = $RefreshSig$();
 const ProfileView = ({ localUser, movies, userToken })=>{
     _s();
     const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
     const [token, setToken] = (0, _react.useState)(userToken);
     const [user, setUser] = (0, _react.useState)(localUser);
+    const userUrl = `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`;
     const favoriteMovies = user === undefined ? [] : movies.filter((m)=>user.favoriteMovies.includes(m.id));
     const [formData, setFormData] = (0, _react.useState)({
         username: user.username,
@@ -42676,14 +42677,10 @@ const ProfileView = ({ localUser, movies, userToken })=>{
             } else alert("Something went wrong.");
         });
     };
-    // useEffect(() => {
-    //   if (token) {
-    //     return;
-    //   }
+    // const fetchUserData = () => {
     //   fetch(
     //     `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}`,
     //     {
-    //       method: "GET",
     //       headers: {
     //         Authorization: `Bearer ${token}`,
     //         "Content-Type": "application/json",
@@ -42702,6 +42699,9 @@ const ProfileView = ({ localUser, movies, userToken })=>{
     //     .catch((error) => {
     //       console.error("There was a mistake.");
     //     });
+    // };
+    // useEffect(() => {
+    //   fetchUserData();
     // }, [user, token]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         className: "mx-auto",
@@ -43040,7 +43040,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./user-info":"66eot","react-bootstrap":"3AD9A","./update-user":"2SBwg","@parcel/transformer-js/src/esmodule-helpers.js":"8ZfAt","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"alOUY","./favorite-movies":"dTTQH"}],"66eot":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./user-info":"66eot","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"8ZfAt","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"alOUY","./favorite-movies":"dTTQH"}],"66eot":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43101,214 +43101,7 @@ $RefreshReg$(_c, "UserInfo");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"8ZfAt","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"alOUY"}],"2SBwg":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$95d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$95d1.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "UpdateUser", ()=>UpdateUser);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _reactBootstrap = require("react-bootstrap");
-const UpdateUser = ({ formData, handleUpdate, handleSubmit, handleDeleteAccount })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
-            onSubmit: handleSubmit,
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                    controlId: "updateFormUsername",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FloatingLabel), {
-                        controlId: "formUsername",
-                        label: "Change Username",
-                        className: "mb-3",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                                type: "text",
-                                value: formData.username,
-                                placeholder: "Username",
-                                label: "Change Username",
-                                name: "username-field",
-                                onChange: (e)=>setFormData((prevUser)=>({
-                                            ...prevUser,
-                                            username: e.target.value
-                                        })),
-                                required: true,
-                                minLength: "5"
-                            }, void 0, false, {
-                                fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 18,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Text, {
-                                id: "usernameHelpBlock",
-                                muted: true,
-                                children: "Username must be at least 5 characters."
-                            }, void 0, false, {
-                                fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 33,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 13,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 12,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                    controlId: "signUpFormPassword",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FloatingLabel), {
-                        controlId: "formPassword",
-                        label: "Change Password",
-                        className: "mb-3",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                                type: "password",
-                                label: "Change Password",
-                                placeholder: "Password",
-                                value: formData.password,
-                                name: "password-field",
-                                onChange: (e)=>handleUpdate(e),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 44,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Text, {
-                                id: "passwordHelpBlock",
-                                muted: true,
-                                children: "Enter current password or set a new password."
-                            }, void 0, false, {
-                                fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 53,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 39,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 38,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                    controlId: "updateFormEmail",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FloatingLabel), {
-                        controlId: "formEmail",
-                        label: "Change Email Address",
-                        className: "mb-3",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                            type: "email",
-                            label: "Change Email Address",
-                            placeholder: "name@example.com",
-                            name: "email-field",
-                            value: formData.email,
-                            onChange: (e)=>handleUpdate(e),
-                            required: true
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 64,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 59,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 58,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
-                    controlId: "updateFormBirthday",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FloatingLabel), {
-                        controlId: "formBirthday",
-                        label: "Date of Birth",
-                        className: "mb-3",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                            type: "date",
-                            label: "Date of Birth",
-                            value: formData.birthdate,
-                            name: "user-birthdate",
-                            placeholder: "1999-03-14",
-                            onChange: (e)=>handleUpdate(e),
-                            required: true
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 81,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 76,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 75,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                            className: "mb-2",
-                            variant: "light",
-                            type: "submit",
-                            children: "UPDATE INFO"
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 93,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                            onClick: ()=>handleDeleteAccount(),
-                            variant: "danger",
-                            children: "DELETE ACCOUNT"
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 96,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 92,
-                    columnNumber: 9
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/profile-view/update-user.jsx",
-            lineNumber: 11,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/components/profile-view/update-user.jsx",
-        lineNumber: 10,
-        columnNumber: 5
-    }, undefined);
-};
-_c = UpdateUser;
-var _c;
-$RefreshReg$(_c, "UpdateUser");
-
-  $parcel$ReactRefreshHelpers$95d1.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"8ZfAt","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"alOUY","react-bootstrap":"3AD9A"}],"dTTQH":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"8ZfAt","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"alOUY"}],"dTTQH":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8767 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

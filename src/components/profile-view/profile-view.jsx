@@ -3,12 +3,13 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { UserInfo } from "./user-info";
 import { FavoriteMovies } from "./favorite-movies";
 import { Button, Form, FloatingLabel } from "react-bootstrap";
-import { UpdateUser } from "./update-user";
 
 export const ProfileView = ({ localUser, movies, userToken }) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
   const [token, setToken] = useState(userToken);
   const [user, setUser] = useState(localUser);
+  const userUrl = `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${storedUser.username}`;
   const favoriteMovies =
     user === undefined
       ? []
@@ -77,15 +78,10 @@ export const ProfileView = ({ localUser, movies, userToken }) => {
     });
   };
 
-  // useEffect(() => {
-  //   if (token) {
-  //     return;
-  //   }
-
+  // const fetchUserData = () => {
   //   fetch(
   //     `https://cine-data-db-04361cdbefbe.herokuapp.com/users/${user.username}`,
   //     {
-  //       method: "GET",
   //       headers: {
   //         Authorization: `Bearer ${token}`,
   //         "Content-Type": "application/json",
@@ -104,6 +100,10 @@ export const ProfileView = ({ localUser, movies, userToken }) => {
   //     .catch((error) => {
   //       console.error("There was a mistake.");
   //     });
+  // };
+
+  // useEffect(() => {
+  //   fetchUserData();
   // }, [user, token]);
 
   return (
