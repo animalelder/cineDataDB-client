@@ -50,5 +50,5 @@ $card-inner-border-radius: 0.2rem;
 
 // @import 'bootstrap/scss/bootstrap.scss';
 @import "./variables.scss";
-@import "bootstrap/scss/bootstrap.scss";
-@import "bootswatch/dist/quartz/bootstrap.min.css";
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootswatch/dist/quartz/_bootswatch.scss";
