@@ -49,7 +49,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
       {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${storedToken}`,
           "Content-Type": "application/json",
         },
       },
