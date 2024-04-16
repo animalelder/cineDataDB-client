@@ -119,6 +119,10 @@ body {
   background-image: linear-gradient(90deg, #33d1c4, #008cba, #3440d1, #6610f2, #d13340);
 }
 
+.main-view-container {
+  max-width: 1200px;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #008cba;
   --bs-indigo: #6610f2;

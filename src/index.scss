@@ -16,6 +16,10 @@ body {
   backdrop-filter: blur(50px);
 }
 
+.main-view-container {
+  max-width: 1200px;
+}
+
 // $primary: #2c3e50;
 // $secondary: #95a5a6;
 $primary: #d13340;
