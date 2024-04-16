@@ -1,8 +1,80 @@
 img.detail-img {
-  height: 90vh;
   min-width: 400px;
+  max-width: 48%;
+  outline: hsla(176, 69%, 61%, 0.453);
+  outline-style: solid;
+  outline-width: 0.32rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  box-shadow: 0px 0px 65px 21px #3440d1;
 }
 
-.movie-poster {
-  margin: 1px;
+.movie-details {
+  margin-top: 0.2vh;
+  margin-bottom: 5rem;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  min-width: 510px;
+  max-width: 95vw;
+  background-blend-mode: lighten;
+}
+
+.movie-title {
+  color: hsl(355, 53%, 40%);
+  font-weight: 800;
+  font-size: 3rem;
+  text-shadow: rgba(0, 25, 25, 0.726) 0rem 0.125rem 0.25rem;
+  letter-spacing: 0.005rem;
+}
+
+.similar-movies {
+  margin-top: 5rem;
+  max-width: 85vw;
+}
+
+.close-button {
+  background-color: hsla(355, 63%, 52%, 0.764);
+  width: 7.5rem;
+  position: relative;
+
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  letter-spacing: 0.1rem;
+  margin-right: 0.5rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fafafa;
+  text-shadow: rgba(88, 76, 76, 0.534) 0rem 0.125rem 0.25rem;
+  box-shadow: rgba(0, 25, 25, 0.726) 0rem 0.125rem 0.25rem;
+  transform: scale(0.8);
+  //border: #d13340 0.2rem groove;
+
+  &:hover {
+    transform: scale(0.75);
+    transform: translateY(-0.1);
+    transform: translateX(-0.1);
+    background-color: hsla(355, 73%, 50%, 0.854);
+    color: #fff;
+    font-size: 1.1em;
+  }
+}
+
+dd {
+  line-height: 1.5;
+}
+
+dt {
+  color: #1c2bc9;
+  text-shadow: rgba(70, 28, 28, 0.5) 0.125rem 0.125rem 0.25rem;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.045rem;
+}
+
+.sim-card:only-child {
+  min-width: 350px;
 }

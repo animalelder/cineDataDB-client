@@ -1,3 +1,24 @@
-#favorited {
-  color: red;
+@import url("https:; //cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.card-img {
+  border: 0.5rem solid white;
+}
+
+#card-btn-none {
+  background-color: hsla(0, 26%, 72%, 0.563);
+  border: #360000 0.2rem solid;
+
+  &:hover {
+    background-color: hsla(0, 80%, 41%, 0.763);
+  }
+}
+
+.movie-card {
+  aspect-ratio: 16 / 10;
+}
+
+.movie-card-title {
+  font-size: 1.2em;
+  font-weight: 800;
+  text-shadow: #360000 0.125rem 0.125rem 0.25rem;
 }

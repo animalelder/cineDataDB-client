@@ -7,14 +7,17 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export const LoginView = ({ onLoggedIn }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [userData, setUserData] = useState({
+    username: "",
+    password: "",
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = {
-      Username: username,
-      Password: password,
+      Username: userData.username,
+      Password: userData.password,
     };
 
     fetch("https://cine-data-db-04361cdbefbe.herokuapp.com/login", {
@@ -40,6 +43,7 @@ export const LoginView = ({ onLoggedIn }) => {
         alert("Something went wrong");
       });
   };
+
   return (
     <Row className="justify-content-center">
       <Col md={8} xl={6}>
@@ -56,8 +60,13 @@ export const LoginView = ({ onLoggedIn }) => {
                   <Form.Control
                     type="text"
                     placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={userData.username}
+                    onChange={(e) =>
+                      setUserData((prevData) => ({
+                        ...prevData,
+                        username: e.target.value,
+                      }))
+                    }
                     required
                     minLength="5"
                   />
@@ -73,14 +82,19 @@ export const LoginView = ({ onLoggedIn }) => {
                   <Form.Control
                     type="password"
                     placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={userData.password}
+                    onChange={(e) =>
+                      setUserData((prevData) => ({
+                        ...prevData,
+                        password: e.target.value,
+                      }))
+                    }
                     required
                   />
                 </FloatingLabel>
               </Form.Group>
               <Row className="justify-content-end m-2">
-                <Button className="w-50" variant="success" type="submit">
+                <Button variant="success" type="submit">
                   Submit
                 </Button>
               </Row>

@@ -8,8 +8,7 @@ import "./index.scss";
 // Main component (will eventually use all the others)
 const CineDataApp = () => {
   return (
-    // Can add red border for styling debug
-    <Container>
+    <Container fluid className="gx-0">
       <MainView />
     </Container>
   );

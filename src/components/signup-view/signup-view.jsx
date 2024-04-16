@@ -1,41 +1,55 @@
 import { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+import { Form, Button, Row, Col, Card, FloatingLabel } from "react-bootstrap";
+
+const registerUser = async (formData) => {
+  try {
+    const SignUpURL = "https://cine-data-db-04361cdbefbe.herokuapp.com/users";
+    const response = await fetch(SignUpURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (response.status === 422) {
+      throw new Error(data.errors.map((err) => err.msg).join(", "));
+    } else if (response.status === 201) {
+      return data;
+    } else if (response.status === 500) {
+      throw new Error(data.message || "Server error. Please try again later.");
+    }
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const SignupView = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    email: "",
+    birthdate: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const data = {
-      username: username,
-      password: password,
-      email: email,
-      birthDate: birthday,
-    };
-
-    fetch("https://cine-data-db-04361cdbefbe.herokuapp.com/users", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((response) => {
-      if (response.ok) {
-        alert("Signup successful");
-        window.location.reload();
-      } else {
-        alert("Signup failed");
-      }
-    });
+    try {
+      registerUser(formData);
+      alert("Signup successful");
+      window.location.reload();
+    } catch (error) {
+      alert("Sign up failed...try again later.");
+    }
   };
 
   return (
@@ -53,10 +67,11 @@ export const SignupView = () => {
                 >
                   <Form.Control
                     type="text"
-                    value={username}
+                    value={formData.username}
                     placeholder="Username"
+                    name="username"
                     autoFocus
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={handleChange}
                     required
                     minLength="5"
                   />
@@ -75,8 +90,9 @@ export const SignupView = () => {
                   <Form.Control
                     type="password"
                     placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
                     required
                   />
                   <Form.Text id="passwordHelpBlock" muted>
@@ -93,8 +109,9 @@ export const SignupView = () => {
                   <Form.Control
                     type="email"
                     placeholder="name@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                   />
                 </FloatingLabel>
@@ -107,9 +124,10 @@ export const SignupView = () => {
                 >
                   <Form.Control
                     type="date"
-                    value={birthday}
+                    value={formData.birthdate}
                     placeholder="12/25/1999"
-                    onChange={(e) => setBirthday(e.target.value)}
+                    name="birthdate"
+                    onChange={handleChange}
                     required
                   />
                 </FloatingLabel>
