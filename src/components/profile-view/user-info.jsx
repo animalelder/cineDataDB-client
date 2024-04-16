@@ -2,7 +2,7 @@ export const UserInfo = ({ email, name, birthdate }) => {
   return (
     <dl>
       <dt>
-        <h2>Username:</h2>
+        <span>Username:</span>
       </dt>
       <dd>
         <span>{name}</span>
@@ -15,7 +15,7 @@ export const UserInfo = ({ email, name, birthdate }) => {
         <span>{email}</span>
       </dd>
       <dt>
-        <h2>Date of Birth:</h2>
+        <span>Date of Birth:</span>
       </dt>
       <dd>
         {" "}

@@ -1,4 +1,115 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
+img.detail-img {
+  outline: .32rem solid #57e0d774;
+  min-width: 400px;
+  max-width: 48%;
+  margin: 2rem 1rem 1rem;
+  box-shadow: 0 0 65px 21px #3440d1;
+}
+
+.movie-details {
+  background-blend-mode: lighten;
+  min-width: 510px;
+  max-width: 95vw;
+  margin: .2vh 1vw 5rem;
+}
+
+.movie-title {
+  color: #9c3039;
+  text-shadow: 0 .125rem .25rem #001919b9;
+  letter-spacing: .005rem;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.similar-movies {
+  max-width: 85vw;
+  margin-top: 5rem;
+}
+
+.close-button {
+  letter-spacing: .1rem;
+  color: #fafafa;
+  text-shadow: 0 .125rem .25rem #584c4c88;
+  background-color: #d23744c3;
+  width: 7.5rem;
+  margin-top: -.5rem;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
+  padding-top: .7rem;
+  padding-bottom: .7rem;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transform: scale(.8);
+  box-shadow: 0 .125rem .25rem #001919b9;
+}
+
+.close-button:hover {
+  color: #fff;
+  background-color: #dd2232da;
+  font-size: 1.1em;
+  transform: translateX(-.1px);
+}
+
+dd {
+  line-height: 1.5;
+}
+
+dt {
+  color: #1c2bc9;
+  text-shadow: .125rem .125rem .25rem #461c1c80;
+  letter-spacing: .045rem;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.sim-card:only-child {
+  min-width: 350px;
+}
+
+.user-info > dt {
+  text-align: left;
+  color: #2735d1;
+  text-shadow: .125rem .125rem .25rem #34101080;
+  letter-spacing: .04rem;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.user-info > dl {
+  color: #faebd7;
+  letter-spacing: .04rem;
+  font-size: 1.5rem;
+}
+
+user-card {
+  box-shadow: 10px 10px 25px 21px #0053b9;
+}
+
+h3 {
+  letter-spacing: .2rem;
+  font-weight: 900;
+}
+
+.searchBar {
+  backdrop-filter: blur(20px);
+  background-color: #ffffff38;
+  border: .125rem solid #ffebebe1;
+  width: 40rem;
+  max-width: 75vw;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchBar:focus {
+  backdrop-filter: blur(10px);
+  background-color: #ffffff54;
+  border: .2rem solid #ffffffe6;
+}
+
 * {
   font-family: Poppins, sans-serif;
 }
@@ -13758,116 +13869,5 @@ body {
 
 .offcanvas .text-muted {
   color: #f8f9fab3 !important;
-}
-
-img.detail-img {
-  outline: .32rem solid #57e0d774;
-  min-width: 400px;
-  max-width: 48%;
-  margin: 2rem 1rem 1rem;
-  box-shadow: 0 0 65px 21px #3440d1;
-}
-
-.movie-details {
-  background-blend-mode: lighten;
-  min-width: 510px;
-  max-width: 95vw;
-  margin: .2vh 1vw 5rem;
-}
-
-.movie-title {
-  color: #9c3039;
-  text-shadow: 0 .125rem .25rem #001919b9;
-  letter-spacing: .005rem;
-  font-size: 3rem;
-  font-weight: 800;
-}
-
-.similar-movies {
-  max-width: 85vw;
-  margin-top: 5rem;
-}
-
-.close-button {
-  letter-spacing: .1rem;
-  color: #fafafa;
-  text-shadow: 0 .125rem .25rem #584c4c88;
-  background-color: #d23744c3;
-  width: 7.5rem;
-  margin-top: -.5rem;
-  margin-bottom: .5rem;
-  margin-right: .5rem;
-  padding-top: .7rem;
-  padding-bottom: .7rem;
-  font-size: 1rem;
-  font-weight: 500;
-  position: relative;
-  transform: scale(.8);
-  box-shadow: 0 .125rem .25rem #001919b9;
-}
-
-.close-button:hover {
-  color: #fff;
-  background-color: #dd2232da;
-  font-size: 1.1em;
-  transform: translateX(-.1px);
-}
-
-dd {
-  line-height: 1.5;
-}
-
-dt {
-  color: #1c2bc9;
-  text-shadow: .125rem .125rem .25rem #461c1c80;
-  letter-spacing: .045rem;
-  font-size: 2rem;
-  font-weight: 800;
-}
-
-.sim-card:only-child {
-  min-width: 350px;
-}
-
-.user-info > dt {
-  text-align: left;
-  color: #2735d1;
-  text-shadow: .125rem .125rem .25rem #34101080;
-  letter-spacing: .04rem;
-  margin-left: 1rem;
-  font-size: 1.5rem;
-  font-weight: 800;
-}
-
-.user-info > dl {
-  color: #faebd7;
-  letter-spacing: .04rem;
-  font-size: 1.5rem;
-}
-
-user-card {
-  box-shadow: 10px 10px 25px 21px #0053b9;
-}
-
-h3 {
-  letter-spacing: .2rem;
-  font-weight: 900;
-}
-
-.searchBar {
-  backdrop-filter: blur(20px);
-  background-color: #ffffff38;
-  border: .125rem solid #ffebebe1;
-  width: 40rem;
-  max-width: 75vw;
-  margin-bottom: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.searchBar:focus {
-  backdrop-filter: blur(10px);
-  background-color: #ffffff54;
-  border: .2rem solid #ffffffe6;
 }
 /*# sourceMappingURL=index.2212206d.css.map */
