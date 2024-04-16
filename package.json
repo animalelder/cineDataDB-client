@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel serve src/index.html --public-url / --dist-dir dist",
-    "build": "parcel build src/index.html --public-url / --dist-dir dist",
-    "test": "npm run build"
+    "start": "parcel",
+    "build": "parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
