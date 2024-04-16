@@ -5,21 +5,21 @@ export const UserInfo = ({ email, name, birthdate }) => {
         <h2>Username:</h2>
       </dt>
       <dd>
-        <h4>{name}</h4>
+        <span>{name}</span>
       </dd>
       <dt>
-        <h2>Email:</h2>
+        <span>Email:</span>
       </dt>
       <dd>
         {" "}
-        <h4>{email}</h4>
+        <span>{email}</span>
       </dd>
       <dt>
         <h2>Date of Birth:</h2>
       </dt>
       <dd>
         {" "}
-        <h4>{birthdate}</h4>
+        <span>{birthdate}</span>
       </dd>
     </dl>
   );

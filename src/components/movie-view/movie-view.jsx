@@ -21,10 +21,11 @@ export const MovieView = ({ movies }) => {
 
   return (
     <Container fluid>
-      <Card className="movie-details bg-secondary mb-5 p-2">
+      <Card className="movie-details bg-secondary pb-3 p-2">
         <Row className="d-grid align-self-end">
           <Button
             size="sm"
+            as="a"
             className="float-end close-button"
             role="navigation"
             onClick={() => navigate(-1)}

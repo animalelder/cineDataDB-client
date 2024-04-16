@@ -7,7 +7,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
   const storedToken = localStorage.getItem("token");
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(storedUser ? storedUser : null);
-  const [token, setToken] = useState(storedToken ? storedToken : null);
+  //const [token, setToken] = useState(storedToken ? storedToken : null);
   const [isFav, setIsFav] = useState(isFavorite);
 
   const addToFavorites = () => {
@@ -18,7 +18,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
       {
         method: "PUT",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${storedToken}`,
           "Content-Type": "application/json",
         },
       },

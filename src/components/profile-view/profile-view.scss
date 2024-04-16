@@ -1,16 +1,17 @@
-.user-info,
-dt {
+.user-info > dt {
   text-align: left;
   margin-left: 1rem;
-  color: #1a1f5a;
+  color: #2735d1;
   text-shadow: rgba(52, 16, 16, 0.5) 0.125rem 0.125rem 0.25rem;
   font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.025rem;
+  font-weight: 800;
+  letter-spacing: 0.04rem;
 }
 
-dl {
+.user-info > dl {
   color: antiquewhite;
+  font-size: 1.5rem;
+  letter-spacing: 0.04rem;
 }
 
 user-card {
@@ -18,5 +19,6 @@ user-card {
 }
 
 h3 {
-  letter-spacing: 0.5vw;
+  letter-spacing: 0.2rem;
+  font-weight: 900;
 }

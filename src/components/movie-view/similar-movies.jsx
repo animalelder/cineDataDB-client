@@ -14,7 +14,7 @@ export const SimilarMovies = ({ movieid, movies, genreSim }) => {
   }
 
   return (
-    <Row className="d-flex justify-content-evenly">
+    <Row className="d-flex similar-list justify-content-evenly">
       {genreMovies.map((movie) => {
         return (
           <Col
