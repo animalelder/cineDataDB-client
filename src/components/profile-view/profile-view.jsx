@@ -92,7 +92,7 @@ export const ProfileView = ({ localUser, movies, token }) => {
     )
       .then((response) => {
         if (response.ok) {
-          console.log("User data fetched successfully.");
+          //console.log("User data fetched successfully.");
           return response.json();
         }
         alert("Update failed");

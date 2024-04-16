@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { Card, Button, Stack, Badge } from "react-bootstrap";
 
 export const MovieCard = ({ movie, isFavorite }) => {
+  //const [token, setToken] = useState(storedToken ? storedToken : null);
   const storedToken = localStorage.getItem("token");
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(storedUser ? storedUser : null);
-  //const [token, setToken] = useState(storedToken ? storedToken : null);
   const [isFav, setIsFav] = useState(isFavorite);
 
   const addToFavorites = () => {

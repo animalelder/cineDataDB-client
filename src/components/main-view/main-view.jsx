@@ -52,7 +52,7 @@ export const MainView = () => {
         });
         setMovies(moviesFromApi);
         setFilteredMovies(moviesFromApi);
-        console.log("Set movies.");
+        //console.log("Set movies.");
       })
       .catch((error) => {
         console.error("Error fetching movies:", error);
