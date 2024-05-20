@@ -1,15 +1,15 @@
-import { useState } from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { useState } from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 export const LoginView = ({ onLoggedIn }) => {
   const [userData, setUserData] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
 
   const handleSubmit = (event) => {
@@ -20,46 +20,46 @@ export const LoginView = ({ onLoggedIn }) => {
       Password: userData.password,
     };
 
-    fetch("https://cine-data-db-04361cdbefbe.herokuapp.com/login", {
-      method: "POST",
+    fetch('https://cinedata-movie-api.onrender.com/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Login response: ", data);
+        console.log('Login response: ', data);
         if (data.user) {
-          localStorage.setItem("user", JSON.stringify(data.user));
-          localStorage.setItem("token", data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          localStorage.setItem('token', data.token);
           onLoggedIn(data.user, data.token);
         } else {
-          alert("No such user");
+          alert('No such user');
         }
       })
       .catch((e) => {
-        console.error("Login error: ", e);
-        alert("Something went wrong");
+        console.error('Login error: ', e);
+        alert('Something went wrong');
       });
   };
 
   return (
-    <Row className="justify-content-center">
+    <Row className='justify-content-center'>
       <Col md={8} xl={6}>
-        <Card className="p-5">
-          <Card.Body className="d-flex flex-column align-items-center">
+        <Card className='p-5'>
+          <Card.Body className='d-flex flex-column align-items-center'>
             <Card.Title>Log into Your Account</Card.Title>
             <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="formUsername" className="mt-2">
+              <Form.Group controlId='formUsername' className='mt-2'>
                 <FloatingLabel
-                  controlId="floatingInput"
-                  label="Username"
-                  className="mb-3"
+                  controlId='floatingInput'
+                  label='Username'
+                  className='mb-3'
                 >
                   <Form.Control
-                    type="text"
-                    placeholder="Username"
+                    type='text'
+                    placeholder='Username'
                     value={userData.username}
                     onChange={(e) =>
                       setUserData((prevData) => ({
@@ -68,20 +68,20 @@ export const LoginView = ({ onLoggedIn }) => {
                       }))
                     }
                     required
-                    minLength="5"
+                    minLength='5'
                   />
                 </FloatingLabel>
               </Form.Group>
 
-              <Form.Group controlId="formPassword">
+              <Form.Group controlId='formPassword'>
                 <FloatingLabel
-                  controlId="floatingPassword"
-                  label="Password"
-                  className="mb-3"
+                  controlId='floatingPassword'
+                  label='Password'
+                  className='mb-3'
                 >
                   <Form.Control
-                    type="password"
-                    placeholder="Password"
+                    type='password'
+                    placeholder='Password'
                     value={userData.password}
                     onChange={(e) =>
                       setUserData((prevData) => ({
@@ -93,8 +93,8 @@ export const LoginView = ({ onLoggedIn }) => {
                   />
                 </FloatingLabel>
               </Form.Group>
-              <Row className="justify-content-end m-2">
-                <Button variant="success" type="submit">
+              <Row className='justify-content-end m-2'>
+                <Button variant='success' type='submit'>
                   Submit
                 </Button>
               </Row>

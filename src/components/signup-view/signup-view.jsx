@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { Form, Button, Row, Col, Card, FloatingLabel } from "react-bootstrap";
+import { useState } from 'react';
+import { Form, Button, Row, Col, Card, FloatingLabel } from 'react-bootstrap';
 
 const registerUser = async (formData) => {
   try {
-    const SignUpURL = "https://cine-data-db-04361cdbefbe.herokuapp.com/users";
+    const SignUpURL = 'https://cinedata-movie-api.onrender.com/users';
     const response = await fetch(SignUpURL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     });
 
     const data = await response.json();
 
     if (response.status === 422) {
-      throw new Error(data.errors.map((err) => err.msg).join(", "));
+      throw new Error(data.errors.map((err) => err.msg).join(', '));
     } else if (response.status === 201) {
       return data;
     } else if (response.status === 500) {
-      throw new Error(data.message || "Server error. Please try again later.");
+      throw new Error(data.message || 'Server error. Please try again later.');
     }
   } catch (error) {
     throw error;
@@ -26,10 +26,10 @@ const registerUser = async (formData) => {
 
 export const SignupView = () => {
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    email: "",
-    birthdate: "",
+    username: '',
+    password: '',
+    email: '',
+    birthdate: '',
   });
 
   const handleChange = (e) => {
@@ -45,95 +45,95 @@ export const SignupView = () => {
 
     try {
       registerUser(formData);
-      alert("Signup successful");
+      alert('Signup successful');
       window.location.reload();
     } catch (error) {
-      alert("Sign up failed...try again later.");
+      alert('Sign up failed...try again later.');
     }
   };
 
   return (
-    <Row className="justify-content-center">
+    <Row className='justify-content-center'>
       <Col xs={12} md={8} xl={6}>
-        <Card className="m-2">
-          <Card.Body className="d-flex flex-column align-items-center">
+        <Card className='m-2'>
+          <Card.Body className='d-flex flex-column align-items-center'>
             <Card.Title>Create an Account</Card.Title>
             <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="signUpFormUsername">
+              <Form.Group controlId='signUpFormUsername'>
                 <FloatingLabel
-                  controlId="formUsername"
-                  label="Username"
-                  className="mb-3"
+                  controlId='formUsername'
+                  label='Username'
+                  className='mb-3'
                 >
                   <Form.Control
-                    type="text"
+                    type='text'
                     value={formData.username}
-                    placeholder="Username"
-                    name="username"
+                    placeholder='Username'
+                    name='username'
                     autoFocus
                     onChange={handleChange}
                     required
-                    minLength="5"
+                    minLength='5'
                   />
-                  <Form.Text id="usernameHelpBlock" muted>
+                  <Form.Text id='usernameHelpBlock' muted>
                     Username must be at least 5 characters.
                   </Form.Text>
                 </FloatingLabel>
               </Form.Group>
 
-              <Form.Group controlId="signUpFormPassword">
+              <Form.Group controlId='signUpFormPassword'>
                 <FloatingLabel
-                  controlId="formPassword"
-                  label="Password"
-                  className="mb-3"
+                  controlId='formPassword'
+                  label='Password'
+                  className='mb-3'
                 >
                   <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    name="password"
+                    type='password'
+                    placeholder='Password'
+                    name='password'
                     value={formData.password}
                     onChange={handleChange}
                     required
                   />
-                  <Form.Text id="passwordHelpBlock" muted>
+                  <Form.Text id='passwordHelpBlock' muted>
                     No spaces or special characters.
                   </Form.Text>
                 </FloatingLabel>
               </Form.Group>
-              <Form.Group controlId="signUpFormEmail">
+              <Form.Group controlId='signUpFormEmail'>
                 <FloatingLabel
-                  controlId="formEmail"
-                  label="Email Address"
-                  className="mb-3"
+                  controlId='formEmail'
+                  label='Email Address'
+                  className='mb-3'
                 >
                   <Form.Control
-                    type="email"
-                    placeholder="name@example.com"
-                    name="email"
+                    type='email'
+                    placeholder='name@example.com'
+                    name='email'
                     value={formData.email}
                     onChange={handleChange}
                     required
                   />
                 </FloatingLabel>
               </Form.Group>
-              <Form.Group controlId="signUpFormBirthday">
+              <Form.Group controlId='signUpFormBirthday'>
                 <FloatingLabel
-                  controlId="formBirthday"
-                  label="Date of Birth"
-                  className="mb-3"
+                  controlId='formBirthday'
+                  label='Date of Birth'
+                  className='mb-3'
                 >
                   <Form.Control
-                    type="date"
+                    type='date'
                     value={formData.birthdate}
-                    placeholder="12/25/1999"
-                    name="birthdate"
+                    placeholder='12/25/1999'
+                    name='birthdate'
                     onChange={handleChange}
                     required
                   />
                 </FloatingLabel>
               </Form.Group>
-              <Row className="justify-content-end m-2">
-                <Button className="w-50" variant="success" type="submit">
+              <Row className='justify-content-end m-2'>
+                <Button className='w-50' variant='success' type='submit'>
                   Submit
                 </Button>
               </Row>
