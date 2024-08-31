@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
-import { LoginView } from '../login-view/login-view';
-import { SignupView } from '../signup-view/signup-view';
-import { ProfileView } from '../profile-view/profile-view';
-import { NavigationBar } from '../navigation-bar/navigation-bar';
-import { Form, Row, Col, Container } from 'react-bootstrap';
-import { debounce } from 'lodash';
-import './main-view.scss';
+import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
+import { SignupView } from "../signup-view/signup-view";
+import { ProfileView } from "../profile-view/profile-view";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { Form, Row, Col, Container } from "react-bootstrap";
+import { debounce } from "lodash";
+import "./main-view.scss";
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem('user'));
-  const storedToken = localStorage.getItem('token');
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [filteredMovies, setFilteredMovies] = useState([]);
 
   useEffect(() => {
@@ -24,16 +24,16 @@ export const MainView = () => {
       return;
     }
 
-    fetch('https://cinedata-movie-api.onrender.com/movies', {
-      method: 'GET',
+    fetch("https://cinedata-movie-api.onrender.com/movies", {
+      method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then((response) => {
         if (!response.ok) {
-          console.log('Error fetching movies.', response);
+          console.log("Error fetching movies.", response);
         } else {
           return response.json();
         }
@@ -55,7 +55,7 @@ export const MainView = () => {
         //console.log("Set movies.");
       })
       .catch((error) => {
-        console.error('Error fetching movies:', error);
+        console.error("Error fetching movies:", error);
       });
   }, [token]);
 
@@ -68,7 +68,7 @@ export const MainView = () => {
     const filteredMovies = movies.filter(
       (movie) =>
         movie.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase()),
     );
     setFilteredMovies(filteredMovies);
   }, 350);
@@ -83,14 +83,14 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
-      <Row className='justify-content-md-center mx-3'>
+      <Row className="mx-3 justify-content-md-center">
         <Routes>
           <Route
-            path='/signup'
+            path="/signup"
             element={
               <Container fluid>
                 {user ? (
-                  <Navigate to='/' />
+                  <Navigate to="/" />
                 ) : (
                   <>
                     <SignupView />
@@ -100,11 +100,11 @@ export const MainView = () => {
             }
           />
           <Route
-            path='/login'
+            path="/login"
             element={
               <>
                 {user ? (
-                  <Navigate to='/' />
+                  <Navigate to="/" />
                 ) : (
                   <Row>
                     <LoginView
@@ -119,11 +119,11 @@ export const MainView = () => {
             }
           />
           <Route
-            path='/movies/:movieId'
+            path="/movies/:movieId"
             element={
               <>
                 {!user ? (
-                  <Navigate to='/login' replace />
+                  <Navigate to="/login" replace />
                 ) : movies.length === 0 ? (
                   <Col>No movies to display!</Col>
                 ) : (
@@ -133,33 +133,33 @@ export const MainView = () => {
             }
           />
           <Route
-            path='/'
+            path="/"
             element={
               <>
                 {!user ? (
-                  <Navigate to='/login' replace />
+                  <Navigate to="/login" replace />
                 ) : movies.length === 0 ? (
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    <Container className='w-100 text-center'>
-                      <Form className='d-flex'>
+                    <Container className="text-center w-100">
+                      <Form className="d-flex">
                         <>
                           <Form.Control
-                            type='search'
-                            name='movie-search'
+                            type="search"
+                            name="movie-search"
                             value={searchTerm}
                             onChange={handleSearch}
-                            placeholder='Search the films on cineData...'
-                            className='searchBar'
-                            aria-label='Search'
+                            placeholder="Search the films on cineData..."
+                            className="searchBar"
+                            aria-label="Search"
                           />
                         </>
                       </Form>
                     </Container>
                     {filteredMovies.map((movie) => (
                       <Col
-                        className='mb-4'
+                        className="mb-4"
                         key={movie.id}
                         sm={6}
                         md={6}
@@ -178,11 +178,11 @@ export const MainView = () => {
             }
           />
           <Route
-            path='/profile'
+            path="/profile"
             element={
               <>
                 {!user ? (
-                  <Navigate to='/login' replace />
+                  <Navigate to="/login" replace />
                 ) : (
                   <Col>
                     <ProfileView
