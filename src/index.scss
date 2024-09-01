@@ -5,14 +5,24 @@
   font-family: "Poppins", sans-serif;
 }
 
+$primary: #d13340;
+$secondary: #33d1c4;
+$danger: #bf0000;
+$info: #278fb8;
+$success: #7ff000;
+$dark: #0e0915;
+$cyan: #33d1c4;
+$pink: #d13340;
+$purple: #3440d1;
+
 body {
   background-image: linear-gradient(
     90deg,
-    #33d1c4,
-    #008cba,
-    #3440d1,
-    #6610f2,
-    #d13340
+    $secondary,
+    $cyan,
+    $purple,
+    $pink,
+    $primary
   );
   backdrop-filter: blur(50px);
 }
@@ -23,15 +33,6 @@ body {
 
 // $primary: #2c3e50;
 // $secondary: #95a5a6;
-$primary: #d13340;
-$secondary: #33d1c4;
-$danger: #bf0000;
-$info: #278fb8;
-$success: #7ff000;
-$dark: #0e0915;
-$cyan: #33d1c4;
-$pink: #d13340;
-$purple: #3440d1;
 
 // $info: hsl(187, 40%, 50%);
 
@@ -50,6 +51,6 @@ $card-inner-border-radius: 0.2rem;
 // Import Bootstrap
 
 // @import 'bootstrap/scss/bootstrap.scss';
-@import "./variables.scss";
-@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootswatch/dist/quartz/_variables.scss";
+@import "bootstrap/scss/bootstrap.scss";
 @import "node_modules/bootswatch/dist/quartz/_bootswatch.scss";
