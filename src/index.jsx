@@ -8,9 +8,9 @@ import "./index.scss";
 // Main component (will eventually use all the others)
 const CineDataApp = () => {
   return (
-    <Container fluid className="gx-0 main-view-container">
+    <div className="container w-screen min-h-screen gap-0">
       <MainView />
-    </Container>
+    </div>
   );
 };
 

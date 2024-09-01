@@ -54,11 +54,13 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <Row className="justify-content-center">
-      <Col md={8} xl={6}>
-        <Card className="p-5">
-          <Card.Body className="d-flex flex-column align-items-center">
-            <Card.Title>Log into Your Account</Card.Title>
+    <div className="flex items-center justify-center w-full h-full ">
+      <div>
+        <Card className="m-auto">
+          <Card.Body className="flex-col align-middle">
+            <Card.Title className="animate-pulse">
+              Log into Your Account
+            </Card.Title>
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formUsername" className="mt-2">
                 <FloatingLabel
@@ -102,15 +104,15 @@ export const LoginView = ({ onLoggedIn }) => {
                   />
                 </FloatingLabel>
               </Form.Group>
-              <Row className="m-2 justify-content-end">
-                <Button variant="success" type="submit">
+              <Row className="justify-end m-auto">
+                <Button className="shadow-xl" type="submit">
                   Submit
                 </Button>
               </Row>
             </Form>
           </Card.Body>
         </Card>
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 };

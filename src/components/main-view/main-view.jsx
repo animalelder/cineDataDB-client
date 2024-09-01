@@ -83,7 +83,7 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
-      <Row className="mx-3 justify-content-md-center">
+      <div className="h-full mx-3 md:justify-center">
         <Routes>
           <Route
             path="/signup"
@@ -106,14 +106,14 @@ export const MainView = () => {
                 {user ? (
                   <Navigate to="/" />
                 ) : (
-                  <Row>
+                  <>
                     <LoginView
                       onLoggedIn={(user, token) => {
                         setUser(user);
                         setToken(token);
                       }}
                     />
-                  </Row>
+                  </>
                 )}
               </>
             }
@@ -196,7 +196,7 @@ export const MainView = () => {
             }
           />
         </Routes>
-      </Row>
+      </div>
     </BrowserRouter>
   );
 };
