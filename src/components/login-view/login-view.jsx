@@ -103,9 +103,7 @@ export const LoginView = ({ onLoggedIn }) => {
                 </FloatingLabel>
               </Form.Group>
               <Row className="m-2 justify-content-end">
-                <Button variant="success" type="submit">
-                  Submit
-                </Button>
+                <Button type="submit">Submit</Button>
               </Row>
             </Form>
           </Card.Body>
