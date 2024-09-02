@@ -50,13 +50,13 @@ img.detail-img {
   color: #fafafa;
   text-shadow: rgba(88, 76, 76, 0.534) 0rem 0.125rem 0.25rem;
   box-shadow: rgba(0, 25, 25, 0.726) 0rem 0.125rem 0.25rem;
-  transform: scale(0.8);
+  transform: scale(0.9);
   //border: #d13340 0.2rem groove;
 
   &:hover {
-    transform: scale(0.75);
-    transform: translateY(-0.1);
-    transform: translateX(-0.1);
+    transform: scale(0.95);
+    transform: translateY(-0.01);
+    transform: translateX(-0.01);
     background-color: hsla(355, 73%, 50%, 0.854);
     color: #fff;
     font-size: 1.1em;

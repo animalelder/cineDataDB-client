@@ -134,7 +134,7 @@ export const SignupView = () => {
                 </FloatingLabel>
               </Form.Group>
               <Row className="m-2 justify-content-end">
-                <Button className="w-50" variant="success" type="submit">
+                <Button className="w-50" type="submit">
                   Submit
                 </Button>
               </Row>
