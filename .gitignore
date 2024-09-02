@@ -6,3 +6,4 @@ genre.json
 
 settings.json
 .parcel-cache_old
+/dist
