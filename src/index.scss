@@ -5,31 +5,31 @@
   font-family: "Poppins", sans-serif;
 }
 
-$primary: #d13340;
-$secondary: #33d1c4;
-$danger: #bf0000;
-$info: #278fb8;
-$success: #7ff000;
-$dark: #0e0915;
-$cyan: #33d1c4;
-$pink: #d13340;
-$purple: #3440d1;
+// $primary: #d13340;
+// $secondary: #33d1c4;
+// $danger: #bf0000;
+// $info: #278fb8;
+// $success: #7ff000;
+// $dark: #0e0915;
+// $cyan: #33d1c4;
+// $pink: #d13340;
+// $purple: #3440d1;
 
-body {
-  background-image: linear-gradient(
-    90deg,
-    $secondary,
-    $cyan,
-    $purple,
-    $pink,
-    $primary
-  );
-  backdrop-filter: blur(50px);
-}
+// body {
+//   background-image: linear-gradient(
+//     90deg,
+//     $secondary,
+//     $cyan,
+//     $purple,
+//     $pink,
+//     $primary
+//   );
+//   backdrop-filter: blur(50px);
+// }
 
-.main-view-container {
-  max-width: 1200px;
-}
+// .main-view-container {
+//   max-width: 1200px;
+// }
 
 // $primary: #2c3e50;
 // $secondary: #95a5a6;
@@ -43,14 +43,14 @@ body {
 
 // $enable-shadows: true;
 // $enable-rfs: true;
-$enable-grid-classes: true;
+// $enable-grid-classes: true;
 // $card-border-radius: 0.3rem;
-$card-inner-border-radius: 0.2rem;
+// $card-inner-border-radius: 0.2rem;
 // $btn-disabled-opacity: 0.8;
 
 // Import Bootstrap
 
 // @import 'bootstrap/scss/bootstrap.scss';
-@import "node_modules/bootswatch/dist/quartz/_variables.scss";
+@import "./_variables.scss";
 @import "bootstrap/scss/bootstrap.scss";
-@import "node_modules/bootswatch/dist/quartz/_bootswatch.scss";
+@import "/node_modules/bootswatch/dist/lumen/bootswatch";

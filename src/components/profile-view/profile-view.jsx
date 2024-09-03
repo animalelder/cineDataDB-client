@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Card, Container, Row, Col } from 'react-bootstrap';
-import { UserInfo } from './user-info';
-import { FavoriteMovies } from './favorite-movies';
-import { Button, Form, FloatingLabel } from 'react-bootstrap';
-import './profile-view.scss';
+import { useEffect, useState } from "react";
+import { Card, Container, Row, Col } from "react-bootstrap";
+import { UserInfo } from "./user-info";
+import { FavoriteMovies } from "./favorite-movies";
+import { Button, Form, FloatingLabel } from "react-bootstrap";
+import "./profile-view.scss";
 
 export const ProfileView = ({ localUser, movies, token }) => {
-  const storedUser = JSON.parse(localStorage.getItem('user'));
-  const storedToken = localStorage.getItem('token');
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
   const [uToken, setUToken] = useState(token);
   const [user, setUser] = useState(localUser);
-  const userUrl = `https://cinedata-movie-api.onrender.com/users/${localUser.username}`;
+  const userApiUrl = `https://cinedata-movie-api.onrender.com/users/${user.username}`;
   const favoriteMovies =
     user === undefined
       ? []
@@ -20,31 +20,31 @@ export const ProfileView = ({ localUser, movies, token }) => {
     username: user.username,
     email: user.email,
     birthdate: user.birthdate.slice(0, 10),
-    password: '',
+    password: "",
   });
 
   const handleSubmit = (event) => {
     event.preventDefault(event);
-    fetch(`https://cinedata-movie-api.onrender.com/users/${user.username}`, {
-      method: 'PUT',
+    fetch(`${userApiUrl}`, {
+      method: "PUT",
       body: JSON.stringify(formData),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
       .then((response) => {
         if (response.ok) {
-          alert('Update successful');
+          alert("Update successful");
           window.location.reload();
 
           return response.json();
         }
-        alert('Update failed');
+        alert("Update failed");
       })
       .then((user) => {
         if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify(user));
           setUser(user);
         }
       })
@@ -54,33 +54,30 @@ export const ProfileView = ({ localUser, movies, token }) => {
   };
 
   const handleDeleteAccount = () => {
-    fetch(
-      `https://cinedata-movie-api.onrender.com/users/${storedUser.username}`,
-      {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    ).then((response) => {
+    fetch(`${userApiUrl}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
       if (response.ok) {
-        alert('Account deleted successfully.');
+        alert("Account deleted successfully.");
         setUser(null);
         setUToken(null);
         localStorage.clear();
         window.location.reload();
       } else {
-        alert('Something went wrong.');
+        alert("Something went wrong.");
       }
     });
   };
 
   const fetchUserData = () => {
-    fetch(`https://cinedata-movie-api.onrender.com/users/${user.username}`, {
-      method: 'GET',
+    fetch(`${userApiUrl}`, {
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
@@ -89,11 +86,11 @@ export const ProfileView = ({ localUser, movies, token }) => {
           //console.log("User data fetched successfully.");
           return response.json();
         }
-        alert('Update failed');
+        alert("Update failed");
       })
       .then((user) => {
         if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify(user));
           setUser(user);
         }
       })
@@ -107,14 +104,14 @@ export const ProfileView = ({ localUser, movies, token }) => {
   }, [uToken]);
 
   return (
-    <Container className='mx-auto'>
-      <Row className='text-center'>
-        <Col xs={12} md={6} className='mx-auto'>
-          <Card className=' m-4 user-card'>
-            <Card.Header as='h3' className='bg-primary text-center'>
+    <Container className="mx-auto">
+      <Row className="text-center">
+        <Col xs={12} md={6} className="mx-auto">
+          <Card bg="light" text="dark" className="m-4 user-card">
+            <Card.Header as="h3" className="text-center bg-primary">
               Hi, {user.username}!
             </Card.Header>
-            <Card.Body className='user-info'>
+            <Card.Body className="user-info bg-secondary">
               {user && (
                 <UserInfo
                   name={user.username}
@@ -125,26 +122,26 @@ export const ProfileView = ({ localUser, movies, token }) => {
             </Card.Body>
           </Card>
         </Col>
-        <Col className='mx-auto mb-5' xs={12} md={6}>
-          <Card className='mb-5'>
-            <Card.Header as='h3' className='bg-primary text-center'>
+        <Col className="mx-auto mb-5" xs={12} md={6}>
+          <Card className="mb-5">
+            <Card.Header as="h3" className="text-center bg-primary">
               Update Account
             </Card.Header>
             <Card.Body>
               <Row>
                 <Form onSubmit={handleSubmit}>
-                  <Form.Group controlId='updateFormUsername'>
+                  <Form.Group controlId="updateFormUsername">
                     <FloatingLabel
-                      controlId='formUsername'
-                      label='Change Username'
-                      className='mb-3'
+                      controlId="formUsername"
+                      label="Change Username"
+                      className="mb-3"
                     >
                       <Form.Control
-                        type='text'
+                        type="text"
                         value={formData.username}
-                        placeholder='Username'
-                        label='Change Username'
-                        name='username-field'
+                        placeholder="Username"
+                        label="Change Username"
+                        name="username-field"
                         onChange={(e) =>
                           setFormData((prevUser) => ({
                             ...prevUser,
@@ -152,25 +149,25 @@ export const ProfileView = ({ localUser, movies, token }) => {
                           }))
                         }
                         required
-                        minLength='5'
+                        minLength="5"
                       />
-                      <Form.Text id='usernameHelpBlock' muted>
+                      <Form.Text id="usernameHelpBlock" muted>
                         Username must be at least 5 characters.
                       </Form.Text>
                     </FloatingLabel>
                   </Form.Group>
-                  <Form.Group controlId='signUpFormPassword'>
+                  <Form.Group controlId="signUpFormPassword">
                     <FloatingLabel
-                      controlId='formPassword'
-                      label='Change Password'
-                      className='mb-3'
+                      controlId="formPassword"
+                      label="Change Password"
+                      className="mb-3"
                     >
                       <Form.Control
-                        type='password'
-                        label='Change Password'
-                        placeholder='Password'
+                        type="password"
+                        label="Change Password"
+                        placeholder="Password"
                         value={formData.password}
-                        name='password-field'
+                        name="password-field"
                         onChange={(e) =>
                           setFormData((prevUser) => ({
                             ...prevUser,
@@ -179,22 +176,22 @@ export const ProfileView = ({ localUser, movies, token }) => {
                         }
                         required
                       />
-                      <Form.Text id='passwordHelpBlock' muted>
+                      <Form.Text id="passwordHelpBlock" muted>
                         Enter current password or set a new password.
                       </Form.Text>
                     </FloatingLabel>
                   </Form.Group>
-                  <Form.Group controlId='updateFormEmail'>
+                  <Form.Group controlId="updateFormEmail">
                     <FloatingLabel
-                      controlId='formEmail'
-                      label='Change Email Address'
-                      className='mb-3'
+                      controlId="formEmail"
+                      label="Change Email Address"
+                      className="mb-3"
                     >
                       <Form.Control
-                        type='email'
-                        label='Change Email Address'
-                        placeholder='name@example.com'
-                        name='email-field'
+                        type="email"
+                        label="Change Email Address"
+                        placeholder="name@example.com"
+                        name="email-field"
                         value={formData.email}
                         onChange={(e) =>
                           setFormData((prevUser) => ({
@@ -206,18 +203,18 @@ export const ProfileView = ({ localUser, movies, token }) => {
                       />
                     </FloatingLabel>
                   </Form.Group>
-                  <Form.Group controlId='updateFormBirthday'>
+                  <Form.Group controlId="updateFormBirthday">
                     <FloatingLabel
-                      controlId='formBirthday'
-                      label='Date of Birth'
-                      className='mb-3'
+                      controlId="formBirthday"
+                      label="Date of Birth"
+                      className="mb-3"
                     >
                       <Form.Control
-                        type='date'
-                        label='Date of Birth'
+                        type="date"
+                        label="Date of Birth"
                         value={formData.birthdate}
-                        name='user-birthdate'
-                        placeholder='1999-03-14'
+                        name="user-birthdate"
+                        placeholder="1999-03-14"
                         onChange={(e) =>
                           setFormData((prevUser) => ({
                             ...prevUser,
@@ -228,12 +225,12 @@ export const ProfileView = ({ localUser, movies, token }) => {
                     </FloatingLabel>
                   </Form.Group>
                   <Row>
-                    <Button className='mb-2' variant='light' type='submit'>
+                    <Button className="mb-2" variant="info" type="submit">
                       UPDATE INFO
                     </Button>
                     <Button
                       onClick={() => handleDeleteAccount()}
-                      variant='danger'
+                      variant="danger"
                     >
                       DELETE ACCOUNT
                     </Button>
@@ -244,11 +241,11 @@ export const ProfileView = ({ localUser, movies, token }) => {
           </Card>
         </Col>
       </Row>
-      <Card className='mb-3 bg-info bg-opacity-75 text-center'>
-        <Card.Header className='bg-primary mb-2' as='h2'>
+      <Card className="mb-3 text-center bg-opacity-75 bg-info">
+        <Card.Header className="mb-2 bg-primary" as="h2">
           My Favorite Movies
         </Card.Header>
-        <Col className=' mb-1 p-2'>
+        <Col className="p-2 mb-1 ">
           {favoriteMovies && (
             <FavoriteMovies user={user} favoriteMovies={favoriteMovies} />
           )}

@@ -20,58 +20,56 @@ export const MovieView = ({ movies }) => {
   const movie = movies.find((movie) => movie.id === movieId);
 
   return (
-    <Container fluid>
-      <Card className="movie-details bg-secondary pb-3 p-2">
-        <Row className="d-grid align-self-end">
-          <Button
-            size="sm"
-            as="a"
-            className="float-end close-button"
-            role="navigation"
-            onClick={() => navigate(-1)}
-          >
-            GO BACK
-          </Button>
-        </Row>
-        <Row className="mx-auto">
-          <Col className="text-center">
-            <Image
-              fluid
-              className="detail-img"
-              src={movie.imagePath}
-              alt={`movie poster for ${movie.title}`}
-            />
-          </Col>
-          <Col xs={12} lg={6} className="d-grid">
-            <Row className="align-items-start text-center">
-              <h2 className="movie-title">{movie.title}</h2>
-            </Row>
+    <Container className="p-2 pb-3 movie-details bg-secondary position-relative">
+      <>
+        <Button
+          size="md"
+          as="a"
+          className="top-0 m-3 close-button position-absolute end-0"
+          role="navigation"
+          onClick={() => navigate(-1)}
+        >
+          GO BACK
+        </Button>
+      </>
+      <Row className="mx-auto mt-5">
+        <Col className="text-center">
+          <Image
+            fluid
+            className="detail-img"
+            src={movie.imagePath}
+            alt={`movie poster for ${movie.title}`}
+          />
+        </Col>
+        <Col xs={12} lg={6} className="d-grid">
+          <Row className="text-center align-items-start">
+            <h2 className="movie-title">{movie.title}</h2>
+          </Row>
 
-            <Row className="align-middle">
-              <dl>
-                <dt>Description: </dt>
-                <dd>{movie.description}</dd>
-                <dt>Genre: </dt>
-                <dd>{movie.genre}</dd>
-                <dt>Director: </dt>
-                <dd>{movie.director}</dd>
-              </dl>
-            </Row>
-          </Col>
-        </Row>
-        <Card className="bg-info bg-opacity-75 mx-auto similar-movies">
-          <Card.Header className="bg-primary text-center">
-            Similar Movies
-          </Card.Header>
-          <Card.Body>
-            <ScrollTop />
-            <SimilarMovies
-              movieid={movie.id}
-              movies={movies}
-              genreSim={movie.genre}
-            />
-          </Card.Body>
-        </Card>
+          <Row className="align-middle">
+            <dl>
+              <dt>Description: </dt>
+              <dd>{movie.description}</dd>
+              <dt>Genre: </dt>
+              <dd>{movie.genre}</dd>
+              <dt>Director: </dt>
+              <dd>{movie.director}</dd>
+            </dl>
+          </Row>
+        </Col>
+      </Row>
+      <Card className="mx-auto bg-opacity-75 bg-info similar-movies">
+        <Card.Header className="text-center bg-primary">
+          Similar Movies
+        </Card.Header>
+        <Card.Body>
+          <ScrollTop />
+          <SimilarMovies
+            movieid={movie.id}
+            movies={movies}
+            genreSim={movie.genre}
+          />
+        </Card.Body>
       </Card>
     </Container>
   );
