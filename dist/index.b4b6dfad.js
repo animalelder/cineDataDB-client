@@ -34198,7 +34198,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                             id: "card-btn-none",
                             className: "card-btn-none ms-auto",
                             onClick: handleAddToFavorites,
-                            children: "\u2714\uFE0F"
+                            children: "FAV"
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
                             lineNumber: 124,
@@ -34209,7 +34209,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                 variant: "light",
                                 size: "sm",
-                                children: "\u2139\uFE0F"
+                                children: "MORE"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
                                 lineNumber: 135,

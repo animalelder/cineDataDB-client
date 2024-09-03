@@ -128,12 +128,12 @@ export const MovieCard = ({ movie, isFavorite }) => {
               className="card-btn-none ms-auto"
               onClick={handleAddToFavorites}
             >
-              ✔️
+              FAV
             </Button>
           )}
           <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
             <Button variant="light" size="sm">
-              ℹ️
+              MORE
             </Button>
           </Link>
         </Stack>
